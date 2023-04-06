@@ -46,3 +46,6 @@ Thumbs.db
 
 # Custom
 package-lock.json
+
+# Miscellaneous
+/.angular/cache
