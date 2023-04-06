@@ -1,0 +1,282 @@
+@import './ui/custom/src/mixins.scss';
+
+@media (min-width: 701px) {
+    h1 {
+        font-family: 'Noto Sans';
+        font-size: 28px;
+        font-weight: bolder;
+    }
+}
+
+mat-drawer-container {
+    background-color: #FFFFFF !important;
+}
+
+a{
+    text-decoration: none;
+    color: #434343;
+}
+
+// Buttons
+.btn-h {
+    padding: 6px 32px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 50px;
+    border: none;
+    background-color: transparent;
+    transition: box-shadow 0.2s linear;
+
+    &:disabled {
+        opacity: 0.4;
+    }
+
+    // &:hover {
+    //     // box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.16);
+    // }
+
+    &.primary {
+        background-color:#E37D00;
+        color: white;
+
+        .mat-progress-spinner circle, .mat-spinner circle {
+            stroke: white
+        }
+    }
+
+    &.primary:hover {
+        background-color: #E99733 !important;
+    }
+    &.primary:active {
+        background-color: #C06A00 !important;
+    }
+
+    &.secondary {
+        background-color: white !important;
+        border: 2px solid #049BE5 !important;
+        color: #049BE5;
+
+        .mat-progress-spinner circle, .mat-spinner circle {
+            stroke: #049BE5;
+        }
+    }
+
+    &.secondary:hover {
+        background-color:#E6F5FC !important;
+    }
+
+    &.terciary {
+        background-color: transparent !important;
+        border: none !important;
+        color: var(--color-secondary-100);
+        padding: 6px 36px 6px 16px;
+
+        span:after {
+            font-family: "bootstrap-icons";
+            content:"\F285";
+            display: inline-block;
+            font-size: 20px;
+            width: 30px;
+            height: 20px;
+            margin: 0px 0px 0 0;
+            position: absolute;
+        }
+
+        .mat-progress-spinner circle, .mat-spinner circle {
+            stroke: var(--color-secondary-100);
+        }
+    }
+
+    &.terciary:hover {
+        background-color: var(--color-secondary-10) !important;
+    }
+
+    &.terciary-b {
+        background-color: transparent !important;
+        border: none !important;
+        color: #049BE5;
+        padding: 6px 36px 6px 16px;
+
+        span:after {
+            font-family: "bootstrap-icons";
+            content:"\F285";
+            display: inline-block;
+            font-size: 20px;
+            width: 30px;
+            height: 20px;
+            margin: 0px 0px 0 0;
+            position: absolute;
+        }
+
+        .mat-progress-spinner circle, .mat-spinner circle {
+            stroke: #049BE5;
+        }
+    }
+
+    &.terciary-b:hover {
+        background-color:#E6F5FC !important;
+    }
+
+
+    &.terciary-b-back {
+        background-color: transparent !important;
+        border: none !important;
+        color: #049BE5;
+        padding: 6px 36px 6px 16px;
+        width: max-content;
+
+        span {
+            display: flex;
+            line-height: normal !important;
+        }
+
+        span:before {
+            font-family: "bootstrap-icons";
+            content:"\F284";
+            display: inline-block;
+            font-size: 20px;
+            width: 30px;
+            height: 20px;
+            margin: 0px 0px 0 0;
+            //position: absolute;
+        }
+
+        .mat-progress-spinner circle, .mat-spinner circle {
+            stroke: #049BE5;
+        }
+    }
+
+    &.terciary-b-back:hover {
+        background-color:#E6F5FC !important;
+    }
+
+
+    &.big {
+        background-color: transparent !important;
+        border: none !important;
+        border: 2px solid #049BE5 !important;
+        color: #049BE5;
+        padding: 16px;
+        border-radius: 16px;
+
+        .mat-progress-spinner circle, .mat-spinner circle {
+            stroke: #049BE5;
+        }
+    }
+
+    &.big:hover {
+        background-color:#E6F5FC !important;
+        box-shadow: 0px 4px 16px rgba(0, 124, 185, 0.2);
+    }
+
+    &.big:disabled {
+        border: 2px solid #1B1818 !important;
+        color: #1B1818;
+    }
+
+    &.big:active {
+        background-color: #049BE5 !important;
+        color: #FFFFFF;
+    }
+
+
+    // &.small {
+    //     @include font('Jost', normal, 400, 12px, 14px);
+    //     background-color: #03DAC5 !important;
+    //     color: white;
+    //     padding: 4px 16px;
+
+    //     .mat-progress-spinner circle, .mat-spinner circle {
+    //         stroke: white
+    //     }
+    // }
+
+    &.small:hover {
+        background-color: #35E1D1 !important;
+    }
+
+
+    &.icon {
+        background-color: #049BE5 !important;
+        color: white;
+        padding: 6px 16px;
+        i{
+            font-size: 10px;
+        }
+
+        .mat-progress-spinner circle, .mat-spinner circle {
+            stroke: white
+        }
+    }
+
+    &.icon:hover {
+        background-color: #35E1D1 !important;
+    }
+
+    &.icon:active {
+        background-color: #049BE5 !important;
+    }
+
+    .links {
+        color: #323240;
+    }
+}
+
+//Text
+.h1 {
+    font-family: 'Red Hat Display';
+    font-weight: 700;
+    font-size: 32px;
+}
+
+h2{
+    font-family: 'Red Hat Display';
+    font-weight: 400;
+    font-size: 70px;
+    line-height: 80px;
+}
+
+h3 {
+    font-family: 'Red Hat Display';
+    font-weight: 700;
+    font-size: 36px;
+}
+
+h4{
+    font-family: 'Red Hat Display';
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.links{
+    font-family: 'Red Hat Display';
+    font-weight: 500;
+    font-size: 15px;
+}
+
+p{
+    font-family: 'Red Hat Display';
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.notes {
+    @include font('Red Hat Display', normal, 400, 12px, 14px);
+
+    &.bold {
+        @include font('Red Hat Display', normal, 700, 12px, 14px);
+    }
+}
+
+.highlights {
+    @include font('Red Hat Display', normal, 700, 16px, 18px);
+}
+
+//Colors
+.colorPrimary100 {
+    color: #049BE5 !important;
+}

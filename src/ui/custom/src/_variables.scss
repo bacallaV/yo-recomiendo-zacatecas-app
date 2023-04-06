@@ -1,0 +1,43 @@
+
+// Colors
+$colorCoal100: #1B1818;
+$colorCoal80: #484646;
+$colorCoal60: #767474;
+$colorCoal20: #D1D1D1;
+$colorCoal6: #F2F1F1;
+$colorCoal2: #FBFAFA;
+$colorCoalUltraLight: #E8E8E8;
+$colorCoalHard: #323232;
+
+$colorSuccessDark: #198038;
+$colorSuccess: #42BE65;
+$colorSuccessLight: #A0DEB1;
+
+$colorDangerDark: #CC0000;
+$colorDanger: #F15757;
+$colorDangerLight: #F8ABAB;
+
+$colorWarningDark: #ED9E00;
+$colorWarning: #FFBB33;
+$colorWarningLight: #F8CF7F;
+
+$colorInfoDark: #007EA8;
+$colorInfo: #00A6DE;
+$colorInfoLight: #7FBED3;
+
+
+
+/// Navbar
+$nabvar-width: 100%;
+$nabvar-height: 8rem;
+
+
+/// Sidenav
+$sidenav-width: 8rem;
+$sidenav-expanded-width: 25rem;
+$sidenav-header-height: $nabvar-height;
+$sidenav-header-padding: 2rem;
+$sidenav-footer-height: 8rem;
+$sidenav-footer-padding: 2rem;
+$sidenav-body-height: calc(100% - 160px);
+$sidenav-body-padding: 0 2rem;

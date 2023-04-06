@@ -1,0 +1,18 @@
+<div class="contract-card">
+    <div class="contract-card-body">
+        <div class="contract-card-body-header">
+            <div class="icon-div" [style.backgroundColor]="data.TipoContrato.Color.hex">
+                <span class="material-icons icon">{{ data.TipoContrato.Icon.key }}</span>
+            </div>
+            <div class="title-contract">
+                <p class="m-0 notes colorText60">Contrato de</p>
+                <p class="m-0 highlights">{{ data.name }}</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="contract-card-footer">
+        <span class="notes bold colorPrimary100">{{ data.price | currency:'MXN' }} MXN</span>
+    </div>
+</div>
+

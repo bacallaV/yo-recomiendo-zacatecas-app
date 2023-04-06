@@ -1,0 +1,55 @@
+//Box Sizing
+//@include box-sizing(border-box);
+@mixin box-sizing($type) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: $type;
+}
+
+//Truncate String
+//@include text-truncate();
+@mixin text-truncate($numberLines) {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $numberLines;
+}
+
+
+//Fonts
+//@include font(Roboto, normal, normal, 14px, 18px);
+@mixin font($font-name, $style: normal, $weight: normal, $size: 14px, $height: 18px) {
+    font-family: $font-name, sans-serif !important;
+    font-style: $style !important;
+    font-weight: $weight !important;
+    font-size: $size !important;
+    line-height: $height !important;
+}
+
+
+//Breakpoints
+//@include bp-small { Algo }
+@mixin bp-xs {
+    @media (min-width: 0px) { @content; }
+}
+
+@mixin bp-sm {
+    @media (min-width: 576px) { @content; }
+}
+
+@mixin bp-md {
+    @media (min-width: 768px) { @content; }
+}
+
+@mixin bp-lg {
+    @media (min-width: 992px) { @content; }
+}
+
+@mixin bp-xl {
+    @media (min-width: 1200px) { @content; }
+}
+
+@mixin bp-xxl {
+    @media (min-width: 1400px) { @content; }
+}

@@ -1,0 +1,91 @@
+@import './../../../ui/custom/src/mixins.scss';
+
+//Navegación
+span{
+    font-family: 'Red Hat Display';
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.navegacion{
+    padding: 8px 48px;
+
+    .nav-links {
+        font-family: 'Red Hat Display';
+        font-weight: 500;
+        font-size: 15px;
+    }
+
+    .links{
+        width: 35%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+//Principal
+
+.principal{
+    padding: 7% 48px ;
+}
+.principal-content{
+    display: grid;
+    padding-top: 40px;
+    row-gap: 16px;
+    h2{
+        color: #049BE5;
+    }
+}
+.principal-animation{
+    padding: 0 10% ;
+}
+
+//Contratos
+.contratos{
+    padding: 5% 48px;
+}
+.contratos-title{
+    text-align: center;
+    padding-bottom: 40px;
+    h3{
+        color: #049BE5;
+    }
+}
+.contratos-list{
+    display: grid;
+    padding-bottom: 48px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+    height: max-content;
+}
+.contratos-column{
+    width: 100%;
+    height: 350px;
+}
+.contratos-column-double{
+    width: 100%;
+    height: 350px;
+    display: grid;
+    grid-gap: 16px;
+}
+.contratos-card{
+    width: 100%;
+    height: 100%;
+}
+.contratos-link{
+    width: 100%;
+    text-align: center;
+    color: #E37D00;
+    cursor: pointer;
+}
+.icon {
+    color: black;
+    font-size: 30px;
+}
+
+
+

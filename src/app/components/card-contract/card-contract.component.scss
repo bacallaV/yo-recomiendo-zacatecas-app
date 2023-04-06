@@ -1,0 +1,47 @@
+@import './../../../ui/custom/src/mixins.scss';
+
+.contract-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px;
+    box-shadow: 0px 4px 16px rgba(9, 6, 6, 0.2);
+    border-radius: 8px;
+    gap: 16px;
+    height: 100%;
+    width: 100%;
+
+    .contract-card-body {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        .contract-card-body-header {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+
+            .icon-div {
+                border-radius: 4px;
+                padding: 6px;
+                width: 32px;
+                height: 32px;
+
+                .icon {
+                    font-size: 20px;
+                    color: white;
+                }
+            }
+        }
+
+        .description {
+            @include text-truncate(3);
+        }
+    }
+
+    .contract-card-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}

@@ -1,0 +1,20 @@
+<div class="contract-card-image">
+    <div class="contract-card-image-body">
+        <div class="contract-card-image-body-header">
+            <div class="contract-image">
+                <div class="image">
+                    <img [src]="src">
+                </div>
+            </div>
+            <div class="title-contract">
+                <p class="m-0 notes colorText60">Contrato de</p>
+                <p class="m-0 highlights">{{ data.name }}</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="contract-card-image-footer">
+        <span class="notes bold colorPrimary100">{{ data.price | currency:'MXN' }} MXN</span>
+    </div>
+</div>
+
