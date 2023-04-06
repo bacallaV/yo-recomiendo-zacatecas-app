@@ -9,6 +9,7 @@ import player from 'lottie-web';
 import { CardContractComponent } from './components/card-contract/card-contract.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CardContractImageComponent } from './components/card-contract-image/card-contract-image.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -25,7 +26,8 @@ export function playerFactory() {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    LottieModule.forRoot({ player: playerFactory })
+    LottieModule.forRoot({ player: playerFactory }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
