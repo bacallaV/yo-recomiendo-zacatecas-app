@@ -1,4 +1,4 @@
-@import './../../../ui/custom/src/mixins.scss';
+@import './../../../ui/custom/src/_variables.scss';
 
 .navbar {
   position: fixed;
@@ -26,6 +26,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    color: #5A5959;
   }
 
   .navbar-desktop-items {
@@ -52,28 +54,60 @@
     justify-content: center;
     align-items: center;
   }
+
+  .active, .active *   {
+    color: $colorPrimaryBlue;
+  }
 }
 
 /* End Tablet, Begin Laptop */
 @media screen and (min-width: 768px) {
   .navbar {
+    mat-toolbar {
+      padding: 12px 24px;
+      background-color: #fff;
+    }
+
     .navbar-menu-button{
       display: none;
     }
 
     .navbar-desktop-items {
-      background-color: red;
-
       display: flex;
       flex-direction: row;
 
-      margin: 0 24px 0 0;
-      padding: 0;
+      margin: 0;
+      padding: 0 4px;
 
       list-style: none;
 
       li {
         margin-right: 16px;
+
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        color: #5A5959;
+
+
+        a {
+          transition: all 150ms ease-in-out;
+        }
+
+        a:hover * {
+          color: $colorPrimaryBlue;
+          filter: invert(45%) sepia(93%) saturate(1965%) hue-rotate(167deg)
+            brightness(90%) contrast(101%);
+        }
+      }
+
+      li.vertical-line {
+        border: 1px solid #D9D9D9;
+      }
+
+      li.active {
+        border-bottom: 2px solid $colorPrimaryBlue;
       }
 
       li:last-child {

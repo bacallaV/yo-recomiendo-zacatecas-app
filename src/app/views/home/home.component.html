@@ -5,35 +5,40 @@
     </div>
 
     <mat-action-list>
-      <mat-list-item role="listitem" class="expansion-indent-3">
-          <mat-icon matListItemIcon>view_list</mat-icon>
-          Catálogo
-        </mat-list-item>
+      <a mat-list-item role="listitem" class="expansion-indent-3 active" href="#">
+        <mat-icon matListItemIcon>home</mat-icon>
+        <span>Home</span>
+      </a>
 
-        <mat-list-item role="listitem" class="expansion-indent-3">
-          <mat-icon matListItemIcon>celebration</mat-icon>
-          Eventos
-        </mat-list-item>
+      <a mat-list-item role="listitem" class="expansion-indent-3" href="#">
+        <mat-icon matListItemIcon>view_list</mat-icon>
+        <span>Catálogo</span>
+      </a>
 
-        <mat-list-item role="listitem" class="expansion-indent-3">
-          <mat-icon matListItemIcon>call</mat-icon>
-          Contacto
-        </mat-list-item>
+      <a mat-list-item role="listitem" class="expansion-indent-3" href="#">
+        <mat-icon matListItemIcon>celebration</mat-icon>
+        <span>Eventos</span>
+      </a>
 
-        <mat-list-item role="listitem" class="expansion-indent-3">
-          <mat-icon matListItemIcon>facebook</mat-icon>
-          Facebook
-        </mat-list-item>
+      <a mat-list-item role="listitem" class="expansion-indent-3" href="#">
+        <mat-icon matListItemIcon>call</mat-icon>
+        <span>Contacto</span>
+      </a>
 
-        <mat-list-item role="listitem" class="expansion-indent-3">
-          <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
-          Instagram
-        </mat-list-item>
+      <a mat-list-item role="listitem" class="expansion-indent-3" href="#">
+        <mat-icon matListItemIcon>facebook</mat-icon>
+        <span>Facebook</span>
+      </a>
 
-        <mat-list-item role="listitem" class="expansion-indent-3">
-          <mat-icon matListItemIcon svgIcon="youtube"></mat-icon>
-          Youtube
-        </mat-list-item>
+      <a mat-list-item role="listitem" class="expansion-indent-3" href="#">
+        <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
+        <span>Instagram</span>
+      </a>
+
+      <a mat-list-item role="listitem" class="expansion-indent-3" href="#">
+        <mat-icon matListItemIcon svgIcon="youtube"></mat-icon>
+        <span>Youtube</span>
+      </a>
 
     </mat-action-list>
   </mat-sidenav>
@@ -49,23 +54,42 @@
         <span class="navbar-spacer"></span>
 
         <ul class="navbar-desktop-items">
+          <li class="active">
+            <a href="#">
+              Home
+            </a>
+          </li>
+          <li class="vertical-line"></li>
+          <li class="vertical-line"></li>
           <li>
-            Catálogo
+            <a href="#">
+              Catálogo
+            </a>
           </li>
           <li>
-            Eventos
+            <a href="#">
+              Eventos
+            </a>
           </li>
           <li>
-            Contacto
+            <a href="#">
+              Contacto
+            </a>
           </li>
           <li>
-            <mat-icon matListItemIcon>facebook</mat-icon>
+            <a href="#">
+              <mat-icon matListItemIcon>facebook</mat-icon>
+            </a>
           </li>
           <li>
-            <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
+            <a href="#">
+              <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
+            </a>
           </li>
           <li>
-            <mat-icon matListItemIcon svgIcon="youtube"></mat-icon>
+            <a href="#">
+              <mat-icon matListItemIcon svgIcon="youtube"></mat-icon>
+            </a>
           </li>
         </ul>
 
