@@ -10,6 +10,13 @@ import { CardContractComponent } from './components/card-contract/card-contract.
 import { HttpClientModule } from '@angular/common/http';
 import { CardContractImageComponent } from './components/card-contract-image/card-contract-image.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -20,14 +27,21 @@ export function playerFactory() {
     AppComponent,
     HomeComponent,
     CardContractComponent,
-    CardContractImageComponent
+    CardContractImageComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

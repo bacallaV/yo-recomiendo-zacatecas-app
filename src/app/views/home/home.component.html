@@ -1,71 +1,81 @@
-<nav class="navbar bg-light d-flex justify-content-between navegacion fixed-top">
-    <div class="logo">
-        <div class="image">
-            <img src="./../../../assets/images/Logo.svg">
-        </div>
-    </div>
-    <div class="links">
-        <a class="nav-links" href="#">Contratos</a>
-        <a class="nav-links" href="#">Contacto</a>
-        <button class="btn-h primary" matRipple (click)="redirectRegistro()">
-            <span class="buttons">Registrate</span>
-        </button>
-        <a class="nav-links" href="#">Inicio sesión</a>
-    </div>
-</nav>
-<div class="principal row">
-    <div class="col-6">
-        <div class="principal-content">
-            <h2>Crea, envía y firma contratos sin salir de tu casa</h2>
-            <p>Ten contratos personalizados en minutos, adminístralos y fiímalos desde tu computadora o celular</p>
-            <div class="button">
-                <button class="btn-h primary" matRipple (click)="redirectRegistro()">
-                    <span class="buttons">Elegir un contrato</span>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="col-6">
-        <div class="principal-animation">
-            <ng-lottie
-                [options]="loader"
-                #lott
-                (animationCreated)="animationLoader($event)">
-            </ng-lottie>
-        </div>
-    </div>
-</div>
-<div class="contratos row">
-    <div class="col-12 ">
-        <div class="contratos-title">
-            <h3>Conoce nuestros contratos</h3>
-        </div>
-        <div class="contratos-list">
-            <div class="contratos-column" *ngFor="let c of list_contract; let i = index">
-                <card-contract-image 
-                    class="contratos-card"
-                    *ngIf=" i == 0 "
-                    [data]="c"
-                    [src]="this.getIllustration(c.ilustration)">
-                </card-contract-image>
-            </div>
-            <div class="contratos-column-double" *ngFor="let c of list_contract; let i = index">
-                <card-contract 
-                    class="contratos-card"
-                    *ngIf=" i == 0 "
-                    [data]="c">
-                </card-contract>
-                <card-contract 
-                    class="contratos-card"
-                    *ngIf=" i == 0 "
-                    [data]="c">
-                </card-contract>
-            </div>
-        </div>
-        <div class="contratos-link">
-            <p class="links">Ver todos los contratos</p>
-            <i class="bi bi-chevron-right icon"></i>
-        </div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="over">
+    <div class="menu-title-container">
+      <h3>Menú</h3>
     </div>
 
-</div>
+    <mat-action-list>
+      <mat-list-item role="listitem" class="expansion-indent-3">
+          <mat-icon matListItemIcon>view_list</mat-icon>
+          Catálogo
+        </mat-list-item>
+
+        <mat-list-item role="listitem" class="expansion-indent-3">
+          <mat-icon matListItemIcon>celebration</mat-icon>
+          Eventos
+        </mat-list-item>
+
+        <mat-list-item role="listitem" class="expansion-indent-3">
+          <mat-icon matListItemIcon>call</mat-icon>
+          Contacto
+        </mat-list-item>
+
+        <mat-list-item role="listitem" class="expansion-indent-3">
+          <mat-icon matListItemIcon>facebook</mat-icon>
+          Facebook
+        </mat-list-item>
+
+        <mat-list-item role="listitem" class="expansion-indent-3">
+          <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
+          Instagram
+        </mat-list-item>
+
+        <mat-list-item role="listitem" class="expansion-indent-3">
+          <mat-icon matListItemIcon svgIcon="youtube"></mat-icon>
+          Youtube
+        </mat-list-item>
+
+    </mat-action-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <nav class="navbar">
+      <mat-toolbar>
+        <a class="navbar-brand" href="#">
+          <img src="./../../../assets/images/logo.png" class="logo" alt="logo">
+        </a>
+
+        <span class="navbar-spacer"></span>
+
+        <ul class="navbar-desktop-items">
+          <li>
+            Catálogo
+          </li>
+          <li>
+            Eventos
+          </li>
+          <li>
+            Contacto
+          </li>
+          <li>
+            <mat-icon matListItemIcon>facebook</mat-icon>
+          </li>
+          <li>
+            <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
+          </li>
+          <li>
+            <mat-icon matListItemIcon svgIcon="youtube"></mat-icon>
+          </li>
+        </ul>
+
+        <button mat-icon-button class="navbar-menu-button" aria-label="Menú" (click)="drawer.toggle()">
+          <mat-icon svgIcon="app-menu">menu</mat-icon>
+        </button>
+      </mat-toolbar>
+    </nav>
+
+    <p *ngFor="let aux of array">aux</p>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

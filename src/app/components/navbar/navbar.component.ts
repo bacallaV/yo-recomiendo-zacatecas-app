@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
+
+import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from '@angular/platform-browser';
-import { AnimationOptions } from 'ngx-lottie';
-import { AnimationItem } from 'ngx-lottie/lib/symbols';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'navbar',
+  templateUrl: './navbar.component.html',
+  styleUrls: ['./navbar.component.scss']
 })
-export class HomeComponent implements OnInit {
-
+export class NavbarComponent implements OnInit {
   constructor(
     private domSanitizer: DomSanitizer,
     private matIconRegistry: MatIconRegistry
-  ){
+  ) {
+
     this.matIconRegistry.addSvgIcon(
       `app-menu`,
       this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/menu.svg`)
@@ -35,27 +34,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  animationLoader(animationItem: AnimationItem): void {}
-
-  public array = [
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-  ]
 
 }
