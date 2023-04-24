@@ -17,6 +17,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { FooterComponent } from './components/footer/footer.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -29,6 +30,7 @@ export function playerFactory() {
     CardContractComponent,
     CardContractImageComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
