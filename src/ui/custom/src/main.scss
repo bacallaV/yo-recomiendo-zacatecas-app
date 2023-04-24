@@ -1579,3 +1579,34 @@ mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accen
 .tabs-configs.mat-primary .mat-ink-bar{
     background-color: var(--color-primary-100) !important;
 }
+
+.main-yrz-button {
+    // width: 77px;
+    padding: 6px 16px;
+    
+    background: #EC268F;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.16);
+    border-radius: 18px;
+    border: none;
+
+    text-align: center;
+    color: #fff;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+
+    
+    &:hover {
+        background-color: $colorPrimaryPinkLight;
+    }
+    
+    &:active {
+        background-color: $colorPrimaryPinkDark;
+    }
+
+    &:disabled {
+        background-color: $colorPrimaryPinkLighter;
+    }
+}

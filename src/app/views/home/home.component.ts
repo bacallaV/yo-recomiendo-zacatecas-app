@@ -38,24 +38,4 @@ export class HomeComponent implements OnInit {
 
   animationLoader(animationItem: AnimationItem): void {}
 
-  public array = [
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-    'a',
-  ]
-
 }
