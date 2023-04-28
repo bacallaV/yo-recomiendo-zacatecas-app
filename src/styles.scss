@@ -317,3 +317,25 @@ p{
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-form-field-outline-start, .mat-form-field-outline-end {
+    border-radius: 0 !important;
+}
+
+.mdc-notched-outline__leading {
+    border-left: 0px solid !important;
+    border-right: none;
+    width: 12px;
+}
+
+.mdc-notched-outline__leading, .mdc-notched-outline__notch, .mdc-notched-outline__trailing {
+    border-top: 0px solid !important;
+    border-bottom: 0px solid !important;
+}
+
+.mdc-notched-outline__trailing {
+    border-left: none;
+    border-right: 0px solid !important;
+    flex-grow: 1;
+}

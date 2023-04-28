@@ -17,6 +17,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
+import { CatalogoComponent } from './views/catalogo/catalogo.component';
+import { AngularMaterialModule } from './angular-material/angular-material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -29,10 +32,12 @@ export function playerFactory() {
     CardContractComponent,
     CardContractImageComponent,
     NavbarComponent,
+    CatalogoComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AngularMaterialModule,
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
     BrowserAnimationsModule,
@@ -42,6 +47,7 @@ export function playerFactory() {
     MatTooltipModule,
     MatSidenavModule,
     MatListModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

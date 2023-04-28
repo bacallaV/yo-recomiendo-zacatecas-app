@@ -1,0 +1,37 @@
+<div class="filter">
+    <div class="h1">¿A donde quieres ir?</div>
+    <div class="line"></div>
+    <div class="input">
+        <mat-form-field
+            appearance="outline"
+            class="inputSearch search-bar header-dashboard actions"
+            floatLabel="auto">
+            <input
+                matInput
+                type="text"
+                class="my-1" placeholder="Buscar lugares"
+                [matAutocomplete]="ac"
+                [formControl]="word"
+                (keyup.enter)="catalogo()"
+                #search>
+            <mat-icon *ngIf="search.value == ''" matSuffix>search</mat-icon>
+            <mat-icon
+                *ngIf="search.value != ''"
+                (click)="search.value = ''; word.setValue(''); "
+                matSuffix>
+                close
+            </mat-icon>
+        </mat-form-field>
+        <mat-autocomplete #ac="matAutocomplete">
+        </mat-autocomplete>
+    </div>
+    <div class="region">
+        <mat-form-field appearance="fill" class="col-6 input-hydra" floatLabel="always">
+            <mat-label class="">Antelacion</mat-label>
+            <mat-select placeholder="Antelacion">
+                <mat-option value="1">30 días </mat-option>
+                <mat-option value="2">20 días</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>

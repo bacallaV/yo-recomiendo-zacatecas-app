@@ -235,10 +235,10 @@ a{
 
 // Typography
 .h1 {
-    @include font('Red Hat Display', normal, 700, 32px, 34px);
+    @include font('Montserrat', normal, 700, 26px, 44px);
 
     @include bp-lg {
-        @include font('Red Hat Display', normal, 700, 42px, 44px);
+        @include font('Montserrat', normal, 700, 32px, 44px);
     }
 }
 
