@@ -10,6 +10,8 @@
 
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.16);
 
+  z-index: 1;
+
   mat-toolbar {
     padding: 12px 16px;
     background-color: #fff;
@@ -136,7 +138,10 @@ mat-sidenav-content {
       }
 
       p {
+        padding: 4px 0;
+
         background-color: $colorPrimaryBlue;
+        filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.2));
 
         font-weight: 400;
         font-size: 14px;
@@ -147,6 +152,10 @@ mat-sidenav-content {
     .region,
     .searchbar {
       height: 32px;
+    }
+
+    .main-yrz-button {
+      width: 100%;
     }
   }
 
@@ -172,12 +181,14 @@ mat-sidenav-content {
     background-color: $colorPrimaryBlueLighter;
 
     .contact-form-header {
-      background-color: lightblue;
+      /* TODO: Background should be an img */
+      background-image: url('https://i.pinimg.com/originals/f9/19/57/f919575dbde4988a68753dc360ef5526.jpg');
 
       .contact-title {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 16px;
 
         margin: 51px 24px;
         padding: 32px 26px;
@@ -197,6 +208,27 @@ mat-sidenav-content {
         }
       }
 
+    }
+
+    > form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+
+      width: 100%;
+      padding: 24px 16px;
+
+      .row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 24px;
+
+        mat-form-field {
+          width: calc(50% - 12px);
+        }
+      }
     }
   }
 
