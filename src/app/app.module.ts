@@ -22,6 +22,7 @@ import { CardContractComponent } from './components/card-contract/card-contract.
 import { CardContractImageComponent } from './components/card-contract-image/card-contract-image.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { EventBannerComponent } from './components/event-banner/event-banner.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -35,6 +36,7 @@ export function playerFactory() {
     CardContractImageComponent,
     NavbarComponent,
     FooterComponent,
+    EventBannerComponent,
   ],
   imports: [
     BrowserModule,

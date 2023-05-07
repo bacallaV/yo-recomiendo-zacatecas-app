@@ -109,7 +109,6 @@ mat-sidenav-content {
   }
 
   .search-section {
-    background-color: lightblue;
     gap: 18px;
 
     width: calc(100% - 32px);
@@ -119,6 +118,8 @@ mat-sidenav-content {
     margin-bottom: 32px;
 
     border-radius: 16px;
+
+    background-image: url('https://www.mexicodesconocido.com.mx/wp-content/uploads/2010/07/Catedral-_Plaza-de-armas-scaled.jpg');
 
     .title {
       text-align: center;
@@ -157,6 +158,10 @@ mat-sidenav-content {
     .main-yrz-button {
       width: 100%;
     }
+  }
+
+  .event-banner {
+    margin: 0 16px 32px;
   }
 
   .who-we-are {
@@ -199,6 +204,7 @@ mat-sidenav-content {
         text-align: center;
 
         p {
+          text-align: left;
           font-family: 'Jost';
           font-style: normal;
           font-weight: 400;
@@ -286,6 +292,89 @@ mat-sidenav-content {
 
       li:last-child {
         margin-right: 0px;
+      }
+    }
+  }
+
+  mat-sidenav-content {
+    .section-title {
+      h2 {
+        font-size: 32px;
+        line-height: 44px;
+      }
+    }
+
+    > section {
+      margin-bottom: 40px;
+    }
+
+    .search-section {
+      width: calc(100% - 48px);
+      max-width: none;
+
+      .title {
+        /* TODO: Check if h1 style is needed here or in global style */
+        h1 {
+          font-size: 58px;
+          line-height: 71px;
+        }
+
+        p {
+          padding: 4px 0;
+
+          background-color: $colorPrimaryBlue;
+          filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.2));
+
+          font-size: 16px;
+          line-height: 20px;
+        }
+      }
+
+      .main-yrz-button {
+        width: auto;
+      }
+    }
+
+    .event-banner {
+      width: 80%;
+      max-width: 942px;
+      margin-inline: auto;
+    }
+
+    .who-we-are {
+      > p {
+        width: 80%;
+        max-width: 1200px;
+
+        text-align: left;
+      }
+    }
+
+    .contact-form {
+      flex-direction: row;
+
+      height: 320px;
+
+      .contact-form-header {
+        display: grid;
+        justify-items: center;
+        align-items: center;
+
+        width: 50%;
+        height: 100%;
+
+        .contact-title {
+          width: 85%;
+          min-width: 332px;
+          max-width: 612px;
+          margin: 0;
+        }
+
+      }
+
+      > form {
+        width: 50%;
+        padding: 24px 0px;
       }
     }
   }
