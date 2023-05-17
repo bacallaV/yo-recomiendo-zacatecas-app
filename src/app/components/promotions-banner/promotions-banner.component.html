@@ -1,0 +1,23 @@
+<div class="promotions-background">
+  <swiper
+    [slidesPerView]="1"
+    [pagination]="{clickable: true}"
+    [navigation]="true"
+    [loop]="true"
+    [autoplay]="{delay: 2000}"
+    [spaceBetween]="48"
+  >
+    <ng-template swiperSlide *ngFor="let a of array">
+
+      <div class="promotion">
+        <img src="https://revistaespejo.com/wp-content/uploads/2017/01/tacos.jpg" alt="Imágen de la promoción">
+
+        <div class="information">
+          <p class="title">Promoción Los Reyes</p>
+          <p class="description">Martes 2x1 en tacos</p>
+        </div>
+      </div>
+
+    </ng-template>
+  </swiper>
+</div>

@@ -17,12 +17,15 @@ import {MatListModule} from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
+/* Installed modules */
+import { SwiperModule } from 'swiper/angular';
 /* Components */
 import { CardContractComponent } from './components/card-contract/card-contract.component';
 import { CardContractImageComponent } from './components/card-contract-image/card-contract-image.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EventBannerComponent } from './components/event-banner/event-banner.component';
+import { PromotionsBannerComponent } from './components/promotions-banner/promotions-banner.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -37,6 +40,7 @@ export function playerFactory() {
     NavbarComponent,
     FooterComponent,
     EventBannerComponent,
+    PromotionsBannerComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,7 @@ export function playerFactory() {
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    SwiperModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
