@@ -149,13 +149,6 @@
       <button class="main-yrz-button">Ir al catálogo</button>
     </section>
 
-    <section class="event-banner">
-      <app-event-banner
-        title="Evento 1"
-        description="Encuentra aquí información importante sobre un evento que puede solicitarse"
-      ></app-event-banner>
-    </section>
-
     <section class="who-we-are">
       <div class="section-title blue">
         <h2>Quiénes somos</h2>
@@ -166,8 +159,43 @@
       </p>
 
       <div class="carousel-container">
-        z
+        <swiper
+          [slidesPerView]="'auto'"
+          [centeredSlides]="true"
+          [spaceBetween]="16"
+          [loop]="true"
+          [initialSlide]="1"
+        >
+          <ng-template swiperSlide>
+            <div class="who-we-are__card">
+              <mat-icon class="who-we-are__card--icon-first">push_pin</mat-icon>
+              <p class="who-we-are__card--title">Todo en un solo lugar</p>
+              <p class="who-we-are__card--description">Encuentra diferentes lugares de convivencia en nuestro catálogo</p>
+            </div>
+          </ng-template>
+          <ng-template swiperSlide>
+            <div class="who-we-are__card">
+              <mat-icon class="who-we-are__card--icon-second">payments</mat-icon>
+              <p class="who-we-are__card--title">¿Sin presupuesto?</p>
+              <p class="who-we-are__card--description">Busca lugares turísticos de acceso libre</p>
+            </div>
+          </ng-template>
+          <ng-template swiperSlide>
+            <div class="who-we-are__card">
+              <mat-icon class="who-we-are__card--icon-third">web</mat-icon>
+              <p class="who-we-are__card--title">Publicidad</p>
+              <p class="who-we-are__card--description">Contáctanos si quieres saber más sobre nuestros planes de publicidad</p>
+            </div>
+          </ng-template>
+        </swiper>
       </div>
+    </section>
+
+    <section class="event-banner">
+      <app-event-banner
+        title="Evento 1"
+        description="Encuentra aquí información importante sobre un evento que puede solicitarse"
+      ></app-event-banner>
     </section>
 
     <section class="contact-form">
