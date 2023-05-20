@@ -5,7 +5,11 @@
     [navigation]="true"
     [loop]="true"
     [autoplay]="{delay: 2000}"
-    [spaceBetween]="48"
+    [breakpoints]="{
+      '768': {
+        spaceBetween: 32,
+      }
+    }"
   >
     <ng-template swiperSlide *ngFor="let a of array">
 

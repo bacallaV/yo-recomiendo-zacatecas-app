@@ -164,6 +164,11 @@
           [centeredSlides]="true"
           [spaceBetween]="16"
           [initialSlide]="1"
+          [breakpoints]="{
+            '930': {
+              allowTouchMove: false,
+            }
+          }"
         >
           <ng-template swiperSlide>
             <div class="who-we-are__card">
