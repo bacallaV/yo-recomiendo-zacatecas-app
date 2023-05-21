@@ -36,22 +36,14 @@
     margin: 0 16px 16px;
 
     > p {
-      font-family: 'Jost';
-      font-style: normal;
       margin: 0;
     }
 
     > p.title {
-      font-weight: 700;
-      font-size: 16px;
-      line-height: 20px;
       color: $colorPrimaryBlue;
     }
 
     > p.description {
-      font-weight: 400;
-      font-size: 32px;
-      line-height: 34px;
       color: #5A5959;
     }
   }

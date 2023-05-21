@@ -234,7 +234,7 @@ a{
 }
 
 // Typography
-.h1 {
+/* .h1 {
     @include font('Red Hat Display', normal, 700, 32px, 34px);
 
     @include bp-lg {
@@ -286,7 +286,7 @@ a{
     @include font('Red Hat Display', normal, 500, 15px, 17px);
 
     &.bold {
-        @include font('Red Hat Display', normal, 700, 15px, 17px);
+         @include font('Red Hat Display', normal, 700, 15px, 17px);
     }
 }
 
@@ -295,7 +295,7 @@ a{
 
 .labels {
     @include font('Red Hat Display', normal, 400, 10px, 12px);
-}
+} */
 
 
 // Icon fonts size
@@ -1580,6 +1580,9 @@ mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accen
     background-color: var(--color-primary-100) !important;
 }
 
+/* Yo Recomiendo Zacatecas (YRZ) */
+
+// Buttons
 .main-yrz-button {
     // width: 77px;
     padding: 6px 16px;
@@ -1610,3 +1613,46 @@ mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accen
         background-color: $colorPrimaryPinkLighter;
     }
 }
+
+// Typography
+.h1 {
+    @include font('Montserrat', normal, 700, 26px, 44px);
+
+    @include bp-lg {
+        @include font('Montserrat', normal, 700, 32px, 44px);
+    }
+}
+
+.h2 {
+    @include font('Jost', normal, 400, 24px,  34px);
+    
+    @include bp-lg {
+        @include font('Jost', normal, 400, 32px, 34px);
+    }
+}
+
+.highlights {
+    @include font('Jost', normal, 700, 16px, 20px);
+}
+
+.paragraph {
+    @include font('Jost', normal, 400, 16px, 23px);
+    
+    &.bold {
+        @include font('Jost', normal, 700, 16px, 20px);
+    }
+}
+
+.input {
+    @include font('Montserrat', normal, 700, 14px, 17px)
+}
+
+.notes {
+    @include font('Jost', normal, 400, 12px, 17px);
+
+    &.bold {
+        @include font('Jost', normal, 400, 12px, 17px);
+    }
+}
+
+/* / Yo Recomiendo Zacatecas (YRZ) */
