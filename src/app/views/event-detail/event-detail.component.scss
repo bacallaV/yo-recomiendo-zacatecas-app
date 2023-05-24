@@ -167,7 +167,10 @@ section.location {
     width: 100%;
     height: 345px;
 
-    background-color: #5A5959;
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
