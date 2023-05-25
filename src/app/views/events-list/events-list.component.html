@@ -1,0 +1,45 @@
+<section class="header">
+  <h1 class="h1">Eventos</h1>
+
+  <input type="text" name="search-event" id="search-event">
+
+  <select name="region" id="region"></select>
+
+  <button class="main-yrz-button" type="button">Buscar evento</button>
+</section>
+
+<section class="events-list">
+  <div class="events-list-container">
+    <article class="event" *ngFor="let event of events">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdjGGxeW370-smv3heGTNIuq1PEdz5Sksu4A&usqp=CAU" alt="Evento">
+
+      <div class="information-container">
+        <p class="title paragraph bold">
+          Evento
+        </p>
+
+        <p class="description paragraph">
+          Descripción corta del evento aquí corta del evento Descripción corta del evento aquí corta del evento
+        </p>
+
+        <button class="main-yrz-button event-button">
+          Ir al evento
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <div class="buttons-container">
+    <button mat-button type="button" class="blue-no-bg-button" disabled>
+      <mat-icon>chevron_left</mat-icon>
+      Página previa
+    </button>
+
+    <button mat-button type="button" class="blue-no-bg-button">
+      <mat-icon>chevron_right</mat-icon>
+      Siguiente página
+    </button>
+  </div>
+</section>
+
+<app-footer></app-footer>

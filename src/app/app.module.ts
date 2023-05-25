@@ -27,6 +27,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { EventBannerComponent } from './components/event-banner/event-banner.component';
 import { PromotionsBannerComponent } from './components/promotions-banner/promotions-banner.component';
 import { EventDetailComponent } from './views/event-detail/event-detail.component';
+import { EventsListComponent } from './views/events-list/events-list.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -43,6 +44,7 @@ export function playerFactory() {
     EventBannerComponent,
     PromotionsBannerComponent,
     EventDetailComponent,
+    EventsListComponent,
   ],
   imports: [
     BrowserModule,
