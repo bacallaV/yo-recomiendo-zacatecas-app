@@ -1,0 +1,255 @@
+@import './../../../ui/custom/src/_variables.scss';
+@import './../../../ui/custom/src/main.scss';
+
+section:not(.media) {
+  max-width: 958px;
+  margin: 0 16px 24px;
+}
+
+section.media {
+  margin-bottom: 32px;
+
+  > img {
+    width: 100%;
+    height: 244px;
+    margin-bottom: 48px;
+
+    object-fit: cover;
+  }
+
+  > .buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+
+    max-width: 958px;
+    margin: 0 16px;
+
+    button {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      text-decoration-line: underline;
+      color: #5A5959;
+    }
+
+    .event-label {
+      padding: 8px 16px;
+
+      border: 1px solid $colorPrimaryPink;
+      border-radius: 16px;
+
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+      color: $colorPrimaryPink;
+    }
+  }
+}
+
+hr {
+  max-width: 958px;
+  margin: 0 16px 24px;
+
+  &.yellow {
+    border: 1px solid $colorPrimaryYellow;
+    color: $colorPrimaryYellow;
+  }
+}
+
+section.general-information {
+  margin: 0 16px;
+
+  > h2 {
+    color: $colorPrimaryPink;
+
+    margin-bottom: 16px;
+  }
+
+  > p {
+    margin-bottom: 24px;
+
+    color: #5A5959;
+  }
+
+  > .services-list .services-list-item {
+    margin-bottom: 24px;
+
+    mat-icon {
+      color: $colorPrimaryBlue;
+    }
+  }
+}
+
+div.services-list {
+  .services-list-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    mat-icon {
+      color: #5A5959;
+    }
+
+    p.paragraph {
+      display: inline;
+
+      width: 90%;
+
+      color: #5A5959;
+    }
+  }
+}
+
+section.links {
+  text-align: center;
+
+  > h2 {
+    margin-bottom: 24px;
+
+    text-align: left;
+    color: #5A5959;
+  }
+}
+
+button.blue-no-bg-button {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  color: $colorPrimaryBlue;
+}
+
+section.services {
+  > h2,
+  > p.services-subtitle {
+    margin-bottom: 24px;
+
+    text-align: left;
+    color: #5A5959;
+  }
+
+  > p.services-subtitle {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 84.6%;
+    color: #5A5959;
+  }
+
+  > .services-list .services-list-item {
+    margin-bottom: 18px;
+  }
+
+  > button.blue-no-bg-button {
+    display: flex;
+    flex-direction: row-reverse;
+
+    margin: auto;
+  }
+}
+
+section.location {
+  > h2 {
+    margin-bottom: 24px;
+  }
+
+  > div.maps-container {
+    width: 100%;
+    height: 345px;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+section.social-media {
+  > h2 {
+    margin-bottom: 24px;
+  }
+
+  > .buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    button {
+      font-family: 'Jost';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 23px;
+      text-decoration-line: underline;
+      color: $colorPrimaryPink;
+
+      > mat-icon {
+        color: #5A5959;
+      }
+    }
+  }
+}
+
+/* End Tablet, Begin Laptop */
+@media screen and (min-width: 768px) {
+  section:not(.media) {
+    width: 85%;
+    margin: 0 auto 24px;
+  }
+
+  section.media {
+    margin-bottom: 24px;
+
+    > .buttons-container {
+      width: 85%;
+      margin: auto;
+    }
+  }
+
+  hr {
+    width: 85%;
+    margin-inline: auto;
+  }
+
+  section.general-information {
+    > .services-list {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      flex-wrap: wrap;
+
+      .services-list-item {
+        width: 40%;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  section.services {
+    > .services-list {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      flex-wrap: wrap;
+
+      margin-bottom: 24px;
+
+      .services-list-item {
+        width: 30%;
+        margin-bottom: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+.footer {
+  padding: 32px 0;
+
+  background-color: #000;
+
+  & * {
+    color: #fff;
+  }
+
+  & p, a {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  & a:hover {
+    text-decoration-line: underline;
+  }
+
+  .footer-top {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      text-align: center;
+      list-style: none;
+    }
+  }
+
+  .divider {
+    width: calc(100% - 32px);
+    height: 0px;
+    margin: 16px auto;
+
+    background-color: #fff;
+    border: 1px solid #FFFFFF;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+
+    .social-media {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      align-items: center;
+
+      a:not(:first-child) mat-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        filter: invert(97%) sepia(100%) saturate(0%) hue-rotate(214deg) brightness(101%) contrast(102%);
+      }
+    }
+  }
+}
+
+/* End Tablet, Begin Laptop */
+@media screen and (min-width: 768px) {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .footer-top {
+      flex-direction: row;
+      gap: 15%;
+      justify-content: space-evenly;
+
+      width: 70%;
+    }
+
+    .divider {
+      margin: 32px auto;
+    }
+
+    .footer-bottom {
+      flex-direction: row;
+      gap: 32px;
+    }
+  }
+}
