@@ -1,0 +1,34 @@
+@import './../../../ui/custom/src/mixins.scss';
+
+
+.categoria-card {
+    padding: 16px;
+    border-radius: 8px;
+    width: 170px;
+    height: 80px;
+    border-radius: 12px;
+
+    .categoria-card-body {
+        width: 100%;
+        height: 100%;
+        
+        .categoria-card-body-img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+        }
+
+        .categoria-card-body-cont-txt{
+            text-align: right;
+            margin-top: -30px;
+            margin-right: 8px;
+            .categoria-card-body-txt{
+                font-size: 12px;
+                font-weight: 700;
+                color: white;
+            }
+        }
+
+    }
+}

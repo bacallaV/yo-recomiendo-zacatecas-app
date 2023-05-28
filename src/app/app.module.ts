@@ -20,6 +20,7 @@ import {MatListModule} from '@angular/material/list';
 import { CatalogoComponent } from './views/catalogo/catalogo.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CardCategoriaComponent } from './components/card-categoria/card-categoria.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -33,6 +34,7 @@ export function playerFactory() {
     CardContractImageComponent,
     NavbarComponent,
     CatalogoComponent,
+    CardCategoriaComponent,
   ],
   imports: [
     BrowserModule,
