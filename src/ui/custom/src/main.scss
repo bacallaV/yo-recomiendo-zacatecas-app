@@ -1136,48 +1136,48 @@ Example:
     }
 }
 
-.filter-chip{
-    background: $colorInfoDark;
-    color: #FFFFFF;
-    @include font('Lato', normal, 400, 10px, 12px);
-    padding: 4px 2px 4px 8px;
-    border-radius: 4px;
-    gap: 8px;
-    width: auto;
-    mat-icon{
-        margin-left: 5px;
-        filter: brightness(0) invert(1);
-        height: 12px;
-    }
-}
+// .filter-chip{
+//     background: $colorInfoDark;
+//     color: #FFFFFF;
+//     @include font('Lato', normal, 400, 10px, 12px);
+//     padding: 4px 2px 4px 8px;
+//     border-radius: 4px;
+//     gap: 8px;
+//     width: auto;
+//     mat-icon{
+//         margin-left: 5px;
+//         filter: brightness(0) invert(1);
+//         height: 12px;
+//     }
+// }
 
-.filter-chip-normal {
+// .filter-chip-normal {
 
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+//     display: flex;
+//     flex-direction: row;
+//     align-items: center;
+//     justify-content: space-between;
 
-    background: $colorInfoDark;
-    color: #FFFFFF;
-    @include font('Lato', normal, 400, 10px, 12px);
-    padding: 8px 16px !important;
-    border-radius: 16px;
-    gap: 8px;
-    width: auto;
+//     background: $colorInfoDark;
+//     color: #FFFFFF;
+//     @include font('Lato', normal, 400, 10px, 12px);
+//     padding: 8px 16px !important;
+//     border-radius: 16px;
+//     gap: 8px;
+//     width: auto;
 
-    .ellipse {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-    }
+//     .ellipse {
+//         overflow: hidden;
+//         text-overflow: ellipsis;
+//         white-space: nowrap;
+//     }
 
-    mat-icon{
-        margin-left: 5px;
-        filter: brightness(0) invert(1);
-        height: 12px;
-    }
-}
+//     mat-icon{
+//         margin-left: 5px;
+//         filter: brightness(0) invert(1);
+//         height: 12px;
+//     }
+// }
 
 .custom-mat-menu+* .mat-menu-panel {
     min-height: 48px;
@@ -1237,20 +1237,20 @@ Example:
 }
 
 
-.filter-chip{
-    background: $colorInfoDark;
-    color: #FFFFFF;
-    @include font('Lato', normal, 400, 12px, 14px);
-    padding: 4px 2px 4px 8px;
-    border-radius: 4px;
-    gap: 8px;
-    width: auto;
-    mat-icon{
-        margin-left: 5px;
-        filter: brightness(0) invert(1);
-        height: 12px;
-    }
-}
+// .filter-chip{
+//     background: $colorInfoDark;
+//     color: #FFFFFF;
+//     @include font('Lato', normal, 400, 12px, 14px);
+//     padding: 4px 2px 4px 8px;
+//     border-radius: 4px;
+//     gap: 8px;
+//     width: auto;
+//     mat-icon{
+//         margin-left: 5px;
+//         filter: brightness(0) invert(1);
+//         height: 12px;
+//     }
+// }
 
 .btn-check:focus + .btn, .btn:focus {
   outline: 0;

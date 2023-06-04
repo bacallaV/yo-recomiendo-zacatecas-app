@@ -1,5 +1,17 @@
 @import '../../../ui/custom/src/main.scss';
 @import '../../../ui/custom/src/variables';
+@import '../../../ui/custom/src/mixins.scss';
+
+@import "swiper/swiper";
+@import "swiper/components/pagination/pagination";
+
+//Fonts
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+body{
+    width: 100vw;
+    overflow-x: hidden;
+}
 
 .container {
 	width: 30em;
@@ -7,57 +19,142 @@
 	white-space: nowrap;
 }
 
+.section-title {
+    width: fit-content;
+    padding: 0 32px;
+    border-bottom: 2px solid #000;
+
+    &.yellow {
+      border-color: $colorPrimaryYellow;
+    }
+
+    &.pink {
+      border-color: $colorPrimaryPink;
+    }
+
+    &.blue {
+      border-color: $colorPrimaryBlue;
+    }
+
+    h2 {
+      text-align: center;
+
+      color: #5A5959;
+    }
+  }
+
 .filter{
-    padding: 40px;
+    padding: 20px;
+    padding-top: 40px ;
     display: grid;
     justify-content: center;
     background-color: white;
+    text-align: center;
+    justify-items: center;
 
     .line{
         width: 100%;
         height: 4px;
         background-color: $colorPrimaryYellow;
+        @include bp-md{
+            width: 60vw;
+            padding: 0 20vw;
+        }
     }
-    .input{
-        padding-top: 12px;
-        padding-bottom: 12px;
-    }
-    //input
-    .form-filter-input{
-        margin-top: 12px;
-        box-shadow: 0px 1px 16px 4px rgba(0,0,0,0.15);
-        border-top-left-radius: 36px !important;
-        border-bottom-left-radius: 36px !important;
-        border-top-right-radius: 36px !important;
-        border-bottom-right-radius: 36px !important;
-        height: 36px;
-        .form-input{
-            border: none !important;
+    .filter-forms{
+        display: grid;
+        padding-top: 32px;
+        @include bp-sm{
+            grid-template-columns: 2.5fr 1fr;
+            width: 80vw;
+            gap: 12px;
+        }
+        @include bp-md{
+            grid-template-columns: 3fr 1fr;
+            width: 75vw;
+            gap: 12px;
+        }
+        @include bp-lg{
+            grid-template-columns: 3fr 1fr;
+            width: 60vw;
+            gap: 12px;
+        }
+        .input{
+            padding-top: 12px;
+            padding-bottom: 12px;
+        }
+        //input
+        .form-filter-input{
+            margin-top: 12px;
+            box-shadow: 0px 1px 16px 4px rgba(0,0,0,0.15);
             border-top-left-radius: 36px !important;
             border-bottom-left-radius: 36px !important;
-            padding: 0 12px;
-        }
-        .form-icon{
-            background: white;
-            border: none;
             border-top-right-radius: 36px !important;
             border-bottom-right-radius: 36px !important;
-            padding: 0 12px;
+            height: 36px;
+            // @include bp-md{
+            //     box-shadow: -12px 1px 16px 4px rgba(0,0,0,0.15);
+            //     border-top-right-radius: 0 !important;
+            //     border-bottom-right-radius: 0 !important;
+            // }
+            .form-input{
+                border: none !important;
+                border-top-left-radius: 36px !important;
+                border-bottom-left-radius: 36px !important;
+                padding: 0 12px;
+            }
+            .form-icon{
+                background: white;
+                border: none;
+                border-top-right-radius: 36px !important;
+                border-bottom-right-radius: 36px !important;
+                padding: 0 12px;
+                @include bp-sm{
+                    border-top-right-radius: 0 !important;
+                    border-bottom-right-radius: 0 !important;
+                }
+            }
         }
-    }
+    
+        //select
+        .form-filter-select{
+            background-color: white;
+            margin-top: 12px;
+            box-shadow: 0px 1px 16px 4px rgba(0, 0, 0, 0.15);
+            border-top-left-radius: 36px !important;
+            border-bottom-left-radius: 36px !important;
+            border-top-right-radius: 36px !important;
+            border-bottom-right-radius: 36px !important;
+            height: 36px;
+            border: none;
+            padding: 0 12px;
+            display: none;
+            @include bp-sm{
+                display: block;
+                margin-top: 0px;
+                box-shadow: none;
+                border-top-left-radius: 0 !important;
+                border-bottom-left-radius: 0 !important;
+                margin-left: -6px;
+            }
+        }
+        .form-filter-select-movile{
+            background-color: white;
+            margin-top: 12px;
+            box-shadow: 0px 1px 16px 4px rgba(0, 0, 0, 0.15);
+            border-top-left-radius: 36px !important;
+            border-bottom-left-radius: 36px !important;
+            border-top-right-radius: 36px !important;
+            border-bottom-right-radius: 36px !important;
+            height: 36px;
+            border: none;
+            padding: 0 12px;
+            display: block;
 
-    //select
-    .form-filter-select{
-        background-color: white;
-        margin-top: 12px;
-        box-shadow: 0px 1px 16px 4px rgba(0, 0, 0, 0.15);
-        border-top-left-radius: 36px !important;
-        border-bottom-left-radius: 36px !important;
-        border-top-right-radius: 36px !important;
-        border-bottom-right-radius: 36px !important;
-        height: 36px;
-        border: none;
-        padding: 0 12px;
+            @include bp-sm{
+                display: none;
+            }
+        }
     }
 
     //button
@@ -67,8 +164,117 @@
 
 }
 
-.sliderCategorias{
+.categoria{
+    padding: 32px 16px;
+    height: 112px;
+    width: 100%;
 
+    .carousel-container {
+        // height: fit-content;
+    
+        > swiper {
+          width: 100vw;
+          padding-bottom: 12px;
+    
+          .categoria-card {
+              border-radius: 8px;
+              width: 124px;
+              height: 48px;
+              border-radius: 12px;
+
+              @include  bp-md {
+                width: 164px;
+              }
+              @include  bp-lg {
+                width: 208px;
+              }
+
+              .categoria-card-body {
+                  width: 100%;
+                  height: 100%;
+                  
+                  .categoria-card-body-img{
+                      width: 100%;
+                      height: 100%;
+                      object-fit: cover;
+                      border-radius: 16px;
+                  }
+
+                  .categoria-card-body-cont-txt{
+                      text-align: right;
+                      margin-top: -30px;
+                      margin-right: 8px;
+                      .categoria-card-body-txt{
+                          font-size: 12px;
+                          font-weight: 700;
+                          color: white;
+                          @include  bp-lg {
+                            font-size: 14px;
+                          }
+                      }
+                  }
+              }
+          }
+
+          .swiper-slide {
+            width: 124px;
+            height: 102px;
+            @include  bp-md {
+                width: 164px;
+            }
+            @include  bp-lg {
+                width: 208px;
+            }
+          }
+        }
+    }
+
+}
+
+.categoria-filter{
+    padding: 0 16px;
+    min-height: 40px;
+    width: 100vw;
+}
+
+.filter-chip{
+    margin-left: 4px;
+    background: #FBB24A;
+    color: #FFFFFF;
+    @include font('Montserrat', normal, 400, 12px, 14px);
+    padding: 4px 2px 4px 8px;
+    border-radius: 12px;
+    gap: 8px;
+    width: auto;
+    mat-icon{
+        margin-left: 5px;
+        filter: brightness(0) invert(1);
+        height: 12px;
+    }
+}
+
+.line-blue{
+    width: 100%;
+    height: 2px;
+    background-color: $colorPrimaryBlue;
+}
+
+.tags-categoria{
+    padding: 8px 16px;
+}
+
+.options{
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100vw !important;
+    .list-options{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(276px, 1fr));
+        grid-column-gap: 32px;
+        grid-row-gap: 32px;
+    }
 }
 
 

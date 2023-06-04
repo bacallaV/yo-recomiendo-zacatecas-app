@@ -1,5 +1,8 @@
 export interface dataCardCategoria{
     id: number;
     name: string;
-    src: string;
+    img: string;
+    cost_prom: string;
+    location: string;
+    etiqueta: string;
 }

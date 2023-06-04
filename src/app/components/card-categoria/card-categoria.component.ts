@@ -10,28 +10,28 @@ import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interf
 })
 export class CardCategoriaComponent implements OnInit{
   @Input('small') small: boolean = true;
-  @Input('data') data: dataCardCategoria = {
-    id: 0,
-    name: 'Sin definir',
-    src : ''
-  }; 
+  // @Input('data') data: dataCardCategoria = {
+  //   id: 0,
+  //   name: 'Sin definir',
+  //   src : ''
+  // }; 
 
   constructor(
       private router: Router,
   ) {}
 
   ngOnInit(): void {
-    console.log(this.data);
+    // console.log(this.data);
     console.log(this.small);
   }
 
   selectCategoria() {
     
-    if(this.data.id) {
-        console.log(this.data.id);
+    // if(this.data.id) {
+    //     console.log(this.data.id);
 
-        // this.router.navigate(['/home/' + this.data.id]);
-    }
+    //     // this.router.navigate(['/home/' + this.data.id]);
+    // }
   }
 
 }
