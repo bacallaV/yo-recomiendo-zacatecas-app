@@ -20,6 +20,7 @@ import { CardCategoriaComponent } from './components/card-categoria/card-categor
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
 /* Installed modules */
 import { SwiperModule } from 'swiper/angular';
 /* Components */
@@ -31,6 +32,8 @@ import { EventBannerComponent } from './components/event-banner/event-banner.com
 import { PromotionsBannerComponent } from './components/promotions-banner/promotions-banner.component';
 import { EventDetailComponent } from './views/event-detail/event-detail.component';
 import { EventsListComponent } from './views/events-list/events-list.component';
+import { PlaceDetailComponent } from './views/place-detail/place-detail.component';
+import { ImagesInDetailComponent } from './components/images-in-detail/images-in-detail.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -50,6 +53,8 @@ export function playerFactory() {
     PromotionsBannerComponent,
     EventDetailComponent,
     EventsListComponent,
+    PlaceDetailComponent,
+    ImagesInDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -68,6 +73,7 @@ export function playerFactory() {
     MatFormFieldModule,
     MatInputModule,
     SwiperModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
