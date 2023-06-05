@@ -1,18 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { environment } from 'src/environments/environment';
-
-import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper/core";
-
-// install Swiper modules
-SwiperCore.use([
-  Pagination,
-  Navigation,
-  Autoplay,
-]);
 
 @Component({
   selector: 'app-home',
@@ -24,31 +12,11 @@ export class HomeComponent implements OnInit {
 
   public contactForm: FormGroup;
 
-  public facebookUrl = environment.facebookUrl;
-  public instagramUrl = environment.instagramUrl;
-
   constructor(
-    private domSanitizer: DomSanitizer,
-    private matIconRegistry: MatIconRegistry,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
   ){
-    this.matIconRegistry.addSvgIcon(
-      `app-menu`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/menu.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `facebook`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/facebook.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `instagram`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/instagram.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `youtube`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/youtube.svg`)
-    );
+
 
     this.contactForm = this.buildForm();
   }
@@ -73,7 +41,9 @@ export class HomeComponent implements OnInit {
       if( viewValue ) {
         const element = document.getElementsByClassName('contact-form');
 
-        if( element && element.length > 0 ) element[0]!.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if( element && element.length > 0 ) {
+          setTimeout( () => element[0]!.scrollIntoView({ behavior: 'smooth', block: 'center' }), 750 );
+        }
       }
 
     });

@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 /* Installed modules */
 import { SwiperModule } from 'swiper/angular';
+/* Layouts */
+import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 /* Components */
 import { CardContractComponent } from './components/card-contract/card-contract.component';
 import { CardContractImageComponent } from './components/card-contract-image/card-contract-image.component';
@@ -55,6 +57,7 @@ export function playerFactory() {
     EventsListComponent,
     PlaceDetailComponent,
     ImagesInDetailComponent,
+    AppLayoutComponent,
   ],
   imports: [
     BrowserModule,

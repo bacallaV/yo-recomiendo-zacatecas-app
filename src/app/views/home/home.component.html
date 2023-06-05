@@ -1,249 +1,152 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer mode="over">
-    <div class="menu-title-container">
-      <h3>Menú</h3>
+<section class="search-section">
+  <div class="title">
+    <h1>¿Salimos a explorar?</h1>
+    <p>Encuentra los mejores lugares, eventos y más en Zacatecas</p>
+  </div>
+
+  <div class="region">a</div>
+
+  <div class="searchbar">b</div>
+
+  <button class="main-yrz-button">
+    Buscar lugar
+  </button>
+</section>
+
+<section class="main-categories-section">
+  <div class="section-title yellow">
+    <h2 class="h1">Principales categorías</h2>
+  </div>
+
+  <div class="carousel-container">
+    a
+  </div>
+
+  <button routerLink="/catalogo" class="main-yrz-button">Ir al catálogo</button>
+</section>
+
+<section class="promotions-section">
+  <div class="section-title pink">
+    <h2 class="h1">Promociones</h2>
+  </div>
+
+  <app-promotions-banner></app-promotions-banner>
+</section>
+
+<section class="highlights-section">
+  <div class="section-title pink">
+    <h2 class="h1">Lugares destacados</h2>
+  </div>
+
+  <div class="carousel-container">
+    a
+  </div>
+
+  <button routerLink="/catalogo" class="main-yrz-button">Ir al catálogo</button>
+</section>
+
+<section class="who-we-are">
+  <div class="section-title blue">
+    <h2 class="h1">Quiénes somos</h2>
+  </div>
+
+  <p class="paragraph">
+    Zacatecas capital es un proyecto que nace inicialmente en redes sociales con la idea de destacar los principales atractivos turísticos de zacatecas y destacando algúnos lugares de encuentro, para comer o demás eventos al momento
+  </p>
+
+  <div class="carousel-container">
+    <swiper
+      [slidesPerView]="'auto'"
+      [centeredSlides]="true"
+      [spaceBetween]="16"
+      [initialSlide]="1"
+      [breakpoints]="{
+        '930': {
+          allowTouchMove: false,
+        }
+      }"
+    >
+      <ng-template swiperSlide>
+        <div class="who-we-are__card">
+          <mat-icon class="who-we-are__card--icon-first">push_pin</mat-icon>
+          <p class="paragraph bold">Todo en un solo lugar</p>
+          <p class="notes">Encuentra diferentes lugares de convivencia en nuestro catálogo</p>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="who-we-are__card">
+          <mat-icon class="who-we-are__card--icon-second">payments</mat-icon>
+          <p class="paragraph bold">¿Sin presupuesto?</p>
+          <p class="notes">Busca lugares turísticos de acceso libre</p>
+        </div>
+      </ng-template>
+      <ng-template swiperSlide>
+        <div class="who-we-are__card">
+          <mat-icon class="who-we-are__card--icon-third">web</mat-icon>
+          <p class="paragraph bold">Publicidad</p>
+          <p class="notes">Contáctanos si quieres saber más sobre nuestros planes de publicidad</p>
+        </div>
+      </ng-template>
+    </swiper>
+  </div>
+</section>
+
+<app-event-banner
+  title="Evento 1"
+  description="Encuentra aquí información importante sobre un evento que puede solicitarse"
+></app-event-banner>
+
+<section class="contact-form">
+  <div class="contact-form-header">
+    <div class="contact-title">
+      <div class="section-title yellow">
+        <h2 class="h1">¿Quieres saber más?</h2>
+      </div>
+
+      <p class="paragraph">Si quieres saber más sobre nosotros, tienes dudas o quieres anunciarte con nosotros, déjanos tus datos, en breve nos pondrémos en contacto contigo.</p>
+    </div>
+  </div>
+
+  <form action="#" [formGroup]="contactForm">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput type="text" formControlName="name" name="name" id="name">
+      <mat-error *ngIf="contactForm.get('name')!.hasError('required')">
+        Campo <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="row">
+      <mat-form-field>
+        <mat-label>Teléfono</mat-label>
+        <input matInput type="tel" formControlName="phone" name="phone" id="phone">
+        <mat-error *ngIf="contactForm.get('phone')!.hasError('required')">
+          Campo <strong>requerido</strong>
+        </mat-error>
+        <mat-error *ngIf="contactForm.get('phone')!.hasError('minlength') || contactForm.get('phone')!.hasError('maxlength')">
+          Deben ser 10 dígitos (Ej. 1234567890)
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Correo electrónico</mat-label>
+        <input matInput type="email" formControlName="email" name="email" id="email">
+        <mat-error *ngIf="contactForm.get('email')!.hasError('email') && !contactForm.get('email')!.hasError('required')">
+          Formato inválido
+        </mat-error>
+        <mat-error *ngIf="contactForm.get('email')!.hasError('required')">
+          Campo <strong>requerido</strong>
+        </mat-error>
+      </mat-form-field>
     </div>
 
-    <mat-action-list>
-      <a mat-list-item role="listitem" class="expansion-indent-3" routerLink="/home" routerLinkActive="active">
-        <mat-icon matListItemIcon>home</mat-icon>
-        <span>Home</span>
-      </a>
-
-      <a mat-list-item role="listitem" class="expansion-indent-3" routerLink="/catalogo" routerLinkActive="active">
-        <mat-icon matListItemIcon>view_list</mat-icon>
-        <span>Catálogo</span>
-      </a>
-
-      <a mat-list-item role="listitem" class="expansion-indent-3" routerLink="/eventos" routerLinkActive="active">
-        <mat-icon matListItemIcon>celebration</mat-icon>
-        <span>Eventos</span>
-      </a>
-
-      <a mat-list-item role="listitem" class="expansion-indent-3" routerLink="/home" [queryParams]="{view: 'contact-form'}">
-        <mat-icon matListItemIcon>call</mat-icon>
-        <span>Contacto</span>
-      </a>
-
-      <a mat-list-item role="listitem" class="expansion-indent-3" [href]="facebookUrl">
-        <mat-icon matListItemIcon>facebook</mat-icon>
-        <span>Facebook</span>
-      </a>
-
-      <a mat-list-item role="listitem" class="expansion-indent-3" [href]="instagramUrl">
-        <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
-        <span>Instagram</span>
-      </a>
-    </mat-action-list>
-  </mat-sidenav>
-
-  <mat-sidenav-content>
-
-    <nav class="navbar">
-      <mat-toolbar>
-        <a class="navbar-brand" routerLink="/home">
-          <img src="./../../../assets/images/logo.png" class="logo" alt="logo">
-        </a>
-
-        <span class="navbar-spacer"></span>
-
-        <ul class="navbar-desktop-items">
-          <li routerLinkActive="active">
-            <a routerLink="/home">
-              Home
-            </a>
-          </li>
-          <li class="vertical-line"></li>
-          <li class="vertical-line"></li>
-          <li routerLinkActive="active">
-            <a routerLink="/catalogo">
-              Catálogo
-            </a>
-          </li>
-          <li routerLinkActive="active">
-            <a routerLink="/eventos">
-              Eventos
-            </a>
-          </li>
-          <li>
-            <a routerLink="/home" [queryParams]="{view: 'contact-form'}">
-              Contacto
-            </a>
-          </li>
-          <li>
-            <a [href]="facebookUrl">
-              <mat-icon matListItemIcon>facebook</mat-icon>
-            </a>
-          </li>
-          <li>
-            <a [href]="instagramUrl">
-              <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
-            </a>
-          </li>
-        </ul>
-
-        <button mat-icon-button class="navbar-menu-button" aria-label="Menú" (click)="drawer.toggle()">
-          <mat-icon svgIcon="app-menu">menu</mat-icon>
-        </button>
-      </mat-toolbar>
-    </nav>
-
-    <div class="spacer"></div>
-
-    <section class="search-section">
-      <div class="title">
-        <h1>¿Salimos a explorar?</h1>
-        <p>Encuentra los mejores lugares, eventos y más en Zacatecas</p>
-      </div>
-
-      <div class="region">a</div>
-
-      <div class="searchbar">b</div>
-
-      <button class="main-yrz-button">
-        Buscar lugar
-      </button>
-    </section>
-
-
-    <section class="main-categories-section">
-      <div class="section-title yellow">
-        <h2 class="h1">Principales categorías</h2>
-      </div>
-
-      <div class="carousel-container">
-        a
-      </div>
-
-      <button routerLink="/catalogo" class="main-yrz-button">Ir al catálogo</button>
-    </section>
-
-    <section class="promotions-section">
-      <div class="section-title pink">
-        <h2 class="h1">Promociones</h2>
-      </div>
-
-      <app-promotions-banner></app-promotions-banner>
-    </section>
-
-    <section class="highlights-section">
-      <div class="section-title pink">
-        <h2 class="h1">Lugares destacados</h2>
-      </div>
-
-      <div class="carousel-container">
-        a
-      </div>
-
-      <button routerLink="/catalogo" class="main-yrz-button">Ir al catálogo</button>
-    </section>
-
-    <section class="who-we-are">
-      <div class="section-title blue">
-        <h2 class="h1">Quiénes somos</h2>
-      </div>
-
-      <p class="paragraph">
-        Zacatecas capital es un proyecto que nace inicialmente en redes sociales con la idea de destacar los principales atractivos turísticos de zacatecas y destacando algúnos lugares de encuentro, para comer o demás eventos al momento
-      </p>
-
-      <div class="carousel-container">
-        <swiper
-          [slidesPerView]="'auto'"
-          [centeredSlides]="true"
-          [spaceBetween]="16"
-          [initialSlide]="1"
-          [breakpoints]="{
-            '930': {
-              allowTouchMove: false,
-            }
-          }"
-        >
-          <ng-template swiperSlide>
-            <div class="who-we-are__card">
-              <mat-icon class="who-we-are__card--icon-first">push_pin</mat-icon>
-              <p class="paragraph bold">Todo en un solo lugar</p>
-              <p class="notes">Encuentra diferentes lugares de convivencia en nuestro catálogo</p>
-            </div>
-          </ng-template>
-          <ng-template swiperSlide>
-            <div class="who-we-are__card">
-              <mat-icon class="who-we-are__card--icon-second">payments</mat-icon>
-              <p class="paragraph bold">¿Sin presupuesto?</p>
-              <p class="notes">Busca lugares turísticos de acceso libre</p>
-            </div>
-          </ng-template>
-          <ng-template swiperSlide>
-            <div class="who-we-are__card">
-              <mat-icon class="who-we-are__card--icon-third">web</mat-icon>
-              <p class="paragraph bold">Publicidad</p>
-              <p class="notes">Contáctanos si quieres saber más sobre nuestros planes de publicidad</p>
-            </div>
-          </ng-template>
-        </swiper>
-      </div>
-    </section>
-
-    <app-event-banner
-      title="Evento 1"
-      description="Encuentra aquí información importante sobre un evento que puede solicitarse"
-    ></app-event-banner>
-
-    <section class="contact-form">
-      <div class="contact-form-header">
-        <div class="contact-title">
-          <div class="section-title yellow">
-            <h2 class="h1">¿Quieres saber más?</h2>
-          </div>
-
-          <p class="paragraph">Si quieres saber más sobre nosotros, tienes dudas o quieres anunciarte con nosotros, déjanos tus datos, en breve nos pondrémos en contacto contigo.</p>
-        </div>
-      </div>
-
-      <form action="#" [formGroup]="contactForm">
-        <mat-form-field>
-          <mat-label>Nombre</mat-label>
-          <input matInput type="text" formControlName="name" name="name" id="name">
-          <mat-error *ngIf="contactForm.get('name')!.hasError('required')">
-            Campo <strong>requerido</strong>
-          </mat-error>
-        </mat-form-field>
-
-        <div class="row">
-          <mat-form-field>
-            <mat-label>Teléfono</mat-label>
-            <input matInput type="tel" formControlName="phone" name="phone" id="phone">
-            <mat-error *ngIf="contactForm.get('phone')!.hasError('required')">
-              Campo <strong>requerido</strong>
-            </mat-error>
-            <mat-error *ngIf="contactForm.get('phone')!.hasError('minlength') || contactForm.get('phone')!.hasError('maxlength')">
-              Deben ser 10 dígitos (Ej. 1234567890)
-            </mat-error>
-          </mat-form-field>
-
-          <mat-form-field>
-            <mat-label>Correo electrónico</mat-label>
-            <input matInput type="email" formControlName="email" name="email" id="email">
-            <mat-error *ngIf="contactForm.get('email')!.hasError('email') && !contactForm.get('email')!.hasError('required')">
-              Formato inválido
-            </mat-error>
-            <mat-error *ngIf="contactForm.get('email')!.hasError('required')">
-              Campo <strong>requerido</strong>
-            </mat-error>
-          </mat-form-field>
-        </div>
-
-        <mat-form-field>
-          <mat-label>Déjanos saber</mat-label>
-          <textarea matInput formControlName="opinion" name="opinion" id="opinion" cols="30" rows="10"></textarea>
-          <mat-error *ngIf="contactForm.get('opinion')!.hasError('required')">
-            Campo <strong>requerido</strong>
-          </mat-error>
-        </mat-form-field>
-        <button class="main-yrz-button" type="submit">Enviar</button>
-      </form>
-    </section>
-
-    <app-footer></app-footer>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+    <mat-form-field>
+      <mat-label>Déjanos saber</mat-label>
+      <textarea matInput formControlName="opinion" name="opinion" id="opinion" cols="30" rows="10"></textarea>
+      <mat-error *ngIf="contactForm.get('opinion')!.hasError('required')">
+        Campo <strong>requerido</strong>
+      </mat-error>
+    </mat-form-field>
+    <button class="main-yrz-button" type="submit">Enviar</button>
+  </form>
+</section>
