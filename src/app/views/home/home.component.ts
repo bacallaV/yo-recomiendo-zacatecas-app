@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper/core";
 
@@ -22,10 +24,14 @@ export class HomeComponent implements OnInit {
 
   public contactForm: FormGroup;
 
+  public facebookUrl = environment.facebookUrl;
+  public instagramUrl = environment.instagramUrl;
+
   constructor(
     private domSanitizer: DomSanitizer,
     private matIconRegistry: MatIconRegistry,
     private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute,
   ){
     this.matIconRegistry.addSvgIcon(
       `app-menu`,
@@ -48,6 +54,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.checkForRouteQueryParams();
   }
 
   public buildForm() {
@@ -56,6 +63,19 @@ export class HomeComponent implements OnInit {
       phone:    [ '', [Validators.required, Validators.minLength(10), Validators.maxLength(10)] ],
       email:    [ '', [Validators.required, Validators.email] ],
       opinion:  [ '', [Validators.required] ],
+    });
+  }
+
+  private checkForRouteQueryParams(): void {
+    this.activatedRoute.queryParamMap.subscribe(params => {
+      const viewValue = params.get('view');
+
+      if( viewValue ) {
+        const element = document.getElementsByClassName('contact-form');
+
+        if( element && element.length > 0 ) element[0]!.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
     });
   }
 

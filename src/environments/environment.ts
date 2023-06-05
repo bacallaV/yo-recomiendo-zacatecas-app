@@ -5,7 +5,11 @@
 export const environment = {
   production: false,
   urlApi: 'http://localhost:3000/api/v1',
-  urlPHP: 'http://localhost/api-hydra'
+  urlPHP: 'http://localhost/api-hydra',
+
+  // Social media
+  facebookUrl:  'https://www.facebook.com/YoRecomiendoZacatecas',
+  instagramUrl: 'https://www.instagram.com/yorecomiendozacatecas',
 };
 
 /*
