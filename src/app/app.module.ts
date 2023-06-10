@@ -16,7 +16,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { CatalogoComponent } from './views/catalogo/catalogo.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
-import { CardCategoriaComponent } from './components/card-categoria/card-categoria.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
@@ -36,6 +35,7 @@ import { EventDetailComponent } from './views/event-detail/event-detail.componen
 import { EventsListComponent } from './views/events-list/events-list.component';
 import { PlaceDetailComponent } from './views/place-detail/place-detail.component';
 import { ImagesInDetailComponent } from './components/images-in-detail/images-in-detail.component';
+import { PlaceCardComponent } from './components/place-card/place-card.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -49,7 +49,6 @@ export function playerFactory() {
     CardContractImageComponent,
     NavbarComponent,
     CatalogoComponent,
-    CardCategoriaComponent,
     FooterComponent,
     EventBannerComponent,
     PromotionsBannerComponent,
@@ -58,6 +57,7 @@ export function playerFactory() {
     PlaceDetailComponent,
     ImagesInDetailComponent,
     AppLayoutComponent,
+    PlaceCardComponent,
   ],
   imports: [
     BrowserModule,

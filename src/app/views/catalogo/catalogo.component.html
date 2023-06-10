@@ -17,7 +17,7 @@
                 <option value="2">Rio Grande</option>
             </select>
         </div>
-    
+
         <select class="form-select form-filter-select-movile" aria-label="Seleccion de la región" placeholder="Buscar lugares">
             <!-- <option selected>Open this select menu</option> -->
             <option value="1">Zacatecas</option>
@@ -26,119 +26,113 @@
         </select>
 
         <button class="form-filter-button main-yrz-button">Buscar lugar</button>
-    </div>  
-</div>
-
-<div class="categoria">
-    <div class="carousel-container">
-        <swiper
-              [slidesPerView]="'auto'"
-              [spaceBetween]="24"
-              [initialSlide]="0"
-              [breakpoints]="{
-                '930': {
-                    slidesPerView: 'auto',
-                    initialSlide: 0
-                }
-              }"
-            >
-            <ng-template swiperSlide>
-                <div class="categoria-card">
-                    <div class="categoria-card-body">
-                        <img class="categoria-card-body-img" [src]="dataCard[0].src">
-                        <div class="categoria-card-body-cont-txt">
-                            <span class="categoria-card-body-txt">{{dataCard[0].name}}</span>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="categoria-card">
-                    <div class="categoria-card-body">
-                        <img class="categoria-card-body-img" [src]="dataCard[1].src">
-                        <div class="categoria-card-body-cont-txt">
-                            <span class="categoria-card-body-txt">{{dataCard[1].name}}</span>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="categoria-card">
-                    <div class="categoria-card-body">
-                        <img class="categoria-card-body-img" [src]="dataCard[2].src">
-                        <div class="categoria-card-body-cont-txt">
-                            <span class="categoria-card-body-txt">{{dataCard[2].name}}</span>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="categoria-card">
-                    <div class="categoria-card-body">
-                        <img class="categoria-card-body-img" [src]="dataCard[3].src">
-                        <div class="categoria-card-body-cont-txt">
-                            <span class="categoria-card-body-txt">{{dataCard[3].name}}</span>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="categoria-card">
-                    <div class="categoria-card-body">
-                        <img class="categoria-card-body-img" [src]="dataCard[4].src">
-                        <div class="categoria-card-body-cont-txt">
-                            <span class="categoria-card-body-txt">{{dataCard[4].name}}</span>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-            <ng-template swiperSlide>
-                <div class="categoria-card">
-                    <div class="categoria-card-body">
-                        <img class="categoria-card-body-img" [src]="dataCard[5].src">
-                        <div class="categoria-card-body-cont-txt">
-                            <span class="categoria-card-body-txt">{{dataCard[5].name}}</span>
-                        </div>
-                    </div>
-                </div>
-            </ng-template>
-        </swiper>
     </div>
 </div>
 
-<div class="line-blue"></div>
+<div class="categories">
+    <swiper
+          [slidesPerView]="'auto'"
+          [spaceBetween]="16"
+          [initialSlide]="0"
+          [freeMode]="true"
+          [breakpoints]="{
+            '930': {
+                slidesPerView: 'auto',
+                initialSlide: 0
+            }
+          }"
+        >
+        <ng-template swiperSlide>
+          <img class="categoria-card-body-img" [src]="dataCard[0].src">
+          <div class="categoria-image-filter"></div>
+          <div class="categoria-card-body-cont-txt">
+              {{dataCard[0].name}}
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <img class="categoria-card-body-img" [src]="dataCard[1].src">
+          <div class="categoria-image-filter"></div>
+          <div class="categoria-card-body-cont-txt">
+              <span class="categoria-card-body-txt">{{dataCard[1].name}}</span>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <img class="categoria-card-body-img" [src]="dataCard[2].src">
+          <div class="categoria-image-filter"></div>
+          <div class="categoria-card-body-cont-txt">
+              <span class="categoria-card-body-txt">{{dataCard[2].name}}</span>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <img class="categoria-card-body-img" [src]="dataCard[3].src">
+          <div class="categoria-image-filter"></div>
+          <div class="categoria-card-body-cont-txt">
+              <span class="categoria-card-body-txt">{{dataCard[3].name}}</span>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <img class="categoria-card-body-img" [src]="dataCard[4].src">
+          <div class="categoria-image-filter"></div>
+          <div class="categoria-card-body-cont-txt">
+              <span class="categoria-card-body-txt">{{dataCard[4].name}}</span>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <img class="categoria-card-body-img" [src]="dataCard[5].src">
+          <div class="categoria-image-filter"></div>
+          <div class="categoria-card-body-cont-txt">
+              <span class="categoria-card-body-txt">{{dataCard[5].name}}</span>
+          </div>
+        </ng-template>
+    </swiper>
+</div>
 
 <div class="tags-categoria">
-    <div class="categoria-filter mt-3">
-        <label class="filter-chip" *ngIf="filterLugar">
-            {{filterLugar.name}}
-            <mat-icon svgIcon="close"></mat-icon>
-        </label>
-        <label class="filter-chip" *ngIf="filterLugar">
-            {{filterLugar.name}}
-            <mat-icon svgIcon="close"></mat-icon>
-        </label>
-        <label class="filter-chip" *ngIf="filterLugar">
-            {{filterLugar.name}}
-            <mat-icon svgIcon="close"></mat-icon>
-        </label>
-        <label class="filter-chip" *ngIf="filterLugar">
-            {{filterLugar.name}}
-            <mat-icon svgIcon="close"></mat-icon>
-        </label>
+    <label class="filter-chip" *ngIf="filterLugar">
+        {{filterLugar.name}}
+        <mat-icon>close</mat-icon>
+    </label>
+    <label class="filter-chip" *ngIf="filterLugar">
+        {{filterLugar.name}}
+        <mat-icon>close</mat-icon>
+    </label>
+    <label class="filter-chip" *ngIf="filterLugar">
+        {{filterLugar.name}}
+        <mat-icon>close</mat-icon>
+    </label>
+</div>
+
+<div class="places-list">
+    <div class="places-list-container">
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+        <app-place-card></app-place-card>
+    </div>
+
+    <div class="control-buttons-container">
+      <button mat-button type="button">
+        <mat-icon>chevron_left</mat-icon>
+        Página previa
+      </button>
+
+      <button mat-button type="button">
+        <mat-icon>chevron_right</mat-icon>
+        Siguiente página
+      </button>
     </div>
 </div>
 
-<div class="options">
-    <div class="list-options">
-        <card-categoria></card-categoria>
-        <card-categoria></card-categoria>
-        <card-categoria></card-categoria>
-        <card-categoria></card-categoria>
-        <card-categoria></card-categoria>
-        <card-categoria></card-categoria>
-        <card-categoria></card-categoria>
-        <card-categoria></card-categoria>
-        <card-categoria></card-categoria>
-    </div>
-</div>
+<app-event-banner></app-event-banner>
