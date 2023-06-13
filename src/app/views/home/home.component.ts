@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interface';
 
 @Component({
   selector: 'app-home',
@@ -11,10 +12,19 @@ import { ActivatedRoute } from '@angular/router';
 export class HomeComponent implements OnInit {
 
   public contactForm: FormGroup;
+  public categories: dataCardCategoria[] = [
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+  ];
 
   constructor(
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
+    private router: Router,
   ){
 
 
@@ -47,6 +57,10 @@ export class HomeComponent implements OnInit {
       }
 
     });
+  }
+
+  public navigateToCatalogWithCategory(category: dataCardCategoria) {
+    this.router.navigate(['/catalogo'], { queryParams: { category: category.name } });
   }
 
 }

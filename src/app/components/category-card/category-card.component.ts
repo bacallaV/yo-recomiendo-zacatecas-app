@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interface';
 
 @Component({
@@ -9,4 +9,9 @@ import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interf
 export class CategoryCardComponent {
   @Input() category!: dataCardCategoria;
   @Input() isFilterActive: boolean = false;
+  @Output() onClick: EventEmitter<void> = new EventEmitter();
+
+  public onClickedCategory() {
+    this.onClick.emit();
+  }
 }

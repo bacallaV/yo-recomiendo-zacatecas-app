@@ -94,6 +94,33 @@ section.search-section {
   }
 }
 
+section.main-categories-section {
+  .carousel-container {
+    width: 100%;
+
+    > swiper {
+      width: 100%;
+
+      .swiper-slide:first-child {
+        margin-left: 16px;
+      }
+      .swiper-slide:last-child {
+        margin-right: 16px;
+      }
+
+      .swiper-slide {
+        width: 308px;
+        height: 176px;
+
+        @include bp-md {
+          width: 228px;
+          height: 160px;
+        }
+      }
+    }
+  }
+}
+
 section.promotions-section {
   > app-promotions-banner {
     width: 100%;

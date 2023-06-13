@@ -19,7 +19,22 @@
   </div>
 
   <div class="carousel-container">
-    a
+    <swiper
+      [slidesPerView]="'auto'"
+      [centeredSlides]="true"
+      [spaceBetween]="16"
+      [initialSlide]="1"
+      [breakpoints]="{
+        '930': {
+            initialSlide: 1
+        }
+      }"
+    >
+
+        <ng-template swiperSlide *ngFor="let category of categories">
+          <app-category-card [category]="category" (onClick)="navigateToCatalogWithCategory(category)"></app-category-card>
+        </ng-template>
+    </swiper>
   </div>
 
   <button routerLink="/catalogo" class="main-yrz-button">Ir al catálogo</button>
@@ -46,7 +61,7 @@
       [initialSlide]="1"
       [breakpoints]="{
         '930': {
-          initialSlide: 2
+          initialSlide: 1
         }
       }"
     >

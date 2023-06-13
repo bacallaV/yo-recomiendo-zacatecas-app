@@ -43,8 +43,8 @@
       }"
     >
 
-        <ng-template swiperSlide *ngFor="let dc of dataCard">
-          <app-category-card [category]="dc" [isFilterActive]="true"></app-category-card>
+        <ng-template swiperSlide *ngFor="let category of categories">
+          <app-category-card [category]="category" [isFilterActive]="true" (onClick)="addCategoryFilterToRoute(category)"></app-category-card>
         </ng-template>
     </swiper>
 </div>
