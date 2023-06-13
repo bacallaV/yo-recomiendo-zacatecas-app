@@ -36,6 +36,7 @@ import { EventsListComponent } from './views/events-list/events-list.component';
 import { PlaceDetailComponent } from './views/place-detail/place-detail.component';
 import { ImagesInDetailComponent } from './components/images-in-detail/images-in-detail.component';
 import { PlaceCardComponent } from './components/place-card/place-card.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -58,6 +59,7 @@ export function playerFactory() {
     ImagesInDetailComponent,
     AppLayoutComponent,
     PlaceCardComponent,
+    CategoryCardComponent,
   ],
   imports: [
     BrowserModule,

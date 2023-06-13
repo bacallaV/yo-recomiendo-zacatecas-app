@@ -31,58 +31,20 @@
 
 <div class="categories">
     <swiper
-          [slidesPerView]="'auto'"
-          [spaceBetween]="16"
-          [initialSlide]="0"
-          [freeMode]="true"
-          [breakpoints]="{
-            '930': {
-                slidesPerView: 'auto',
-                initialSlide: 0
-            }
-          }"
-        >
-        <ng-template swiperSlide>
-          <img class="categoria-card-body-img" [src]="dataCard[0].src">
-          <div class="categoria-image-filter"></div>
-          <div class="categoria-card-body-cont-txt">
-              {{dataCard[0].name}}
-          </div>
-        </ng-template>
-        <ng-template swiperSlide>
-          <img class="categoria-card-body-img" [src]="dataCard[1].src">
-          <div class="categoria-image-filter"></div>
-          <div class="categoria-card-body-cont-txt">
-              <span class="categoria-card-body-txt">{{dataCard[1].name}}</span>
-          </div>
-        </ng-template>
-        <ng-template swiperSlide>
-          <img class="categoria-card-body-img" [src]="dataCard[2].src">
-          <div class="categoria-image-filter"></div>
-          <div class="categoria-card-body-cont-txt">
-              <span class="categoria-card-body-txt">{{dataCard[2].name}}</span>
-          </div>
-        </ng-template>
-        <ng-template swiperSlide>
-          <img class="categoria-card-body-img" [src]="dataCard[3].src">
-          <div class="categoria-image-filter"></div>
-          <div class="categoria-card-body-cont-txt">
-              <span class="categoria-card-body-txt">{{dataCard[3].name}}</span>
-          </div>
-        </ng-template>
-        <ng-template swiperSlide>
-          <img class="categoria-card-body-img" [src]="dataCard[4].src">
-          <div class="categoria-image-filter"></div>
-          <div class="categoria-card-body-cont-txt">
-              <span class="categoria-card-body-txt">{{dataCard[4].name}}</span>
-          </div>
-        </ng-template>
-        <ng-template swiperSlide>
-          <img class="categoria-card-body-img" [src]="dataCard[5].src">
-          <div class="categoria-image-filter"></div>
-          <div class="categoria-card-body-cont-txt">
-              <span class="categoria-card-body-txt">{{dataCard[5].name}}</span>
-          </div>
+      [slidesPerView]="'auto'"
+      [spaceBetween]="16"
+      [initialSlide]="0"
+      [freeMode]="true"
+      [breakpoints]="{
+        '930': {
+            slidesPerView: 'auto',
+            initialSlide: 0
+        }
+      }"
+    >
+
+        <ng-template swiperSlide *ngFor="let dc of dataCard">
+          <app-category-card [category]="dc" [isFilterActive]="true"></app-category-card>
         </ng-template>
     </swiper>
 </div>

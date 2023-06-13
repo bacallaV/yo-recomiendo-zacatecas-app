@@ -10,13 +10,13 @@ import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interf
 })
 export class CatalogoComponent implements OnInit {
 
-  public dataCard : any[] = [
-    { id: 0, name: 'Entretenimiento', src: './assets/images/turismo.jpeg'},
-    { id: 0, name: 'Concierto', src: './assets/images/concierto.jpg'},
-    { id: 0, name: 'Entretenimiento', src: './assets/images/turismo.jpeg'},
-    { id: 0, name: 'Concierto', src: './assets/images/concierto.jpg'},
-    { id: 0, name: 'Entretenimiento', src: './assets/images/turismo.jpeg'},
-    { id: 0, name: 'Concierto', src: './assets/images/concierto.jpg'},
+  public dataCard : dataCardCategoria[] = [
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
   ]
   // Buscador
   public word: FormControl = new FormControl('');
