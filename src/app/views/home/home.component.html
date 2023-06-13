@@ -39,7 +39,41 @@
   </div>
 
   <div class="carousel-container">
-    a
+    <swiper
+      [slidesPerView]="'auto'"
+      [centeredSlides]="true"
+      [spaceBetween]="16"
+      [initialSlide]="1"
+      [breakpoints]="{
+        '930': {
+          initialSlide: 2
+        }
+      }"
+    >
+      <ng-template swiperSlide>
+        <app-place-card></app-place-card>
+      </ng-template>
+
+      <ng-template swiperSlide>
+        <app-place-card></app-place-card>
+      </ng-template>
+
+      <ng-template swiperSlide>
+        <app-place-card></app-place-card>
+      </ng-template>
+
+      <ng-template swiperSlide>
+        <app-place-card></app-place-card>
+      </ng-template>
+
+      <ng-template swiperSlide>
+        <app-place-card></app-place-card>
+      </ng-template>
+
+      <ng-template swiperSlide>
+        <app-place-card></app-place-card>
+      </ng-template>
+    </swiper>
   </div>
 
   <button routerLink="/catalogo" class="main-yrz-button">Ir al catálogo</button>

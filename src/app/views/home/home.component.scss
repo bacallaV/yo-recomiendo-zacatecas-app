@@ -1,5 +1,6 @@
 @import '/src/ui/custom/src/variables';
 @import '/src/ui/custom/src/main';
+@import '/src/ui/custom/src/mixins.scss';
 
 @import "swiper/swiper";
 @import "swiper/components/pagination/pagination";
@@ -96,6 +97,28 @@ section.search-section {
 section.promotions-section {
   > app-promotions-banner {
     width: 100%;
+  }
+}
+
+section.highlights-section {
+  .carousel-container {
+    width: 100%;
+    margin-bottom: -32px;
+
+    > swiper {
+      width: 100%;
+      padding-bottom: 32px;
+
+      .swiper-slide {
+        width: 308px;
+        height: 176px;
+
+        @include bp-md {
+          width: 228px;
+          height: 160px;
+        }
+      }
+    }
   }
 }
 

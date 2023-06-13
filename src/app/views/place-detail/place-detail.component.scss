@@ -1,5 +1,5 @@
-@import './../../../ui/custom/src/_variables.scss';
-@import './../../../ui/custom/src/main.scss';
+@import '/src/ui/custom/src/_variables.scss';
+@import '/src/ui/custom/src/main.scss';
 @import "/src/ui/custom/src/mixins.scss";
 
 @import "swiper/swiper";
@@ -69,7 +69,14 @@ button.reverse-button {
   }
 }
 
-section:not(.promotions-section) {
+section.header,
+section.photographs,
+section.place-information,
+section.links,
+section.services,
+section.location,
+section.social-media,
+section.labels {
   margin: 0 16px 24px;
 }
 
@@ -391,7 +398,14 @@ div.control-buttons-container {
     }
   }
 
-  section:not(.promotions-section),
+  section.header,
+  section.photographs,
+  section.place-information,
+  section.links,
+  section.services,
+  section.location,
+  section.social-media,
+  section.labels,
   hr {
     width: 85%;
     max-width: 958px;
