@@ -38,7 +38,7 @@ export class HomeComponent implements OnInit {
   public buildForm() {
     return this.formBuilder.group({
       name:     [ '', [Validators.required] ],
-      phone:    [ '', [Validators.required, Validators.minLength(10), Validators.maxLength(10)] ],
+      phone:    [ '', [Validators.required] ],
       email:    [ '', [Validators.required, Validators.email] ],
       opinion:  [ '', [Validators.required] ],
     });
@@ -49,10 +49,10 @@ export class HomeComponent implements OnInit {
       const viewValue = params.get('view');
 
       if( viewValue ) {
-        const element = document.getElementsByClassName('contact-form');
+        const element = document.getElementById('contact-form__form');
 
-        if( element && element.length > 0 ) {
-          setTimeout( () => element[0]!.scrollIntoView({ behavior: 'smooth', block: 'center' }), 750 );
+        if( element ) {
+          setTimeout( () => element.scrollIntoView({ behavior: 'smooth', block: 'center' }), 750 );
         }
       }
 

@@ -156,22 +156,16 @@
     </div>
   </div>
 
-  <form action="#" [formGroup]="contactForm">
+  <form action="#" [formGroup]="contactForm" id="contact-form__form">
     <mat-form-field>
       <mat-label>Nombre</mat-label>
       <input matInput type="text" formControlName="name" name="name" id="name">
-      <mat-error *ngIf="contactForm.get('name')!.hasError('required')">
-        Campo <strong>requerido</strong>
-      </mat-error>
     </mat-form-field>
 
     <div class="row">
       <mat-form-field>
         <mat-label>Teléfono</mat-label>
         <input matInput type="tel" formControlName="phone" name="phone" id="phone">
-        <mat-error *ngIf="contactForm.get('phone')!.hasError('required')">
-          Campo <strong>requerido</strong>
-        </mat-error>
         <mat-error *ngIf="contactForm.get('phone')!.hasError('minlength') || contactForm.get('phone')!.hasError('maxlength')">
           Deben ser 10 dígitos (Ej. 1234567890)
         </mat-error>
@@ -183,19 +177,14 @@
         <mat-error *ngIf="contactForm.get('email')!.hasError('email') && !contactForm.get('email')!.hasError('required')">
           Formato inválido
         </mat-error>
-        <mat-error *ngIf="contactForm.get('email')!.hasError('required')">
-          Campo <strong>requerido</strong>
-        </mat-error>
       </mat-form-field>
     </div>
 
     <mat-form-field>
-      <mat-label>Déjanos saber</mat-label>
-      <textarea matInput formControlName="opinion" name="opinion" id="opinion" cols="30" rows="10"></textarea>
-      <mat-error *ngIf="contactForm.get('opinion')!.hasError('required')">
-        Campo <strong>requerido</strong>
-      </mat-error>
+      <mat-label>Déjanos saber más</mat-label>
+      <textarea matInput formControlName="opinion" name="opinion" id="opinion"></textarea>
     </mat-form-field>
+
     <button class="main-yrz-button" type="submit">Enviar</button>
   </form>
 </section>
