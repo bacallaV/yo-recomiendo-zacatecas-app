@@ -4,24 +4,24 @@
       <img src="./../../../assets/images/logo.png" alt="logo">
     </a>
 
-    <ul class="menu-options">
+    <ul class="menu-options__first">
       <li><a routerLink="/home">Home</a></li>
 
       <li><a routerLink="/eventos">Eventos</a></li>
 
-      <li><a routerLink="/catalogo">Entretenimiento</a></li>
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Entretenimiento'}">Entretenimiento</a></li>
 
-      <li><a routerLink="/catalogo">Restaurantes</a></li>
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Restaurantes'}">Restaurantes</a></li>
     </ul>
 
-    <ul class="categories">
-      <li><a routerLink="/catalogo">Turismo</a></li>
+    <ul class="menu-options__second">
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Turismo'}">Turismo</a></li>
 
-      <li><a routerLink="/catalogo">Hoteles</a></li>
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Hoteles'}">Hoteles</a></li>
 
-      <li><a routerLink="/catalogo">Eventos</a></li>
+      <li><a routerLink="/eventos">Eventos</a></li>
 
-      <li><a routerLink="/catalogo">Generales</a></li>
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Generales'}">Generales</a></li>
     </ul>
   </div>
 
