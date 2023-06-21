@@ -85,7 +85,12 @@ section.header {
   flex-direction: column;
   gap: 32px;
 
-  margin: 32px inherit 44px;
+  margin-top: 32px;
+  margin-bottom: 44px;
+
+  @include bp-md {
+    margin-bottom: 20px;
+  }
 
   > div.main-info {
     margin-left: 12px;

@@ -1,5 +1,6 @@
 @import './../../../ui/custom/src/_variables.scss';
 @import './../../../ui/custom/src/main.scss';
+@import '/src/ui/custom/src/mixins.scss';
 
 section.header {
   display: flex;
@@ -15,6 +16,10 @@ section.header {
     border-bottom: 1px solid $colorPrimaryYellow;
 
     color: #5A5959;
+  }
+
+  @include bp-md {
+    margin-top: 24px;
   }
 }
 
