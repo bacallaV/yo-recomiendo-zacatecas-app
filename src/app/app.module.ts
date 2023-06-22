@@ -34,6 +34,10 @@ import { EventDetailComponent } from './views/event-detail/event-detail.componen
 import { EventsListComponent } from './views/events-list/events-list.component';
 import { PlaceDetailComponent } from './views/place-detail/place-detail.component';
 import { ImagesInDetailComponent } from './components/images-in-detail/images-in-detail.component';
+/* Firebase */
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -74,6 +78,8 @@ export function playerFactory() {
     MatInputModule,
     SwiperModule,
     MatDialogModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -49,3 +49,11 @@ package-lock.json
 
 # Miscellaneous
 /.angular/cache
+
+# Firebase
+.firebase
+*-debug.log
+.runtimeconfig.json
+
+#enviroments
+/src/environments
