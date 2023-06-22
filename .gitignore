@@ -49,3 +49,4 @@ package-lock.json
 
 # Miscellaneous
 /.angular/cache
+/src/app/environments

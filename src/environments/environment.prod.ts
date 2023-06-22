@@ -4,6 +4,6 @@ export const environment = {
   urlPHP: 'http://dev.digitalthinkers.net',
 
   // Social media
-  facebookUrl:  'https://www.facebook.com/YoRecomiendoZacatecas',
-  instagramUrl: 'https://www.instagram.com/yorecomiendozacatecas',
+  URL_FACEBOOK:  'https://www.facebook.com/YoRecomiendoZacatecas',
+  URL_INSTAGRAM: 'https://www.instagram.com/yorecomiendozacatecas',
 };

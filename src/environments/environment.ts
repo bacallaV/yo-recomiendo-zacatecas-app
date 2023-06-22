@@ -8,8 +8,8 @@ export const environment = {
   urlPHP: 'http://localhost/api-hydra',
 
   // Social media
-  facebookUrl:  'https://www.facebook.com/YoRecomiendoZacatecas',
-  instagramUrl: 'https://www.instagram.com/yorecomiendozacatecas',
+  URL_FACEBOOK:  'https://www.facebook.com/YoRecomiendoZacatecas',
+  URL_INSTAGRAM: 'https://www.instagram.com/yorecomiendozacatecas',
 };
 
 /*

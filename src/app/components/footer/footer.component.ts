@@ -8,6 +8,6 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent {
-  public facebookUrl = environment.facebookUrl;
-  public instagramUrl = environment.instagramUrl;
+  public facebookUrl = environment.URL_FACEBOOK;
+  public instagramUrl = environment.URL_INSTAGRAM;
 }

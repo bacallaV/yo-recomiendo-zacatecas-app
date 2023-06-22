@@ -20,8 +20,8 @@ SwiperCore.use([
 })
 export class AppLayoutComponent {
 
-  public facebookUrl = environment.facebookUrl;
-  public instagramUrl = environment.instagramUrl;
+  public facebookUrl = environment.URL_FACEBOOK;
+  public instagramUrl = environment.URL_INSTAGRAM;
 
   constructor(
     private domSanitizer: DomSanitizer,
