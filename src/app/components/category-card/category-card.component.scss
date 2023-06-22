@@ -1,0 +1,63 @@
+@import '/src/ui/custom/src/mixins.scss';
+
+.category-container {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+
+  .categoria-card-body-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .categoria-image-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: inherit;
+    height: inherit;
+
+    border-radius: 16px;
+
+    background: linear-gradient(0deg, rgba(251, 178, 74, 0.3),rgba(251, 178, 74, 0.3)),
+    linear-gradient(360deg, rgba(34, 34, 34, 0.8) 0%, rgba(34, 34, 34, 0) 37.14%);
+  }
+
+  .categoria-card-body-cont-txt{
+    position: absolute;
+    bottom: 4px;
+    right: 8px;
+
+    font-family: 'Montserrat';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 17px;
+    text-align: right;
+    color: white;
+
+    @include bp-xs {
+      &.filter-mobile {
+        font-family: 'Jost';
+        font-size: 12px;
+      }
+    }
+
+    @include bp-sm {
+      &.filter-mobile {
+        font-family: 'Montserrat';
+        font-size: 14px;
+      }
+    }
+
+    @include  bp-lg {
+      font-size: 14px;
+    }
+  }
+}

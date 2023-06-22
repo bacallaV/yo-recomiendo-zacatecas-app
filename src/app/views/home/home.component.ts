@@ -1,16 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-
-import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper/core";
-
-// install Swiper modules
-SwiperCore.use([
-  Pagination,
-  Navigation,
-  Autoplay,
-]);
+import { ActivatedRoute, Router } from '@angular/router';
+import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interface';
 
 @Component({
   selector: 'app-home',
@@ -21,42 +12,55 @@ SwiperCore.use([
 export class HomeComponent implements OnInit {
 
   public contactForm: FormGroup;
+  public categories: dataCardCategoria[] = [
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+  ];
 
   constructor(
-    private domSanitizer: DomSanitizer,
-    private matIconRegistry: MatIconRegistry,
     private formBuilder: FormBuilder,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
   ){
-    this.matIconRegistry.addSvgIcon(
-      `app-menu`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/menu.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `facebook`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/facebook.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `instagram`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/instagram.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `youtube`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/youtube.svg`)
-    );
+
 
     this.contactForm = this.buildForm();
   }
 
   ngOnInit(): void {
+    this.checkForRouteQueryParams();
   }
 
   public buildForm() {
     return this.formBuilder.group({
       name:     [ '', [Validators.required] ],
-      phone:    [ '', [Validators.required, Validators.minLength(10), Validators.maxLength(10)] ],
+      phone:    [ '', [Validators.required] ],
       email:    [ '', [Validators.required, Validators.email] ],
       opinion:  [ '', [Validators.required] ],
     });
+  }
+
+  private checkForRouteQueryParams(): void {
+    this.activatedRoute.queryParamMap.subscribe(params => {
+      const viewValue = params.get('view');
+
+      if( viewValue ) {
+        const element = document.getElementById('contact-form__form');
+
+        if( element ) {
+          setTimeout( () => element.scrollIntoView({ behavior: 'smooth', block: 'center' }), 750 );
+        }
+      }
+
+    });
+  }
+
+  public navigateToCatalogWithCategory(category: dataCardCategoria) {
+    this.router.navigate(['/catalogo'], { queryParams: { category: category.name } });
   }
 
 }

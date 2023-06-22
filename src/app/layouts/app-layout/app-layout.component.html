@@ -1,0 +1,97 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer mode="over">
+    <div class="menu-title-container">
+      <h3>Menú</h3>
+    </div>
+
+    <mat-action-list>
+      <a mat-list-item role="listitem" class="expansion-indent-3" routerLink="/home" routerLinkActive="active">
+        <mat-icon matListItemIcon>home</mat-icon>
+        <span>Home</span>
+      </a>
+
+      <a mat-list-item role="listitem" class="expansion-indent-3" routerLink="/catalogo" routerLinkActive="active">
+        <mat-icon matListItemIcon>view_list</mat-icon>
+        <span>Catálogo</span>
+      </a>
+
+      <a mat-list-item role="listitem" class="expansion-indent-3" routerLink="/eventos" routerLinkActive="active">
+        <mat-icon matListItemIcon>celebration</mat-icon>
+        <span>Eventos</span>
+      </a>
+
+      <a mat-list-item role="listitem" class="expansion-indent-3" routerLink="/home" [queryParams]="{view: 'contact-form'}">
+        <mat-icon matListItemIcon>call</mat-icon>
+        <span>Contacto</span>
+      </a>
+
+      <a mat-list-item role="listitem" class="expansion-indent-3" [href]="facebookUrl">
+        <mat-icon matListItemIcon>facebook</mat-icon>
+        <span>Facebook</span>
+      </a>
+
+      <a mat-list-item role="listitem" class="expansion-indent-3" [href]="instagramUrl">
+        <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
+        <span>Instagram</span>
+      </a>
+    </mat-action-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <nav class="navbar">
+      <mat-toolbar>
+        <a class="navbar-brand" routerLink="/home">
+          <img src="./../../../assets/images/logo.png" class="logo" alt="logo">
+        </a>
+
+        <span class="navbar-spacer"></span>
+
+        <ul class="navbar-desktop-items">
+          <li routerLinkActive="active">
+            <a routerLink="/home">
+              Home
+            </a>
+          </li>
+          <li class="vertical-line"></li>
+          <li class="vertical-line"></li>
+          <li routerLinkActive="active">
+            <a routerLink="/catalogo">
+              Catálogo
+            </a>
+          </li>
+          <li routerLinkActive="active">
+            <a routerLink="/eventos">
+              Eventos
+            </a>
+          </li>
+          <li>
+            <a routerLink="/home" [queryParams]="{view: 'contact-form'}">
+              Contacto
+            </a>
+          </li>
+          <li>
+            <a [href]="facebookUrl">
+              <mat-icon matListItemIcon>facebook</mat-icon>
+            </a>
+          </li>
+          <li>
+            <a [href]="instagramUrl">
+              <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
+            </a>
+          </li>
+        </ul>
+
+        <button mat-icon-button class="navbar-menu-button" aria-label="Menú" (click)="drawer.toggle()">
+          <mat-icon svgIcon="app-menu">menu</mat-icon>
+        </button>
+      </mat-toolbar>
+    </nav>
+
+    <div class="spacer"></div>
+
+    <router-outlet></router-outlet>
+
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

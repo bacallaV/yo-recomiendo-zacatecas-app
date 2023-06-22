@@ -1,138 +1,295 @@
-@import './../../../ui/custom/src/_variables.scss';
-@import './../../../ui/custom/src/main.scss';
+@import '/src/ui/custom/src/variables';
+@import '/src/ui/custom/src/main';
+@import '/src/ui/custom/src/mixins.scss';
 
 @import "swiper/swiper";
 @import "swiper/components/pagination/pagination";
 
-.navbar {
-  position: fixed;
+section.search-section,
+section.main-categories-section,
+section.promotions-section,
+section.highlights-section,
+section.who-we-are,
+section.contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
 
-  width: 100%;
-  height: 58px;
-  padding: 0;
+  margin-bottom: 32px;
 
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.16);
+  @include bp-md {
+    margin-bottom: 40px;
+  }
+}
 
-  z-index: 10;
+.section-title {
+  width: fit-content;
+  padding: 0 32px;
 
-  mat-toolbar {
-    padding: 12px 16px;
-    background-color: #fff;
+  border-bottom: 1px solid #000;
+
+  &.yellow {
+    border-color: $colorPrimaryYellow;
   }
 
-  .navbar-spacer {
-    flex: 1 1 auto;
+  &.pink {
+    border-color: $colorPrimaryPink;
   }
 
-  .logo {
-    width: 140px;
+  &.blue {
+    border-color: $colorPrimaryBlue;
   }
 
-  mat-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  h2 {
+    text-align: center;
+
+    color: #5A5959;
+  }
+}
+
+section.search-section {
+  gap: 18px;
+
+  width: calc(100% - 32px);
+  max-width: 500px;
+  margin: 32px auto 32px;
+  padding: 40px 32px;
+
+  border-radius: 16px;
+
+  background-image: url('https://www.mexicodesconocido.com.mx/wp-content/uploads/2010/07/Catedral-_Plaza-de-armas-scaled.jpg');
+
+  .title {
+    text-align: center;
+
+    & * {
+      color: #fff;
+      text-align: center;
+      font-family: 'Montserrat';
+      font-style: normal;
+    }
+
+    /* TODO: Check if h1 style is needed here or in global style */
+    h1 {
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 49px;
+    }
+
+    p {
+      padding: 4px 0;
+
+      background-color: $colorPrimaryBlue;
+      filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.2));
+
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  .region,
+  .searchbar {
+    height: 32px;
+  }
+
+  .main-yrz-button {
+    width: 100%;
+  }
+}
+
+section.main-categories-section {
+  .carousel-container {
+    width: 100%;
+
+    > swiper {
+      width: 100%;
+
+      .swiper-slide:first-child {
+        margin-left: 16px;
+      }
+      .swiper-slide:last-child {
+        margin-right: 16px;
+      }
+
+      .swiper-slide {
+        width: 308px;
+        height: 176px;
+
+        @include bp-md {
+          width: 228px;
+          height: 160px;
+        }
+      }
+    }
+  }
+}
+
+section.promotions-section {
+  > app-promotions-banner {
+    width: 100%;
+  }
+}
+
+section.highlights-section {
+  .carousel-container {
+    width: 100%;
+    margin-bottom: -32px;
+
+    > swiper {
+      width: 100%;
+      padding-bottom: 32px;
+
+      .swiper-slide {
+        width: 308px;
+        height: 176px;
+
+        @include bp-md {
+          width: 228px;
+          height: 160px;
+        }
+      }
+    }
+  }
+}
+
+section.who-we-are {
+  padding: 40px 16px;
+  background-color: $colorPrimaryBlueLighter;
+
+  p {
+    text-align: center;
 
     color: #5A5959;
   }
 
-  .navbar-desktop-items {
-    display: none;
-  }
-}
+  .carousel-container {
+    height: fit-content;
 
-.sidenav-container mat-sidenav {
-  width: 80%;
-  // padding: 70px 0 0;
+    > swiper {
+      width: 100vw;
+      padding-bottom: 12px;
 
-  .menu-title-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-
-    height: 48px;
-    padding: 24px 0 0 12px;
-  }
-
-  mat-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .active, .active *   {
-    color: $colorPrimaryBlue;
-  }
-}
-
-mat-sidenav-content {
-  .spacer {
-    height: calc(58px + 24px);
-  }
-
-  .section-title {
-    width: fit-content;
-    padding: 0 32px;
-
-    border-bottom: 1px solid #000;
-
-    &.yellow {
-      border-color: $colorPrimaryYellow;
+      .swiper-slide {
+        width: 276px;
+        height: 102px;
+      }
     }
 
-    &.pink {
-      border-color: $colorPrimaryPink;
-    }
+    // This is inside swiper-slide
+    .who-we-are__card {
+      cursor: default;
 
-    &.blue {
-      border-color: $colorPrimaryBlue;
-    }
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 4px;
 
-    h2 {
-      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 8px;
 
-      color: #5A5959;
-    }
-  }
+      background: #FFFFFF;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 8px;
 
-  > section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-
-    margin-bottom: 32px;
-  }
-
-  .search-section {
-    gap: 18px;
-
-    width: calc(100% - 32px);
-    max-width: 500px;
-    margin: auto;
-    padding: 40px 32px;
-    margin-bottom: 32px;
-
-    border-radius: 16px;
-
-    background-image: url('https://www.mexicodesconocido.com.mx/wp-content/uploads/2010/07/Catedral-_Plaza-de-armas-scaled.jpg');
-
-    .title {
-      text-align: center;
-
-      & * {
-        color: #fff;
-        text-align: center;
-        font-family: 'Montserrat';
-        font-style: normal;
+      > mat-icon.who-we-are__card--icon-first {
+        color: $colorPrimaryYellow;
+      }
+      > mat-icon.who-we-are__card--icon-second {
+        color: $colorPrimaryPink;
+      }
+      > mat-icon.who-we-are__card--icon-third {
+        color: $colorPrimaryBlue;
       }
 
-      /* TODO: Check if h1 style is needed here or in global style */
+      > p {
+        margin: 0;
+        color: #5A5959;
+      }
+
+      &:hover {
+        background-color: $colorPrimaryBlue;
+
+        > p {
+          color: #fff;
+        }
+        > mat-icon.who-we-are__card--icon-third {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+section.contact-form {
+  gap: 0;
+
+  background-color: $colorPrimaryBlueLighter;
+
+  .contact-form-header {
+    /* TODO: Background should be an img */
+    background-image: url('https://i.pinimg.com/originals/f9/19/57/f919575dbde4988a68753dc360ef5526.jpg');
+
+    .contact-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+
+      margin: 51px 24px;
+      padding: 32px 26px;
+
+      background: rgba(255, 255, 255, 0.75);
+      border-radius: 16px;
+
+      text-align: center;
+
+      p {
+        text-align: left;
+        color: #5A5959;
+      }
+    }
+
+  }
+
+  > form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    width: 100%;
+    padding: 24px 16px;
+
+    font-size: 14px;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: 8px;
+
+      mat-form-field {
+        width: calc(50% - 4px);
+      }
+    }
+  }
+}
+
+/* End Tablet, Begin Laptop */
+@media screen and (min-width: 768px) {
+  section.search-section {
+    width: calc(100% - 48px);
+    max-width: none;
+    margin-bottom: 40px;
+
+    .title {
       h1 {
-        font-weight: 700;
-        font-size: 40px;
-        line-height: 49px;
+        font-size: 58px;
+        line-height: 71px;
       }
 
       p {
@@ -141,277 +298,49 @@ mat-sidenav-content {
         background-color: $colorPrimaryBlue;
         filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.2));
 
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 17px;
+        font-size: 16px;
+        line-height: 20px;
       }
-    }
-
-    .region,
-    .searchbar {
-      height: 32px;
     }
 
     .main-yrz-button {
-      width: 100%;
+      width: auto;
     }
   }
 
-  .promotions-section {
-    > app-promotions-banner {
-      width: 100%;
+  section.who-we-are {
+    > p {
+      width: 80%;
+      max-width: 1200px;
+
+      text-align: left;
     }
   }
 
-  .who-we-are {
-    padding: 40px 16px;
-    background-color: $colorPrimaryBlueLighter;
+  section.contact-form {
+    flex-direction: row;
 
-    p {
-      text-align: center;
-
-      color: #5A5959;
-    }
-
-    .carousel-container {
-      height: fit-content;
-
-      > swiper {
-        width: 100vw;
-        padding-bottom: 12px;
-
-        .swiper-slide {
-          width: 276px;
-          height: 102px;
-        }
-      }
-
-      // This is inside swiper-slide
-      .who-we-are__card {
-        cursor: default;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        gap: 4px;
-
-        width: 100%;
-        height: 100%;
-        padding: 8px;
-
-        background: #FFFFFF;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        border-radius: 8px;
-
-        > mat-icon.who-we-are__card--icon-first {
-          color: $colorPrimaryYellow;
-        }
-        > mat-icon.who-we-are__card--icon-second {
-          color: $colorPrimaryPink;
-        }
-        > mat-icon.who-we-are__card--icon-third {
-          color: $colorPrimaryBlue;
-        }
-
-        > p {
-          margin: 0;
-          color: #5A5959;
-        }
-
-        &:hover {
-          background-color: $colorPrimaryBlue;
-
-          > p {
-            color: #fff;
-          }
-          > mat-icon.who-we-are__card--icon-third {
-            color: #fff;
-          }
-        }
-      }
-    }
-  }
-
-  .contact-form {
-    gap: 0;
-
-    background-color: $colorPrimaryBlueLighter;
+    height: 352px;
 
     .contact-form-header {
-      /* TODO: Background should be an img */
-      background-image: url('https://i.pinimg.com/originals/f9/19/57/f919575dbde4988a68753dc360ef5526.jpg');
+      display: grid;
+      justify-items: center;
+      align-items: center;
+
+      width: 50%;
+      height: 100%;
 
       .contact-title {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-
-        margin: 51px 24px;
-        padding: 32px 26px;
-
-        background: rgba(255, 255, 255, 0.75);
-        border-radius: 16px;
-
-        text-align: center;
-
-        p {
-          text-align: left;
-          color: #5A5959;
-        }
+        width: 85%;
+        min-width: 332px;
+        max-width: 612px;
+        margin: 0;
       }
 
     }
 
     > form {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-
-      width: 100%;
-      padding: 24px 16px;
-
-      font-size: 14px;
-
-      .row {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        gap: 24px;
-
-        mat-form-field {
-          width: calc(50% - 12px);
-        }
-      }
-    }
-  }
-
-}
-
-/* End Tablet, Begin Laptop */
-@media screen and (min-width: 768px) {
-  .navbar {
-    mat-toolbar {
-      padding: 12px 24px;
-      background-color: #fff;
-    }
-
-    .navbar-menu-button{
-      display: none;
-    }
-
-    .navbar-desktop-items {
-      display: flex;
-      flex-direction: row;
-
-      margin: 0;
-      padding: 0 4px;
-
-      list-style: none;
-
-      li {
-        margin-right: 16px;
-
-        font-family: 'Montserrat';
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        color: #5A5959;
-
-
-        a {
-          transition: all 150ms ease-in-out;
-        }
-
-        a:hover * {
-          color: $colorPrimaryBlue;
-          filter: invert(45%) sepia(93%) saturate(1965%) hue-rotate(167deg)
-            brightness(90%) contrast(101%);
-        }
-      }
-
-      li.vertical-line {
-        border: 1px solid #D9D9D9;
-      }
-
-      li.active {
-        border-bottom: 2px solid $colorPrimaryBlue;
-      }
-
-      li:last-child {
-        margin-right: 0px;
-      }
-    }
-  }
-
-  mat-sidenav-content {
-    > section {
-      margin-bottom: 40px;
-    }
-
-    .search-section {
-      width: calc(100% - 48px);
-      max-width: none;
-
-      .title {
-        h1 {
-          font-size: 58px;
-          line-height: 71px;
-        }
-
-        p {
-          padding: 4px 0;
-
-          background-color: $colorPrimaryBlue;
-          filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.2));
-
-          font-size: 16px;
-          line-height: 20px;
-        }
-      }
-
-      .main-yrz-button {
-        width: auto;
-      }
-    }
-
-    .who-we-are {
-      > p {
-        width: 80%;
-        max-width: 1200px;
-
-        text-align: left;
-      }
-    }
-
-    .contact-form {
-      flex-direction: row;
-
-      height: 320px;
-
-      .contact-form-header {
-        display: grid;
-        justify-items: center;
-        align-items: center;
-
-        width: 50%;
-        height: 100%;
-
-        .contact-title {
-          width: 85%;
-          min-width: 332px;
-          max-width: 612px;
-          margin: 0;
-        }
-
-      }
-
-      > form {
-        width: 50%;
-        padding: 24px 0px;
-      }
+      width: 50%;
     }
   }
 }

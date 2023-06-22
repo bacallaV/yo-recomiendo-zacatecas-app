@@ -14,7 +14,11 @@ export const environment = {
   },
   production: false,
   urlApi: 'http://localhost:3000/api/v1',
-  urlPHP: 'http://localhost/api-hydra'
+  urlPHP: 'http://localhost/api-hydra',
+
+  // Social media
+  URL_FACEBOOK:  'https://www.facebook.com/YoRecomiendoZacatecas',
+  URL_INSTAGRAM: 'https://www.instagram.com/yorecomiendozacatecas',
 };
 
 /*

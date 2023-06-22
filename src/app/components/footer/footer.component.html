@@ -1,27 +1,27 @@
 <div class="footer">
   <div class="footer-top">
-    <a class="logo" href="#">
+    <a class="logo" routerLink="/home">
       <img src="./../../../assets/images/logo.png" alt="logo">
     </a>
 
-    <ul class="menu-options">
-      <li><a href="#">Home</a></li>
+    <ul class="menu-options__first">
+      <li><a routerLink="/home">Home</a></li>
 
-      <li><a href="#">Eventos</a></li>
+      <li><a routerLink="/eventos">Eventos</a></li>
 
-      <li><a href="#">Entretenimiento</a></li>
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Entretenimiento'}">Entretenimiento</a></li>
 
-      <li><a href="#">Restaurantes</a></li>
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Restaurantes'}">Restaurantes</a></li>
     </ul>
 
-    <ul class="categories">
-      <li><a href="#">Turismo</a></li>
+    <ul class="menu-options__second">
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Turismo'}">Turismo</a></li>
 
-      <li><a href="#">Hoteles</a></li>
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Hoteles'}">Hoteles</a></li>
 
-      <li><a href="#">Eventos</a></li>
+      <li><a routerLink="/eventos">Eventos</a></li>
 
-      <li><a href="#">Generales</a></li>
+      <li><a routerLink="/catalogo" [queryParams]="{category: 'Generales'}">Generales</a></li>
     </ul>
   </div>
 
@@ -33,14 +33,11 @@
     </div>
 
     <div class="social-media">
-      <a href="#">
+      <a [href]="facebookUrl">
         <mat-icon matListItemIcon>facebook</mat-icon>
       </a>
-      <a href="#">
+      <a [href]="instagramUrl">
         <mat-icon matListItemIcon svgIcon="instagram"></mat-icon>
-      </a>
-      <a href="#">
-        <mat-icon matListItemIcon svgIcon="youtube"></mat-icon>
       </a>
     </div>
   </div>

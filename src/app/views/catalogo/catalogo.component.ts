@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interface';
 
 @Component({
@@ -10,13 +11,13 @@ import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interf
 })
 export class CatalogoComponent implements OnInit {
 
-  public dataCard : any[] = [
-    { id: 0, name: 'Entretenimiento', src: './assets/images/turismo.jpeg'},
-    { id: 0, name: 'Concierto', src: './assets/images/concierto.jpg'},
-    { id: 0, name: 'Entretenimiento', src: './assets/images/turismo.jpeg'},
-    { id: 0, name: 'Concierto', src: './assets/images/concierto.jpg'},
-    { id: 0, name: 'Entretenimiento', src: './assets/images/turismo.jpeg'},
-    { id: 0, name: 'Concierto', src: './assets/images/concierto.jpg'},
+  public categories : dataCardCategoria[] = [
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
+    { name: 'Concierto', img: './assets/images/concierto.jpg'},
   ]
   // Buscador
   public word: FormControl = new FormControl('');
@@ -24,8 +25,17 @@ export class CatalogoComponent implements OnInit {
   //Filtro
   public filterLugar: any;
 
+  constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+  ) {
+
+  }
+
   ngOnInit(): void {
     this.responseFilterLugar('akjskl');
+
+    this.enableFilterAddittionByRoute();
   }
 
   catalogo(){}
@@ -38,6 +48,22 @@ export class CatalogoComponent implements OnInit {
     this.filterLugar = {
       name: 'Pizzas'
     }
+  }
+
+  public addCategoryFilterToRoute(category: dataCardCategoria) {
+    this.router.navigate( [], {
+      relativeTo: this.activatedRoute,
+      queryParams: { category: category.name },
+      // skipLocationChange: true,
+    });
+  }
+
+  public enableFilterAddittionByRoute() {
+    this.activatedRoute.queryParamMap.subscribe((params) => {
+      if (params.get('category')) {
+        this.filterLugar.name = params.get('category');
+      }
+    });
   }
 
 }

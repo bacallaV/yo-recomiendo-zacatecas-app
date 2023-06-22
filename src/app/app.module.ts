@@ -16,13 +16,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import { CatalogoComponent } from './views/catalogo/catalogo.component';
 import { AngularMaterialModule } from './angular-material/angular-material.module';
-import { CardCategoriaComponent } from './components/card-categoria/card-categoria.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 /* Installed modules */
 import { SwiperModule } from 'swiper/angular';
+/* Layouts */
+import { AppLayoutComponent } from './layouts/app-layout/app-layout.component';
 /* Components */
 import { CardContractComponent } from './components/card-contract/card-contract.component';
 import { CardContractImageComponent } from './components/card-contract-image/card-contract-image.component';
@@ -34,6 +35,9 @@ import { EventDetailComponent } from './views/event-detail/event-detail.componen
 import { EventsListComponent } from './views/events-list/events-list.component';
 import { PlaceDetailComponent } from './views/place-detail/place-detail.component';
 import { ImagesInDetailComponent } from './components/images-in-detail/images-in-detail.component';
+import { PlaceCardComponent } from './components/place-card/place-card.component';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 /* Firebase */
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -51,7 +55,6 @@ export function playerFactory() {
     CardContractImageComponent,
     NavbarComponent,
     CatalogoComponent,
-    CardCategoriaComponent,
     FooterComponent,
     EventBannerComponent,
     PromotionsBannerComponent,
@@ -59,6 +62,10 @@ export function playerFactory() {
     EventsListComponent,
     PlaceDetailComponent,
     ImagesInDetailComponent,
+    AppLayoutComponent,
+    PlaceCardComponent,
+    CategoryCardComponent,
+    SearchBarComponent,
   ],
   imports: [
     BrowserModule,
