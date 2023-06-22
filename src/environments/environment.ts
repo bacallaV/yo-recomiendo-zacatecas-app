@@ -3,6 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  firebase: {
+    projectId: 'yo-recomiendo-zac',
+    appId: '1:59338816991:web:749fccfc9f1f6f66db186a',
+    storageBucket: 'yo-recomiendo-zac.appspot.com',
+    apiKey: 'AIzaSyA8E4K0XG7YNNAkXkTX7sgt9t8fExG_nh8',
+    authDomain: 'yo-recomiendo-zac.firebaseapp.com',
+    messagingSenderId: '59338816991',
+    measurementId: 'G-Y2CDG4JJCQ',
+  },
   production: false,
   urlApi: 'http://localhost:3000/api/v1',
   urlPHP: 'http://localhost/api-hydra'

@@ -31,6 +31,9 @@ import { EventBannerComponent } from './components/event-banner/event-banner.com
 import { PromotionsBannerComponent } from './components/promotions-banner/promotions-banner.component';
 import { EventDetailComponent } from './views/event-detail/event-detail.component';
 import { EventsListComponent } from './views/events-list/events-list.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -68,6 +71,8 @@ export function playerFactory() {
     MatFormFieldModule,
     MatInputModule,
     SwiperModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
   ],
   providers: [],
   bootstrap: [AppComponent]
