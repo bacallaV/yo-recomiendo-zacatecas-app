@@ -1,9 +1,9 @@
 <section class="banner-background">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdjGGxeW370-smv3heGTNIuq1PEdz5Sksu4A&usqp=CAU" alt="Evento">
+  <img [src]="eventModel ? eventModel.bannerImgUrl : ''" alt="Imagen del evento">
 
   <div class="information-container">
-    <p class="banner-title paragraph bold">{{ title }}</p>
-    <p class="banner-description paragraph">{{ description }}</p>
-    <button class="main-yrz-button event-button" [routerLink]="['/evento', 1]">Ir al evento</button>
+    <p class="banner-title paragraph bold">{{ eventModel ? eventModel.name : '' }}</p>
+    <p class="banner-description paragraph">{{ eventModel ? eventModel.description : '' }}</p>
+    <button class="main-yrz-button event-button" [routerLink]="eventModel ? ['/evento', eventModel.webId] : '.'">Ir al evento</button>
   </div>
 </section>

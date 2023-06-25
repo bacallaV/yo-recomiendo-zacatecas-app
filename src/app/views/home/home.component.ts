@@ -2,6 +2,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interface';
+/* Models */
+import { EventModel } from 'src/app/models/event.model';
+/* Static */
+import { exampleEventModel } from 'src/app/static/event.static';
 
 @Component({
   selector: 'app-home',
@@ -20,6 +24,7 @@ export class HomeComponent implements OnInit {
     { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
     { name: 'Concierto', img: './assets/images/concierto.jpg'},
   ];
+  public featuredEvent: EventModel = exampleEventModel;
 
   constructor(
     private formBuilder: FormBuilder,

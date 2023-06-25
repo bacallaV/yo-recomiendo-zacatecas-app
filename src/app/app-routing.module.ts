@@ -9,9 +9,9 @@ import { PlaceDetailComponent } from './views/place-detail/place-detail.componen
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'eventos', component: EventsListComponent },
-  { path: 'evento/:id', component: EventDetailComponent },
+  { path: 'evento/:webId', component: EventDetailComponent },
   { path: 'catalogo', component: CatalogoComponent },
-  { path: 'lugar/:id', component: PlaceDetailComponent },
+  { path: 'lugar/:webId', component: PlaceDetailComponent },
   { path: '**', redirectTo: '/home' },
 ];
 

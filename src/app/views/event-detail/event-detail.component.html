@@ -1,5 +1,5 @@
 <section class="media">
-  <img src="https://www.balletfolkloricodemexico.com.mx/wp-content/uploads/2016/11/galeria-ballet-revolucion-4.png" alt="Imagen del evento">
+  <img [src]="eventModel?.bannerImgUrl" alt="Imagen del evento">
 
   <div class="buttons-container">
     <button mat-button type="button">
@@ -17,25 +17,25 @@
 
 <section class="general-information">
   <h2 class="h1">
-    Aniversario fundación de la ciudad
+    {{ eventModel?.name }}
   </h2>
 
   <p class="paragraph">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni voluptatibus consequuntur placeat! Delectus ipsam asperiores animi, qui eius consectetur in mollitia porro cupiditate facere tempora molestiae alias recusandae ratione aliquid.
+    {{ eventModel?.description }}
   </p>
 
   <div class="services-list">
     <div class="services-list-item">
       <mat-icon class="material-symbols-outlined">location_on_outlined</mat-icon>
-      <p class="paragraph">Callejón de la Palma #104 Centro 98000 Zacatecas, ZAC Mexico</p>
+      <p class="paragraph">{{ eventModel?.address }}</p>
     </div>
     <div class="services-list-item">
       <mat-icon class="material-symbols-outlined">payments</mat-icon>
-      <p class="paragraph">$400 - $500 aprox.</p>
+      <p class="paragraph">{{ eventModel?.budget }}</p>
     </div>
     <div class="services-list-item">
       <mat-icon class="material-symbols-outlined">schedule</mat-icon>
-      <p class="paragraph">Lunes a domingo. 13:00- 01:30</p>
+      <p class="paragraph">{{ eventModel?.eventDate | date }}</p>
     </div>
   </div>
 </section>
@@ -45,9 +45,15 @@
 <section class="links">
   <h2 class="h2">Links adicionales</h2>
 
-  <button mat-button type="button" class="blue-no-bg-button">
+  <button
+    mat-button
+    type="button"
+    class="blue-no-bg-button"
+    *ngFor="let additionalLink of eventModel?.additionalLinks"
+    (click)="redirectTo(additionalLink.url)"
+  >
     <mat-icon class="material-symbols-outlined">download</mat-icon>
-    Descargar menú
+    Descargar {{ additionalLink.name }}
   </button>
 </section>
 
@@ -59,39 +65,27 @@
   <p class="services-subtitle">Generales</p>
 
   <div class="services-list">
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">credit_card</mat-icon>
-      <p class="paragraph">Servicios (pago con tarjeta)</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">monetization_on</mat-icon>
-      <p class="paragraph">Facturación</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">directions_car</mat-icon>
-      <p class="paragraph">Servicio para llevar</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">key</mat-icon>
-      <p class="paragraph">Valet parking</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">park</mat-icon>
-      <p class="paragraph">Terraza</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">wifi</mat-icon>
-      <p class="paragraph">Internet</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">wash</mat-icon>
-      <p class="paragraph">Sanitario</p>
+    <div class="services-list-item" *ngFor="let amenity of eventModel?.mainAmenities">
+      <mat-icon class="material-symbols-outlined" [fontIcon]="amenity.icon"></mat-icon>
+      <p class="paragraph">{{ amenity.name }}</p>
     </div>
   </div>
 
-  <button mat-button type="button" class="blue-no-bg-button">
-    Mostrar más
-    <mat-icon class="material-symbols-outlined">chevron_right</mat-icon>
+
+  <p class="services-subtitle" *ngIf="areMoreServicesShown">Otros</p>
+
+  <div class="services-list" *ngIf="areMoreServicesShown">
+    <div class="services-list-item" *ngFor="let amenity of eventModel?.otherAmenities">
+      <mat-icon class="material-symbols-outlined" [fontIcon]="amenity.icon"></mat-icon>
+      <p class="paragraph">{{ amenity.name }}</p>
+    </div>
+  </div>
+
+  <button mat-button type="button" class="blue-no-bg-button reverse-button" (click)="toggleShowMoreServices()">
+    {{ !areMoreServicesShown ? 'Mostrar más' : 'Mostrar menos' }}
+    <mat-icon class="material-symbols-outlined">
+      {{ !areMoreServicesShown ? 'chevron_right' : 'chevron_left' }}
+    </mat-icon>
   </button>
 </section>
 
@@ -102,7 +96,7 @@
 
   <div class="maps-container">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29872.356783642674!2d-103.3724812!3d20.6270389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428adeb005f7d0d%3A0xdfd4201c4afeab9d!2sMariscos%20Alex!5e0!3m2!1ses!2smx!4v1684904579916!5m2!1ses!2smx"
+      [src]="eventModel?.googleMapsUrl"
       width="600"
       height="450"
       style="border:0;"
@@ -119,14 +113,9 @@
   <h2 class="h2">Links sociales</h2>
 
   <div class="buttons-container">
-    <button mat-button type="button">
-      <mat-icon svgIcon="instagram"></mat-icon>
-      reyes.cantinazac
-    </button>
-
-    <button mat-button type="button">
-      <mat-icon>facebook</mat-icon>
-      cantinareyes.zac
+    <button mat-button type="button" *ngFor="let sm of eventModel?.socialMedia" (click)="redirectTo(sm.url)">
+      <mat-icon [svgIcon]="sm.type"></mat-icon>
+      {{ sm.name }}
     </button>
   </div>
 </section>
@@ -134,6 +123,5 @@
 <hr>
 
 <app-event-banner
-  title="Evento 1"
-  description="Encuentra aquí información importante sobre un evento que puede solicitarse"
+  [eventModel]="eventModel"
 ></app-event-banner>
