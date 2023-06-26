@@ -1,9 +1,11 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
-
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+/* Components */
 import { ImagesInDetailComponent } from 'src/app/components/images-in-detail/images-in-detail.component';
+/* Models */
+import { EventModel } from 'src/app/models/event.model';
+/* Static */
+import { exampleEventModel } from 'src/app/static/event.static';
 
 @Component({
   selector: 'app-place-detail',
@@ -18,28 +20,11 @@ export class PlaceDetailComponent implements OnInit {
 
   private imagesDialogProperties = new MatDialogConfig();
 
+  public featuredEvent: EventModel = exampleEventModel;
+
   constructor(
-    private domSanitizer: DomSanitizer,
-    private matIconRegistry: MatIconRegistry,
     private dialog: MatDialog,
   ){
-    this.matIconRegistry.addSvgIcon(
-      `app-menu`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/menu.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `facebook`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/facebook.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `instagram`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/instagram.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `youtube`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/youtube.svg`)
-    );
-
     this.imagesDialogProperties.maxWidth = '90vw';
     this.imagesDialogProperties.panelClass = 'custom-dialog';
   }
