@@ -28,17 +28,16 @@
 </div>
 
 <div class="tags-categoria">
-    <label class="filter-chip" *ngIf="filterLugar">
-        {{filterLugar.name}}
-        <mat-icon>close</mat-icon>
-    </label>
-    <label class="filter-chip" *ngIf="filterLugar">
-        {{filterLugar.name}}
-        <mat-icon>close</mat-icon>
-    </label>
-    <label class="filter-chip" *ngIf="filterLugar">
-        {{filterLugar.name}}
-        <mat-icon>close</mat-icon>
+    <label class="filter-chip" *ngIf="categoryFilter">
+        {{categoryFilter.name}}
+        <!-- <mat-icon>close</mat-icon> -->
+        <button
+          mat-icon-button
+          aria-label="Descartar filtro de categoria"
+          (click)="removeCategoryFilterToRoute()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
     </label>
 </div>
 
@@ -75,4 +74,6 @@
     </div>
 </div>
 
-<app-event-banner></app-event-banner>
+<app-event-banner
+  [eventModel]="featuredEvent"
+></app-event-banner>

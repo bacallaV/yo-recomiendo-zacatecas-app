@@ -1,5 +1,5 @@
 <div class="category-container" (click)="onClickedCategory()">
-  <img class="categoria-card-body-img" [src]="category.img">
+  <img class="categoria-card-body-img" [src]="category.imgUrl">
   <div class="categoria-image-filter" *ngIf="isFilterActive"></div>
   <div class="categoria-card-body-cont-txt" [ngClass]="{'filter-mobile': isFilterActive}">
     {{ category.name }}

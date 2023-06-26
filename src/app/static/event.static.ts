@@ -9,6 +9,7 @@ export const exampleEventModel: EventModel = {
   category: {
     id: '1',
     name: 'Folklor',
+    imgUrl: './assets/images/turismo.jpeg',
   },
   address: 'Callejón de la Palma #104 Centro 98000 Zacatecas, ZAC Mexico',
   budget: '$400 - $500 aprox.',

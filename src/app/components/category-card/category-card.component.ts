@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interface';
+/* Models */
+import { Category } from 'src/app/models/category.model';
 
 @Component({
   selector: 'app-category-card',
@@ -7,7 +8,7 @@ import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interf
   styleUrls: ['./category-card.component.scss']
 })
 export class CategoryCardComponent {
-  @Input() category!: dataCardCategoria;
+  @Input() category!: Category;
   @Input() isFilterActive: boolean = false;
   @Output() onClick: EventEmitter<void> = new EventEmitter();
 
