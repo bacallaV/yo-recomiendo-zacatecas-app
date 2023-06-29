@@ -63,28 +63,10 @@
         }
       }"
     >
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
+      <ng-template swiperSlide *ngFor="let place of featuredPlaces">
+        <app-place-card
+          [place]="place"
+        ></app-place-card>
       </ng-template>
     </swiper>
   </div>

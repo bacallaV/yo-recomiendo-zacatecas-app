@@ -121,6 +121,7 @@ section.links {
   }
 
   > button {
+    width: -moz-fit-content;
     width: fit-content;
     align-self: center;
   }

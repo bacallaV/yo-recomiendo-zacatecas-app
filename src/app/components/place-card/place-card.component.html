@@ -1,18 +1,21 @@
-<div class="place-card" [routerLink]="['/lugar', 1]">
+<div class="place-card" [routerLink]="['/lugar', place.webId]">
   <div class="place-card-header">
-    <img src="./assets/images/concierto.jpg">
+    <img
+      [src]="place.gallery[0]"
+      title="{{ place.name }}"
+    >
 
     <div class="place-img-filter"></div>
 
     <div class="place-img-txt-cost notes">
       <mat-icon>person_outline</mat-icon>
-      $100-550
+      {{ place.budget }}
     </div>
-    <div class="place-img-txt-lugar notes">Zacatecas, centro</div>
+    <div class="place-img-txt-lugar notes">{{ place.zone }}</div>
   </div>
 
   <div class="place-card-body">
-    <p class="input">Los reyes</p>
-    <p class="notes">#Restaurante</p>
+    <p class="input">{{ place.name }}</p>
+    <p class="notes">#{{ place.category.name }}</p>
   </div>
 </div>

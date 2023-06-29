@@ -99,10 +99,9 @@
       [src]="eventModel?.googleMapsUrl"
       width="600"
       height="450"
-      style="border:0;"
       allowfullscreen=""
-      loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación de {{ eventModel?.name }}"
     ></iframe>
   </div>
 </section>
@@ -113,9 +112,9 @@
   <h2 class="h2">Links sociales</h2>
 
   <div class="buttons-container">
-    <button mat-button type="button" *ngFor="let sm of eventModel?.socialMedia" (click)="redirectTo(sm.url)">
-      <mat-icon [svgIcon]="sm.type"></mat-icon>
-      {{ sm.name }}
+    <button mat-button type="button" *ngFor="let socialMedia of eventModel?.socialMedia" (click)="redirectTo(socialMedia.url)">
+      <mat-icon [svgIcon]="socialMedia.type"></mat-icon>
+      {{ socialMedia.name }}
     </button>
   </div>
 </section>

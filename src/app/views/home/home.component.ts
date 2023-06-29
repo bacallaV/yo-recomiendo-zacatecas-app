@@ -4,8 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 /* Models */
 import { EventModel } from 'src/app/models/event.model';
 import { Category } from 'src/app/models/category.model';
+import { Place } from 'src/app/models/place.model';
 /* Static */
 import { exampleEventModel } from 'src/app/static/event.static';
+import { examplePlace } from 'src/app/static/place.static';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +26,15 @@ export class HomeComponent implements OnInit {
     { id: '5', name: 'Postres', imgUrl: './assets/images/turismo.jpeg'},
     { id: '6', name: 'Dulces', imgUrl: './assets/images/concierto.jpg'},
   ];
+  public featuredPlaces: Place[] = [];
   public featuredEvent: EventModel = exampleEventModel;
+
+  public errors = {
+    featuredPlaces: {
+      error: false,
+      message: '',
+    },
+  };
 
   constructor(
     private formBuilder: FormBuilder,
@@ -38,6 +48,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.checkForRouteQueryParams();
+    this.getFeaturedPlaces();
   }
 
   public buildForm() {
@@ -66,6 +77,26 @@ export class HomeComponent implements OnInit {
 
   public navigateToCatalogWithCategory(category: Category): void {
     this.router.navigate(['/catalogo'], { queryParams: { category: category.name } });
+  }
+
+  public getFeaturedPlaces(): void {
+    if( Math.random () < 0.2 ) {
+      this.errors.featuredPlaces = {
+        error: true,
+        message: 'No se econtraron lugares destacados',
+      }
+      return;
+    }
+
+    this.featuredPlaces = [
+      Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
+      examplePlace,
+      Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
+    ];
   }
 
 }

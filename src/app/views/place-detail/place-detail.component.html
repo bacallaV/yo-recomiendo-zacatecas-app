@@ -1,12 +1,13 @@
+<ng-container *ngIf="place">
 <section class="header">
 
   <div class="main-info">
-    <h1 class="h1">Los reyes</h1>
-    <p class="paragraph bold">Zacatecas centro</p>
+    <h1 class="h1">{{ place.name }}</h1>
+    <p class="paragraph bold">{{ place.zone }}</p>
   </div>
 
   <div class="other-info">
-    <div class="chip">#Entretenimiento</div>
+    <div class="chip">#{{ place.category.name }}</div>
     <button mat-button type="button">
       <mat-icon>ios_share</mat-icon>
       Compartir
@@ -16,11 +17,13 @@
 </section>
 
 <section class="photographs">
-  <img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="imagen_1" (click)="showAllImages()">
-  <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="imagen_2">
-  <img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="imagen_3">
-  <img src="https://swiperjs.com/demos/images/nature-4.jpg" alt="imagen_4">
-  <img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="imagen_5">
+  <img
+    *ngFor="let imgUrl of place.gallery.slice(0, 5); index as i"
+    [src]="imgUrl"
+    alt="imagen_galeria_{{ i+1 }}"
+    title="Galería ({{ i+1 }})"
+    (click)="showAllImages()"
+  >
 
   <button mat-button type="button" class="reverse-button" (click)="showAllImages()">
     Ver más
@@ -31,20 +34,24 @@
 <hr>
 
 <section class="place-information">
-  <img src="https://static.wixstatic.com/media/eb7299_75efe7477e424f7d9ffeeaccecb128e1~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/eb7299_75efe7477e424f7d9ffeeaccecb128e1~mv2.png" alt="logotipo_empresa">
+  <img
+    [src]="place.logoUrl"
+    alt="logotipo_empresa"
+    title="Logotipo de {{ place.name }}"
+  >
 
   <div class="information-container">
     <div class="main-information">
       <h2 class="h1">
         Sobre el
-        <span>Los reyes</span>
+        <span>{{ place.name }}</span>
       </h2>
 
       <p class="paragraph">
-        Una cantina con el mejor ambiente para venir acompañado, pasarla bien y tener noches como ninguna otra.
+        {{ place.description }}
       </p>
       <p class="paragraph" *ngIf="isMoreDescriptionShown">
-        Una cantina con el mejor ambiente para venir acompañado, pasarla bien y tener noches como ninguna otra.
+        {{ place.description }}
       </p>
       <button mat-button type="button" class="blue-no-bg-button reverse-button" (click)="toggleShowMoreDescription()">
         {{ !isMoreDescriptionShown ? 'Mostrar más' : 'Mostrar menos' }}
@@ -57,15 +64,15 @@
     <div class="services-list">
       <div class="services-list-item">
         <mat-icon class="material-symbols-outlined">location_on_outlined</mat-icon>
-        <p class="paragraph">Callejón de la Palma #104 Centro 98000 Zacatecas, ZAC Mexico</p>
+        <p class="paragraph">{{ place.address }}</p>
       </div>
       <div class="services-list-item">
         <mat-icon class="material-symbols-outlined">payments</mat-icon>
-        <p class="paragraph">$400 - $500 aprox.</p>
+        <p class="paragraph">{{ place.budget }}</p>
       </div>
       <div class="services-list-item">
         <mat-icon class="material-symbols-outlined">schedule</mat-icon>
-        <p class="paragraph">Lunes a domingo. 13:00- 01:30</p>
+        <p class="paragraph">{{ place.schedule }}</p>
       </div>
     </div>
   </div>
@@ -76,9 +83,15 @@
 <section class="links">
   <h2 class="h2">Links adicionales</h2>
 
-  <button mat-button type="button" class="blue-no-bg-button">
+  <button
+    mat-button
+    type="button"
+    class="blue-no-bg-button"
+    *ngFor="let additionalLink of place.additionalLinks"
+    (click)="redirectTo(additionalLink.url)"
+  >
     <mat-icon class="material-symbols-outlined">download</mat-icon>
-    Descargar menú
+    Descargar {{ additionalLink.name }}
   </button>
 </section>
 
@@ -90,33 +103,9 @@
   <p class="services-subtitle">Generales</p>
 
   <div class="services-list">
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">credit_card</mat-icon>
-      <p class="paragraph">Servicios (pago con tarjeta)</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">monetization_on</mat-icon>
-      <p class="paragraph">Facturación</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">directions_car</mat-icon>
-      <p class="paragraph">Servicio para llevar</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">key</mat-icon>
-      <p class="paragraph">Valet parking</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">park</mat-icon>
-      <p class="paragraph">Terraza</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">wifi</mat-icon>
-      <p class="paragraph">Internet</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">wash</mat-icon>
-      <p class="paragraph">Sanitario</p>
+    <div class="services-list-item" *ngFor="let amenity of place.mainAmenities">
+      <mat-icon class="material-symbols-outlined" [fontIcon]="amenity.icon"></mat-icon>
+      <p class="paragraph">{{ amenity.name }}</p>
     </div>
   </div>
 
@@ -124,33 +113,9 @@
   <p class="services-subtitle" *ngIf="areMoreServicesShown">Otros</p>
 
   <div class="services-list" *ngIf="areMoreServicesShown">
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">credit_card</mat-icon>
-      <p class="paragraph">Servicios (pago con tarjeta)</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">monetization_on</mat-icon>
-      <p class="paragraph">Facturación</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">directions_car</mat-icon>
-      <p class="paragraph">Servicio para llevar</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">key</mat-icon>
-      <p class="paragraph">Valet parking</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">park</mat-icon>
-      <p class="paragraph">Terraza</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">wifi</mat-icon>
-      <p class="paragraph">Internet</p>
-    </div>
-    <div class="services-list-item">
-      <mat-icon class="material-symbols-outlined">wash</mat-icon>
-      <p class="paragraph">Sanitario</p>
+    <div class="services-list-item" *ngFor="let amenity of place.otherAmenities">
+      <mat-icon class="material-symbols-outlined" [fontIcon]="amenity.icon"></mat-icon>
+      <p class="paragraph">{{ amenity.name }}</p>
     </div>
   </div>
 
@@ -177,13 +142,12 @@
 
   <div class="maps-container">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29872.356783642674!2d-103.3724812!3d20.6270389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428adeb005f7d0d%3A0xdfd4201c4afeab9d!2sMariscos%20Alex!5e0!3m2!1ses!2smx!4v1684904579916!5m2!1ses!2smx"
+      [src]="place.googleMapsUrl"
       width="600"
       height="450"
-      style="border:0;"
       allowfullscreen=""
-      loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación de {{ place.name }}"
     ></iframe>
   </div>
 </section>
@@ -194,14 +158,9 @@
   <h2 class="h2">Links sociales</h2>
 
   <div class="buttons-container">
-    <button mat-button type="button">
-      <mat-icon svgIcon="instagram"></mat-icon>
-      reyes.cantinazac
-    </button>
-
-    <button mat-button type="button">
-      <mat-icon>facebook</mat-icon>
-      cantinareyes.zac
+    <button mat-button type="button" *ngFor="let socialMedia of place.socialMedia" (click)="redirectTo(socialMedia.url)">
+      <mat-icon [svgIcon]="socialMedia.type"></mat-icon>
+      {{ socialMedia.name }}
     </button>
   </div>
 </section>
@@ -212,9 +171,8 @@
   <h2 class="h2">Etiquetas</h2>
 
   <div class="chips-container">
-    <div class="chip">#Entretenimiento</div>
-    <div class="chip">Fiesta</div>
-    <div class="chip">Vida nocturna</div>
+    <div class="chip">#{{ place.category.name }}</div>
+    <div class="chip" *ngFor="let label of place.labels">{{ label }}</div>
   </div>
 </section>
 
@@ -235,3 +193,4 @@
     Siguiente página
   </button>
 </div>
+</ng-container>

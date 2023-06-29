@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+/* Models */
+import { Place } from './../../models/place.model';
 
 @Component({
   selector: 'app-place-card',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./place-card.component.scss']
 })
 export class PlaceCardComponent {
-
+  @Input() place!: Place;
 }

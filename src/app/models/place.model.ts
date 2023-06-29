@@ -3,6 +3,7 @@ import { Promotion } from "./promotion.model";
 
 export interface Place {
   id: string;
+  webId: string;
   type: string;
   category: Category;
   gallery: string[];
@@ -10,6 +11,7 @@ export interface Place {
   name: string;
   description: string;
   address: string;
+  zone: string;
   budget: string;
   schedule: string;
   additionalLinks: {
@@ -25,11 +27,11 @@ export interface Place {
     icon: string;
   }[];
   promotions: Promotion[];
-  location: {
-    latitude: number,
-    longitude: number,
-  };
-  facebookUrl: string;
-  instagramUrl: string;
+  googleMapsUrl: string;
+  socialMedia: {
+    name: string,
+    url: string,
+    type: 'facebook' | 'instagram',
+  }[],
   labels: string[];
 }
