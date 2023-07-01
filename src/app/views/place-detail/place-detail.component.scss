@@ -238,6 +238,8 @@ section.place-information {
 }
 
 section.links {
+  display: flex;
+  flex-direction: column;
   text-align: center;
 
   > h2 {
@@ -245,6 +247,16 @@ section.links {
 
     text-align: left;
     color: #5A5959;
+  }
+
+  > button {
+    width: -moz-fit-content;
+    width: fit-content;
+    align-self: center;
+  }
+
+  button:not(:first-child):not(:nth-child(2)) {
+    margin-top: 16px;
   }
 }
 
@@ -294,6 +306,8 @@ section.promotions-section {
 section.location {
   > h2 {
     margin-bottom: 24px;
+
+    color: #5A5959;
   }
 
   > div.maps-container {

@@ -1,13 +1,14 @@
 import { Category } from "./category.model";
 
-export interface Event {
+export interface EventModel {
   id: string;
+  webId: string;
   bannerImgUrl: string;
   category: Category;
   name: string;
   description: string;
   address: string;
-  budget: number;
+  budget: string;
   eventDate: Date;
   additionalLinks: {
     name: string;
@@ -21,11 +22,11 @@ export interface Event {
     name: string;
     icon: string;
   }[];
-  location: {
-    latitude: number,
-    longitude: number,
-  };
-  facebookUrl: string;
-  instagramUrl: string;
+  googleMapsUrl: string;
+  socialMedia: {
+    name: string,
+    url: string,
+    type: 'facebook' | 'instagram',
+  }[],
   labels: string[];
 }

@@ -4,11 +4,9 @@
     <p>Encuentra los mejores lugares, eventos y más en Zacatecas</p>
   </div>
 
-  <app-search-bar></app-search-bar>
-
-  <button class="main-yrz-button">
-    Buscar lugar
-  </button>
+  <app-search-bar
+    [locateSearchButtonAtBottom]="true"
+  ></app-search-bar>
 </section>
 
 <section class="main-categories-section">
@@ -43,7 +41,9 @@
     <h2 class="h1">Promociones</h2>
   </div>
 
-  <app-promotions-banner></app-promotions-banner>
+  <app-promotions-banner
+    [promotions]="featuredPromotions"
+  ></app-promotions-banner>
 </section>
 
 <section class="highlights-section">
@@ -63,28 +63,10 @@
         }
       }"
     >
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
-      </ng-template>
-
-      <ng-template swiperSlide>
-        <app-place-card></app-place-card>
+      <ng-template swiperSlide *ngFor="let place of featuredPlaces">
+        <app-place-card
+          [place]="place"
+        ></app-place-card>
       </ng-template>
     </swiper>
   </div>
@@ -139,8 +121,7 @@
 </section>
 
 <app-event-banner
-  title="Evento 1"
-  description="Encuentra aquí información importante sobre un evento que puede solicitarse"
+  [eventModel]="featuredEvent"
 ></app-event-banner>
 
 <section class="contact-form">

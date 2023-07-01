@@ -6,36 +6,9 @@
       [thumbs]="{ swiper: thumbsSwiper }"
       class="top-swiper"
     >
-      <ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-1.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-2.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-3.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-4.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-5.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-6.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-7.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-8.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-9.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img src="https://swiperjs.com/demos/images/nature-10.jpg"
-      /></ng-template>
+      <ng-template swiperSlide *ngFor="let imgUrl of gallery">
+        <img [src]="imgUrl" />
+      </ng-template>
     </swiper>
   </div>
 
@@ -50,36 +23,9 @@
       [watchSlidesProgress]="true"
       class="bottom-swiper"
     >
-      <ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-1.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-2.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-3.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-4.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-5.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-6.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-7.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-8.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img
-          src="https://swiperjs.com/demos/images/nature-9.jpg" /></ng-template
-      ><ng-template swiperSlide
-        ><img src="https://swiperjs.com/demos/images/nature-10.jpg"
-      /></ng-template>
+      <ng-template swiperSlide *ngFor="let imgUrl of gallery">
+        <img [src]="imgUrl" />
+      </ng-template>
     </swiper>
   </div>
 </div>

@@ -24,6 +24,7 @@ section.contact-form {
 }
 
 .section-title {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 0 32px;
 
@@ -89,12 +90,7 @@ section.search-section {
     }
   }
 
-  .region,
-  .searchbar {
-    height: 32px;
-  }
-
-  .main-yrz-button {
+  app-search-bar {
     width: 100%;
   }
 }
@@ -303,8 +299,9 @@ section.contact-form {
       }
     }
 
-    .main-yrz-button {
-      width: auto;
+    app-search-bar {
+      width: 80%;
+      max-width: 580px;
     }
   }
 

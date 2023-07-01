@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+/* Models */
+import { EventModel } from 'src/app/models/event.model';
+/* Static */
+import { exampleEventModel } from 'src/app/static/event.static';
 
 @Component({
   selector: 'app-event-detail',
@@ -8,28 +11,38 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrls: ['./event-detail.component.scss']
 })
 export class EventDetailComponent implements OnInit {
+
+  public eventModel: EventModel | null = null;
+
+  public areMoreServicesShown = false;
   constructor(
-    private domSanitizer: DomSanitizer,
-    private matIconRegistry: MatIconRegistry,
+    private activatedRoute: ActivatedRoute,
   ){
-    this.matIconRegistry.addSvgIcon(
-      `app-menu`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/menu.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `facebook`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/facebook.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `instagram`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/instagram.svg`)
-    );
-    this.matIconRegistry.addSvgIcon(
-      `youtube`,
-      this.domSanitizer.bypassSecurityTrustResourceUrl(`../../../assets/icons/youtube.svg`)
-    );
   }
 
   ngOnInit(): void {
+    this.checkForRouteQueryParams();
+  }
+
+  private checkForRouteQueryParams(): void {
+    this.activatedRoute.paramMap.subscribe(params => {
+      const webId = params.get('webId');
+
+      if( !webId ) return;
+
+      this.eventModel = exampleEventModel;
+      this.eventModel.webId = webId;
+      this.eventModel.name = webId.charAt(0).toUpperCase() + webId.split('-').join(' ').substring(1);
+
+    });
+
+  }
+
+  public toggleShowMoreServices(): void {
+    this.areMoreServicesShown = !this.areMoreServicesShown;
+  }
+
+  public redirectTo(url: string): void {
+    window.open(url, '_blank');
   }
 }

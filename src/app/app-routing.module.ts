@@ -10,9 +10,9 @@ import { PruebaFirebaseComponent } from './views/prueba-firebase/prueba-firebase
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'eventos', component: EventsListComponent },
-  { path: 'evento/:id', component: EventDetailComponent },
+  { path: 'evento/:webId', component: EventDetailComponent },
   { path: 'catalogo', component: CatalogoComponent },
-  { path: 'lugar/:id', component: PlaceDetailComponent },
+  { path: 'lugar/:webId', component: PlaceDetailComponent },
   { path: 'prueba-firebase', component: PruebaFirebaseComponent },
   { path: '**', redirectTo: '/home' },
 ];

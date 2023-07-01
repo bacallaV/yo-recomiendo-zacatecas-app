@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+/* Models */
+import { EventModel } from './../../models/event.model';
 
 @Component({
   selector: 'app-event-banner',
@@ -6,6 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./event-banner.component.scss']
 })
 export class EventBannerComponent {
-  @Input() title: string = 'Evento';
-  @Input() description: string = 'No contiene una descripción';
+  @Input() eventModel: EventModel | undefined | null;
 }

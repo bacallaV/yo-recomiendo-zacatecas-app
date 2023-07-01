@@ -10,14 +10,14 @@
       }
     }"
   >
-    <ng-template swiperSlide *ngFor="let a of array">
+    <ng-template swiperSlide *ngFor="let promotion of promotions">
 
       <div class="promotion">
-        <img src="https://revistaespejo.com/wp-content/uploads/2017/01/tacos.jpg" alt="Imágen de la promoción">
+        <img [src]="promotion.imgUrl" alt="Imagen de la promoción">
 
         <div class="information">
-          <p class="title paragraph bold">Promoción Los Reyes</p>
-          <p class="description h2 ">Martes 2x1 en tacos</p>
+          <p class="title paragraph bold">Promoción {{ promotion.name }}</p>
+          <p class="description h2 ">{{ promotion.description }}</p>
         </div>
       </div>
 

@@ -1,7 +1,13 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interface';
+/* Models */
+import { Category } from 'src/app/models/category.model';
+import { EventModel } from 'src/app/models/event.model';
+import { Place } from 'src/app/models/place.model';
+/* Static */
+import { exampleEventModel } from 'src/app/static/event.static';
+import { examplePlace } from 'src/app/static/place.static';
 
 @Component({
   selector: 'app-catalogo',
@@ -11,19 +17,26 @@ import { dataCardCategoria } from 'src/app/interfaces/data-card-categoria.interf
 })
 export class CatalogoComponent implements OnInit {
 
-  public categories : dataCardCategoria[] = [
-    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
-    { name: 'Concierto', img: './assets/images/concierto.jpg'},
-    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
-    { name: 'Concierto', img: './assets/images/concierto.jpg'},
-    { name: 'Entretenimiento', img: './assets/images/turismo.jpeg'},
-    { name: 'Concierto', img: './assets/images/concierto.jpg'},
+  public categories : Category[] = [
+    { id: '1', name: 'Entretenimiento', imgUrl: './assets/images/turismo.jpeg'},
+    { id: '2', name: 'Concierto', imgUrl: './assets/images/concierto.jpg'},
+    { id: '3', name: 'Restaurantes', imgUrl: './assets/images/turismo.jpeg'},
+    { id: '4', name: 'Bares', imgUrl: './assets/images/concierto.jpg'},
+    { id: '5', name: 'Postres', imgUrl: './assets/images/turismo.jpeg'},
+    { id: '6', name: 'Dulces', imgUrl: './assets/images/concierto.jpg'},
   ]
   // Buscador
   public word: FormControl = new FormControl('');
 
   //Filtro
-  public filterLugar: any;
+  public categoryFilter: Category | undefined | null;
+
+  public places: Place[] = [];
+  public featuredEvent: EventModel = exampleEventModel;
+
+  public errors = {
+    places: { isErrorActive: false, message: '' },
+  };
 
   constructor(
     private router: Router,
@@ -33,24 +46,39 @@ export class CatalogoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.responseFilterLugar('akjskl');
-
     this.enableFilterAddittionByRoute();
+    this.getPlaces();
   }
 
-  catalogo(){}
-
-  selectRegion(){}
-
-  responseFilterLugar(event: any){
-    // this.filterLugar = event;
-    // this.getList();
-    this.filterLugar = {
-      name: 'Pizzas'
+  public getPlaces(): void {
+    if( Math.random () < 0.2 ) {
+      this.errors.places = {
+        isErrorActive: true,
+        message: 'No se econtraron lugares',
+      }
+      return;
     }
-  }
 
-  public addCategoryFilterToRoute(category: dataCardCategoria) {
+    this.places = [
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+      examplePlace,
+    ];
+  }
+  public addCategoryFilterToRoute(category: Category) {
     this.router.navigate( [], {
       relativeTo: this.activatedRoute,
       queryParams: { category: category.name },
@@ -58,11 +86,19 @@ export class CatalogoComponent implements OnInit {
     });
   }
 
+  public removeCategoryFilterToRoute(): void {
+    this.router.navigate( [], {
+      relativeTo: this.activatedRoute,
+      queryParams: { category: null },
+      queryParamsHandling: 'merge',
+      // skipLocationChange: true,
+    });
+  }
+
   public enableFilterAddittionByRoute() {
     this.activatedRoute.queryParamMap.subscribe((params) => {
-      if (params.get('category')) {
-        this.filterLugar.name = params.get('category');
-      }
+      const categoryFilterName = params.get('category');
+      this.categoryFilter = categoryFilterName ? this.categories.find( c => c.name === categoryFilterName ) : null;
     });
   }
 
