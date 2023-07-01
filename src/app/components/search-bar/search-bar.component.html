@@ -1,23 +1,30 @@
-<div class="filter-forms">
+<div class="filter-forms" [ngClass]="{'button-bottom': locateSearchButtonAtBottom}">
   <div class="input-group form-filter-input">
-      <input type="text" class="form-control form-input" aria-label="Buscar lugar a donde ir" placeholder="Buscar lugares">
+      <input type="text" class="form-control form-input" aria-label="Buscar lugar a donde ir" [placeholder]="placeHolder">
       <span class="input-group-text form-icon">
-          <mat-icon>search</mat-icon>
+        <mat-icon>search</mat-icon>
       </span>
-      <select class="form-select form-filter-select" aria-label="Seleccion de la región" placeholder="Buscar lugares">
-          <!-- <option selected>Open this select menu</option> -->
-          <option value="1">Zacatecas</option>
-          <option value="2">Jerez</option>
-          <option value="2">Rio Grande</option>
+
+      <select class="form-select form-filter-select" aria-label="Seleccion de la región">
+        <!-- <option selected>Open this select menu</option> -->
+        <option value="1">Zacatecas</option>
+        <option value="2">Jerez</option>
+        <option value="2">Rio Grande</option>
       </select>
   </div>
 
-  <select class="form-select form-filter-select-movile" aria-label="Seleccion de la región" placeholder="Buscar lugares">
-      <!-- <option selected>Open this select menu</option> -->
-      <option value="1">Zacatecas</option>
-      <option value="2">Jerez</option>
-      <option value="2">Rio Grande</option>
+  <select class="form-select form-filter-select-movile" aria-label="Seleccion de la región">
+    <!-- <option selected>Open this select menu</option> -->
+    <option value="1">Zacatecas</option>
+    <option value="2">Jerez</option>
+    <option value="2">Rio Grande</option>
   </select>
 
-  <button class="form-filter-button main-yrz-button">Buscar lugar</button>
+  <button
+    type="button"
+    class="form-filter-button main-yrz-button"
+    (click)="search()"
+  >
+    {{ placeHolder }}
+  </button>
 </div>

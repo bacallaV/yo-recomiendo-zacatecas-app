@@ -9,6 +9,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 .section-title {
+  width: -moz-fit-content;
   width: fit-content;
   padding: 0 24px;
   border-bottom: 2px solid #000;
@@ -36,7 +37,6 @@
 
 .filter{
   display: grid;
-  justify-content: center;
   justify-items: center;
 
   margin: 32px 16px 16px;
@@ -53,6 +53,15 @@
 
     @include bp-sm {
       margin-bottom: 32px;
+    }
+  }
+
+  app-search-bar {
+    width: 100%;
+
+    @include bp-md {
+      width: 80%;
+      max-width: 764px;
     }
   }
 }

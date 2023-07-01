@@ -3,24 +3,20 @@
 @import '/src/ui/custom/src/mixins';
 
 .filter-forms{
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 
   width: 100%;
 
-  @include bp-sm{
-    grid-template-columns: 2.5fr 1fr;
-    width: 80vw;
-    gap: 12px;
+  @include bp-md {
+    flex-direction: row;
   }
-  @include bp-md{
-    grid-template-columns: 3fr 1fr;
-    width: 75vw;
-    gap: 12px;
-  }
-  @include bp-lg{
-    grid-template-columns: 3fr 1fr;
-    width: 60vw;
-    gap: 12px;
+
+  &.button-bottom {
+    @include bp-md {
+      flex-direction: column;
+    }
   }
 
   input,
@@ -34,24 +30,22 @@
 
   //input
   .form-filter-input {
-    box-shadow: 0px 1px 16px 4px rgba(0,0,0,0.15);
-    border-top-left-radius: 32px !important;
-    border-bottom-left-radius: 32px !important;
-    border-top-right-radius: 32px !important;
-    border-bottom-right-radius: 32px !important;
     height: 32px;
-    margin-bottom: 16px;
+
+    box-shadow: 0px 1px 16px 4px rgba(0,0,0,0.15);
+    border-radius: 32px;
 
     @include bp-sm{
       margin-bottom: 0;
     }
 
     .form-input {
+      height: 100%;
+      padding: 0 12px;
+
       border: none !important;
       border-top-left-radius: 32px !important;
       border-bottom-left-radius: 32px !important;
-      padding: 0 12px;
-      height: 100%;
 
       @include bp-sm {
         border-top-left-radius: 0 !important;
@@ -60,15 +54,19 @@
     }
 
     .form-icon {
+      height: 100%;
+      padding: 0 12px;
+
       background: white;
       border: none;
       border-top-right-radius: 32px !important;
       border-bottom-right-radius: 32px !important;
-      padding: 0 12px;
-      height: 100%;
+
+      color: #5A5959;
 
       @include bp-sm{
         order: -1;
+
         border-top-right-radius: 0 !important;
         border-bottom-right-radius: 0 !important;
         border-top-left-radius: 32px !important;
@@ -79,45 +77,55 @@
 
   //select
   .form-filter-select{
-    background-color: white;
-    margin-bottom: 16px;
-    box-shadow: 0px 1px 16px 4px rgba(0, 0, 0, 0.15);
-    border-top-left-radius: 32px !important;
-    border-bottom-left-radius: 32px !important;
-    border-top-right-radius: 32px !important;
-    border-bottom-right-radius: 32px !important;
-    height: 32px;
-    border: none;
-    padding: 0 12px;
     display: none;
+
+    height: 32px;
+    padding: 0 12px;
+
+    background-color: white;
+    box-shadow: 0px 1px 16px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 32px !important;
+    border: none;
 
     @include bp-sm {
         display: block;
+
         margin-top: 0px;
+        margin-left: -6px;
+
         box-shadow: none;
         border-top-left-radius: 0 !important;
         border-bottom-left-radius: 0 !important;
-        margin-left: -6px;
     }
   }
   .form-filter-select-movile{
-    background-color: white;
-    margin-bottom: 16px;
-    box-shadow: 0px 1px 16px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 32px !important;
-    height: 32px;
-    border: none;
-    padding: 0 12px;
     display: block;
 
+    height: 32px;
+    padding: 0 12px;
+
+    background-color: white;
+    box-shadow: 0px 1px 16px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 32px !important;
+    border: none;
+
     @include bp-sm{
-        display: none;
+      display: none;
     }
   }
 
   > button {
     @include bp-sm {
       height: 29px;
+    }
+
+    @include bp-md {
+      width: fit-content;
+      width: -moz-fit-content;
+      margin: auto;
+
+      text-wrap: nowrap;
+      white-space: nowrap;
     }
   }
 }
