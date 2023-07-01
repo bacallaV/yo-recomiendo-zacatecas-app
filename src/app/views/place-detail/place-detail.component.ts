@@ -91,6 +91,7 @@ export class PlaceDetailComponent implements OnInit {
   }
 
   public showAllImages(): void {
+    this.imagesDialogProperties.data = this.place?.gallery;
     this.dialog.open( ImagesInDetailComponent, this.imagesDialogProperties );
   }
   /* / UI Functions */

@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import SwiperCore, { Navigation, Thumbs } from "swiper/core";
 
@@ -11,4 +12,11 @@ SwiperCore.use([Navigation, Thumbs]);
 })
 export class ImagesInDetailComponent {
   public thumbsSwiper: any;
+  public gallery: string[] = [];
+
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: string[]
+  ) {
+    this.gallery = data;
+  }
 }
