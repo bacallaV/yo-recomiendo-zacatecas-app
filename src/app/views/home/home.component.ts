@@ -5,9 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EventModel } from 'src/app/models/event.model';
 import { Category } from 'src/app/models/category.model';
 import { Place } from 'src/app/models/place.model';
+import { Promotion } from 'src/app/models/promotion.model';
 /* Static */
 import { exampleEventModel } from 'src/app/static/event.static';
 import { examplePlace } from 'src/app/static/place.static';
+import { examplePromotion } from 'src/app/static/promotion.static';
 
 @Component({
   selector: 'app-home',
@@ -27,10 +29,15 @@ export class HomeComponent implements OnInit {
     { id: '6', name: 'Dulces', imgUrl: './assets/images/concierto.jpg'},
   ];
   public featuredPlaces: Place[] = [];
+  public featuredPromotions: Promotion[] = [];
   public featuredEvent: EventModel = exampleEventModel;
 
   public errors = {
     featuredPlaces: {
+      error: false,
+      message: '',
+    },
+    featuredPromotions: {
       error: false,
       message: '',
     },
@@ -49,6 +56,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.checkForRouteQueryParams();
     this.getFeaturedPlaces();
+    this.getFeaturedPromotions();
   }
 
   public buildForm() {
@@ -96,6 +104,23 @@ export class HomeComponent implements OnInit {
       Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
       examplePlace,
       Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
+    ];
+  }
+
+  public getFeaturedPromotions(): void {
+    if( Math.random () < 0.2 ) {
+      this.errors.featuredPromotions = {
+        error: true,
+        message: 'No se econtraron lugares destacados',
+      }
+      return;
+    }
+
+    this.featuredPromotions = [
+      examplePromotion,
+      examplePromotion,
+      examplePromotion,
+      examplePromotion,
     ];
   }
 

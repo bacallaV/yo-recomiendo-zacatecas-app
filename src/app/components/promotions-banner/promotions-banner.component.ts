@@ -1,4 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
+/* Models */
+import { Promotion } from 'src/app/models/promotion.model';
 
 @Component({
   selector: 'app-promotions-banner',
@@ -7,5 +9,5 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
 })
 export class PromotionsBannerComponent {
-  array = ['a', 'b', 'c'];
+  @Input() promotions!: Promotion[];
 }
