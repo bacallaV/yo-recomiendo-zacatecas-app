@@ -42,6 +42,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { PruebaFirebaseComponent } from './views/prueba-firebase/prueba-firebase.component';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -66,6 +67,7 @@ export function playerFactory() {
     PlaceCardComponent,
     CategoryCardComponent,
     SearchBarComponent,
+    PruebaFirebaseComponent,
   ],
   imports: [
     BrowserModule,
