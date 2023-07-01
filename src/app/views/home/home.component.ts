@@ -34,11 +34,11 @@ export class HomeComponent implements OnInit {
 
   public errors = {
     featuredPlaces: {
-      error: false,
+      isErrorActive: false,
       message: '',
     },
     featuredPromotions: {
-      error: false,
+      isErrorActive: false,
       message: '',
     },
   };
@@ -90,7 +90,7 @@ export class HomeComponent implements OnInit {
   public getFeaturedPlaces(): void {
     if( Math.random () < 0.2 ) {
       this.errors.featuredPlaces = {
-        error: true,
+        isErrorActive: true,
         message: 'No se econtraron lugares destacados',
       }
       return;
@@ -110,7 +110,7 @@ export class HomeComponent implements OnInit {
   public getFeaturedPromotions(): void {
     if( Math.random () < 0.2 ) {
       this.errors.featuredPromotions = {
-        error: true,
+        isErrorActive: true,
         message: 'No se econtraron lugares destacados',
       }
       return;

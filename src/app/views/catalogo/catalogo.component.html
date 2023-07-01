@@ -43,22 +43,10 @@
 
 <div class="places-list">
     <div class="places-list-container">
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
-        <app-place-card></app-place-card>
+        <app-place-card
+            *ngFor="let place of places"
+            [place]="place"
+        ></app-place-card>
     </div>
 
     <div class="control-buttons-container">

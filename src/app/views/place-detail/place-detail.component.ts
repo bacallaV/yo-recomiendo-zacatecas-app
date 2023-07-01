@@ -28,8 +28,8 @@ export class PlaceDetailComponent implements OnInit {
   public featuredEvent: EventModel = exampleEventModel;
 
   public errors = {
-    place: {},
-    featuredPromotions: {},
+    place: { isErrorActive: false, message: '' },
+    featuredPromotions: { isErrorActive: false, message: '' },
   };
   public place: Place | undefined;
   public featuredPromotions: Promotion[] = [];
@@ -52,7 +52,7 @@ export class PlaceDetailComponent implements OnInit {
       const placeId = params.get('webId');
 
       if( !placeId || Math.random() < 0.25 ) {
-        this.errors.place = { active: true, message: 'No se encontró el lugar' };
+        this.errors.place = { isErrorActive: true, message: 'No se encontró el lugar' };
         return;
       }
 
@@ -63,7 +63,7 @@ export class PlaceDetailComponent implements OnInit {
   public getFeaturedPromotions(): void {
     if( Math.random () < 0.2 ) {
       this.errors.featuredPromotions = {
-        error: true,
+        isErrorActive: true,
         message: 'No se econtraron lugares destacados',
       }
       return;
