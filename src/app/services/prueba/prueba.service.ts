@@ -48,17 +48,19 @@ export class PruebaService {
   }
 
   obtenerPagina(pagina: number) {
-    const pruebaRef = collection(this.firestore,'prueba');
-    const queryDB = query( pruebaRef,
-        orderBy('name'), // Ordena por el campo "name" para obtener una ordenación consistente
-        limit(documentosPorPagina),
-        startAfter(this.getLastDocument(pagina - 1))
-    );
+
+    // const pruebaRef = collection(this.firestore,'prueba');
+
+    // const queryDB = query( pruebaRef,
+    //     orderBy('name'), // Ordena por el campo "name" para obtener una ordenación consistente
+    //     limit(documentosPorPagina),
+    //     startAfter(this.getLastDocument(pagina - 1))
+    // );
   
-    return collectionData(queryDB, { idField: 'id' }) as Observable<Prueba[]>;
+    // return collectionData(queryDB, { idField: 'id' }) as Observable<Prueba[]>;
   }
   
-  async getLastDocument(paginaAnterior: number): Promise<any> {
+  async getLastDocument(pagina: number){
     const pruebaRef = collection(this.firestore,'prueba');
 
     // const first = query(pruebaRef, orderBy("name"), limit(3));
@@ -73,26 +75,55 @@ export class PruebaService {
 
     // const documentNextSnapshots = await getDocs(next);
     // console.log(documentNextSnapshots.docs);
+      
+    let cantidad = documentosPorPagina*pagina;
+
+    // Obtengo todo el primer grupo de registros completo anterior al que buscare ahora
     
 
+    let next;
+    if(cantidad == 0){
+      next = query(pruebaRef,
+        orderBy("name"),
+        limit(3));
+    }else{
+      const first = query(pruebaRef, orderBy("name"), limit(cantidad));
+
+      const documentSnapshots = await getDocs(first);
+      console.log("results: ", documentSnapshots);
+
+      //Obtengo el ultimo documento
+      const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
+      console.log("last", lastVisible);
+
+      next = query(pruebaRef,
+        orderBy("name"),
+        startAfter(lastVisible),
+        limit(3));
+    }
+    
+
+
+    return collectionData(next, { idField: 'id' }) as Observable<Prueba[]> ;
 
     // Recupera el último documento de la página anterior
-    const ultimaPagina = paginaAnterior * documentosPorPagina;
-    const queryDB = query(
-      collection(this.firestore, 'prueba'),
-        orderBy('name'),
-        limit(ultimaPagina)
-    );
+    // const ultimaPagina = paginaAnterior * documentosPorPagina;
+    // const queryDB = query(
+    //   collection(this.firestore, 'prueba'),
+    //     orderBy('name'),
+    //     limit(ultimaPagina)
+    // );
 
-    const documentSnapshots = await getDocs(queryDB);
-    const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
+    // const documentSnapshots = await getDocs(queryDB);
+    // const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length-1];
     
 
-    const lastDocument = await collectionData(queryDB, { idField: 'id' }) as Observable<Prueba[]>;
-    const lastDocument2 = await getDoc(doc(pruebaRef,));
-    console.log(lastDocument);
+    // const lastDocument = await collectionData(queryDB, { idField: 'id' }) as Observable<Prueba[]>;
+    // const lastDocument2 = await getDoc(doc(pruebaRef,));
+    // console.log(lastDocument);
     
-    return lastVisible?.id;
+    // return lastVisible?.id;
+    // return '';
 
   }
 

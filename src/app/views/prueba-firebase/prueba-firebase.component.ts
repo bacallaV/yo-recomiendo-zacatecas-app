@@ -20,12 +20,26 @@ export class PruebaFirebaseComponent implements OnInit {
   ngOnInit(): void {
     // this.addPrueba()
     // this.getByEdad(24);
-    this.getLastDocument(2);
+    this.pruebaService.getPruebas().subscribe(pruebas => {
+      console.log(pruebas);
+      pruebas.sort((a, b) => {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
+      
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
+      });
+      
+      console.log(pruebas);
+      // this.onClickDelete(pruebas[0]);
+    })
+    this.getLastDocument(0);
 
-    // this.pruebaService.getPruebas().subscribe(pruebas => {
-    //   console.log(pruebas);
-    //   this.onClickDelete(pruebas[0]);
-    // })
 
   }
 
@@ -51,8 +65,14 @@ export class PruebaFirebaseComponent implements OnInit {
   }
 
   async getLastDocument(page: number){
-    const response = await this.pruebaService.obtenerPagina(page);
-    console.log(response);
+    // const response = await this.pruebaService.obtenerPagina(page);
+    // console.log(response);
+    (await
+      // const response = await this.pruebaService.obtenerPagina(page);
+      // console.log(response);
+      this.pruebaService.getLastDocument(page)).subscribe(pruebas => {
+      console.log(pruebas);
+    })
     
   }
 
