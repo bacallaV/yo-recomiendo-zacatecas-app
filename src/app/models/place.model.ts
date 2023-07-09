@@ -14,7 +14,7 @@ export interface Place {
   longDescription?: string;
   address: string;
   zones: string[];
-  budget: string;
+  budget?: string;
   schedule: string;
   phone: string,
   additionalLinks?: {
