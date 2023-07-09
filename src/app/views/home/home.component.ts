@@ -11,6 +11,8 @@ import { exampleEventModel } from 'src/app/static/event.static';
 import { examplePlace } from 'src/app/static/place.static';
 import { examplePromotion } from 'src/app/static/promotion.static';
 
+import { PruebaService } from 'src/app/services/prueba/prueba.service';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -47,6 +49,7 @@ export class HomeComponent implements OnInit {
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
     private router: Router,
+    private pruebaService: PruebaService,
   ){
 
 
@@ -57,6 +60,10 @@ export class HomeComponent implements OnInit {
     this.checkForRouteQueryParams();
     this.getFeaturedPlaces();
     this.getFeaturedPromotions();
+
+    /* Temporary */
+    this.pruebaService.createAllPlaces();
+    // this.pruebaService.createAllPromotions();
   }
 
   public buildForm() {

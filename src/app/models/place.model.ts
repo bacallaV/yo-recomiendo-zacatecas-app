@@ -2,19 +2,22 @@ import { Category } from "./category.model";
 import { Promotion } from "./promotion.model";
 
 export interface Place {
-  id: string;
+  id?: string;
   webId: string;
-  type: string;
-  category: Category;
+  // type: string;
+  // category: Category;
+  idCategory: string;
   gallery: string[];
   logoUrl: string;
   name: string;
-  description: string;
+  shortDescription: string;
+  longDescription?: string;
   address: string;
-  zone: string;
+  zones: string[];
   budget: string;
   schedule: string;
-  additionalLinks: {
+  phone: string,
+  additionalLinks?: {
     name: string,
     url: string,
   }[];
@@ -22,11 +25,10 @@ export interface Place {
     name: string;
     icon: string;
   }[];
-  otherAmenities: {
+  otherAmenities?: {
     name: string;
     icon: string;
   }[];
-  promotions: Promotion[];
   googleMapsUrl: string;
   socialMedia: {
     name: string,
