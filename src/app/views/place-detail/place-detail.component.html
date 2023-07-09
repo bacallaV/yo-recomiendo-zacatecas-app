@@ -3,11 +3,11 @@
 
   <div class="main-info">
     <h1 class="h1">{{ place.name }}</h1>
-    <p class="paragraph bold">{{ place.zone }}</p>
+    <p class="paragraph bold">{{ place.zones }}</p>
   </div>
 
   <div class="other-info">
-    <div class="chip">#{{ place.category.name }}</div>
+    <div class="chip">#{{ place.idCategory }}</div>
     <button mat-button type="button">
       <mat-icon>ios_share</mat-icon>
       Compartir
@@ -48,12 +48,20 @@
       </h2>
 
       <p class="paragraph">
-        {{ place.description }}
+        {{ place.shortDescription }}
       </p>
+
       <p class="paragraph" *ngIf="isMoreDescriptionShown">
-        {{ place.description }}
+        {{ place.longDescription }}
       </p>
-      <button mat-button type="button" class="blue-no-bg-button reverse-button" (click)="toggleShowMoreDescription()">
+
+      <button
+        mat-button
+        type="button"
+        class="blue-no-bg-button reverse-button"
+        *ngIf="place.longDescription"
+        (click)="toggleShowMoreDescription()"
+      >
         {{ !isMoreDescriptionShown ? 'Mostrar más' : 'Mostrar menos' }}
         <mat-icon class="material-symbols-outlined">
           {{ !isMoreDescriptionShown ? 'chevron_right' : 'chevron_left' }}
@@ -78,9 +86,9 @@
   </div>
 </section>
 
-<hr class="yellow">
+<hr class="yellow" *ngIf="place.additionalLinks">
 
-<section class="links">
+<section class="links" *ngIf="place.additionalLinks">
   <h2 class="h2">Links adicionales</h2>
 
   <button
@@ -119,7 +127,13 @@
     </div>
   </div>
 
-  <button mat-button type="button" class="blue-no-bg-button reverse-button" (click)="toggleShowMoreServices()">
+  <button
+    mat-button
+    type="button"
+    class="blue-no-bg-button reverse-button"
+    *ngIf="place.otherAmenities && place.otherAmenities.length > 0"
+    (click)="toggleShowMoreServices()"
+    >
     {{ !areMoreServicesShown ? 'Mostrar más' : 'Mostrar menos' }}
     <mat-icon class="material-symbols-outlined">
       {{ !areMoreServicesShown ? 'chevron_right' : 'chevron_left' }}
@@ -173,7 +187,7 @@
   <h2 class="h2">Etiquetas</h2>
 
   <div class="chips-container">
-    <div class="chip">#{{ place.category.name }}</div>
+    <div class="chip">#{{ place.idCategory }}</div>
     <div class="chip" *ngFor="let label of place.labels">{{ label }}</div>
   </div>
 </section>

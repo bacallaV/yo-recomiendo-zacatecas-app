@@ -11,11 +11,11 @@
       <mat-icon>person_outline</mat-icon>
       {{ place.budget }}
     </div>
-    <div class="place-img-txt-lugar notes">{{ place.zone }}</div>
+    <div class="place-img-txt-lugar notes">{{ place.zones[0] }}</div>
   </div>
 
   <div class="place-card-body">
     <p class="input">{{ place.name }}</p>
-    <p class="notes">#{{ place.category.name }}</p>
+    <p class="notes">#{{ place.idCategory }}</p>
   </div>
 </div>

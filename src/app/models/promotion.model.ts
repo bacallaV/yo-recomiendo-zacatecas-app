@@ -1,6 +1,7 @@
 export interface Promotion {
-  id: string;
+  id?: string;
   name: string;
   description: string;
   imgUrl: string;
+  idPlace: string;
 }
