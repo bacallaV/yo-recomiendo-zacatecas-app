@@ -62,8 +62,8 @@ export class HomeComponent implements OnInit {
     this.getFeaturedPromotions();
 
     /* Temporary */
-    this.pruebaService.createAllPlaces();
-    // this.pruebaService.createAllPromotions();
+    // this.pruebaService.createAllPlaces();
+    this.pruebaService.createAllPromotions();
   }
 
   public buildForm() {

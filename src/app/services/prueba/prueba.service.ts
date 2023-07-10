@@ -175,48 +175,75 @@ export class PruebaService {
     //   imgUrl: 'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/unagui-sushi%2FUnagui%203.jpg?alt=media&token=a803ab5c-935f-4a8a-a112-e217e817669d',
     //   idPlace: '',
     // };
+    // TODO: Add idPlace pero son 2 lugares, ya sea duplicar los registros o hacer que el campo sea un array.
     const promotion: Promotion = {
-      name: 'Unagui Sushi',
-      description: 'Jueves 2x1 en hamburguesas',
+      name: 'Henry\'s 2',
+      description: 'Lunes caguamas a $49.00 pesos',
       imgUrl: '',
-      idPlace: '',
+      idPlace: 'CarZ4rEt0y6dv9Vd4AjZ',
     };
 
-      // console.log(addDoc(promotionReference, promotion));
+    const promotion2: Promotion = {
+      name: 'Henry\'s Birthday Party',
+      description: 'Martes 5 cervezas de cortesia en la compra de una pizza regular si es tu cumpleaños en la semana',
+      imgUrl: '',
+      idPlace: 'CarZ4rEt0y6dv9Vd4AjZ',
+    };
+
+    const promotion3: Promotion = {
+      name: 'Henry\'s',
+      description: 'Miércoles y viernes cerveza marcada con descuento',
+      imgUrl: '',
+      idPlace: 'CarZ4rEt0y6dv9Vd4AjZ',
+    };
+
+    const promotion4: Promotion = {
+      name: 'Henry\'s',
+      description: 'Jueves y domingo Pizzas Regulares por $99.00 pesos',
+      imgUrl: '',
+      idPlace: 'CarZ4rEt0y6dv9Vd4AjZ',
+    };
+
+      console.log(addDoc(promotionReference, promotion));
+      console.log(addDoc(promotionReference, promotion2));
+      console.log(addDoc(promotionReference, promotion3));
+      console.log(addDoc(promotionReference, promotion4));
   }
 
   public async createAllPlaces() {
     const placeReference = collection(this.firestore, 'Place');
 
     const place: Place = {
-      webId: 'cafe-punta-del-cielo',
+      webId: 'henrys',
       idCategory: 'qeGgDr9u6zqNxeZffL0y',
       zones: ['Zacatecas', 'Guadalupe'],
       labels: [
-        'Cafetería',
-        'Cafe',
-        'Pan',
-        'Categoria',
-        'Coffee',
-        'Gourmet',
-        'Cafes',
-        'Frapuchino',
-        'Pancake',
-        'Italian coffee',
+        'Pizzeria',
+        'Pizza',
+        'Bar',
+        'Alitas',
+        'Restaurante',
+        'Comida',
+        'Tacos',
+        'Hamburguesas',
+        'Cerveza',
+        'Sandwiches',
+        'Leon rojo',
+        'Micheladas',
       ],
-      name: 'Café punta del Cielo',
-      shortDescription: 'Es una empresa mexicana dedicada a la produccion, venta y distribuccion de cafe gourmet',
-      address: 'Boulevard Paseo del Bote, Zacatecas, 98040, 98160 Zacatecas, Zacatecas',
+      name: 'Henry\'s',
+      shortDescription: 'Bar/Restaurante pizza a la leña tradicion zacatecana',
+      address: 'Callejon de Veyna 101 centro Zacatecas',
       // budget: '',
-      schedule: 'Lunes a Domingo 8:00 am a 11 pm',
+      schedule: 'Todos los dias de 1 pm a 11:30 pm',
       additionalLinks: [
         {
           name: 'Menú',
-          url: 'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FMENU%20PUNTA%20DEL%20CIELO.pdf?alt=media&token=994e3943-91aa-48e3-99f2-d85f43cf86b1',
+          url: 'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/henrys%2FMENU%20HENRYS%202023.pdf?alt=media&token=7a1da26e-feef-449d-a0a7-c1cd9bc56c03',
         }
       ],
       mainAmenities: [
-        amenities.get('Sala de juntas')!,
+        // amenities.get('Sala de juntas')!,
         amenities.get('Pago con tarjeta')!,
         // amenities.get('Pago en efectivo')!,
         amenities.get('Facturacion')!,
@@ -225,48 +252,26 @@ export class PruebaService {
         // amenities.get('Terraza')!,
         amenities.get('Sanitarios')!,
         amenities.get('Internet')!,
+        amenities.get('Valet parking')!,
         amenities.get('Reservaciones')!,
       ],
-      phone: '(492) 925 5812',
-      googleMapsUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.685567889644!2d-102.59871749999999!3d22.7770474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86824e734bc82a4f%3A0x587bcf2a921e6fbb!2sCaf%C3%A9%20Punta%20Del%20Cielo!5e0!3m2!1ses-419!2smx!4v1688881606754!5m2!1ses-419!2smx',
+      phone: '(492) 922 4078',
+      googleMapsUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3678.7124940899694!2d-102.5727186!3d22.776048600000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86824e8635da656f%3A0x9ceada837f5d3ee8!2zSGVucnnCtHM!5e0!3m2!1ses-419!2smx!4v1688883108208!5m2!1ses-419!2smx',
       socialMedia: [
         {
           type: 'facebook',
-          name: 'PuntaDelCieloZac',
-          url: 'https://www.facebook.com/PuntadelCieloZac/',
+          name: 'henrysmx',
+          url: 'https://www.facebook.com/HenrysMX',
         },
       ],
       gallery: [
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1651433555443.jpg?alt=media&token=92b39831-f616-46b7-9870-9f2efea864bf',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1651433656020.jpg?alt=media&token=6d6bcdd8-c832-48c0-8098-91ecb4de76a0',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1652445233521.jpg?alt=media&token=68addd4d-e369-4284-be73-8dcd842c947c',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1652445250193.jpg?alt=media&token=f1c3509f-efac-4b7a-b224-6e91ce920ca0',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1652445262086.jpg?alt=media&token=3fcab6a7-5f63-4881-aeda-ac51f01baef7',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1654452153775.jpg?alt=media&token=9b76b395-3d68-4e04-8b97-9ed5f08bdc33',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1654452167028.jpg?alt=media&token=a4f03131-51bc-4a24-95a4-b8e976827dd4',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1654452170824.jpg?alt=media&token=5ad24aca-dd6e-4360-94ec-1ff725207c34',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1654452177097.jpg?alt=media&token=b33dcbc0-008b-4447-9b8b-65d5f13bba8b',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1654452195803.jpg?alt=media&token=18e7b606-c008-40cf-ace8-1c1e0276ee79',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1658432982749.jpg?alt=media&token=fc877738-e290-4543-b102-c9ccdbe5c341',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1658433024631.jpg?alt=media&token=10e2ed79-c717-4503-bd1f-9e6dbc8238f6',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1658433033473.jpg?alt=media&token=3afd5865-a7ae-4660-a7ab-ef5fbe874970',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1658433043189.jpg?alt=media&token=e38ad4f0-3e91-4607-8572-873550f98ef6',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FFB_IMG_1660759481198.jpg?alt=media&token=03477fec-0dd8-4ba2-a048-c4865444638a',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FIMG_20220504_172859.jpg?alt=media&token=7da5dd94-2350-4779-9687-75ccae5e3987',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FIMG_20220504_172925.jpg?alt=media&token=e2b78725-3a75-4bfa-ae6e-91ed21b83540',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FIMG_20220504_172941.jpg?alt=media&token=0a3fbb80-b333-46fa-a9c5-9048f7cc3fdd',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FPicsart_22-11-25_09-45-24-514.jpg?alt=media&token=09c77604-ac07-43dc-a1ed-43418d451206',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FPicsart_22-12-01_18-19-57-517.jpg?alt=media&token=99755e57-a137-4dfc-a062-d5a2c17e08d4',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FPicsart_23-02-15_13-46-38-910.jpg?alt=media&token=92c5198c-b6da-4033-8ac7-fba7cc165a60',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FPicsart_23-03-23_11-39-18-191.jpg?alt=media&token=d4c20efb-a784-433c-822d-0c21b6109a71',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2FPicsart_23-04-08_15-11-48-829.jpg?alt=media&token=c880263b-46b9-454e-8f85-26780add1119',
-        'https://firebasestorage.googleapis.com/v0/b/yo-recomiendo-zac.appspot.com/o/cafe-punta-del-cielo%2Fcafe.png?alt=media&token=5eafd78b-92ea-4257-a559-72763100d52c',
+
       ],
       logoUrl: ''
     };
 
     console.log(place);
-    console.log(await addDoc(placeReference, place));
+    // console.log(await asddDoc(placeReference, place));
   }
 
 }
