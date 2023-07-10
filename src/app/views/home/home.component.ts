@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
 
     /* Temporary */
     // this.pruebaService.createAllPlaces();
-    this.pruebaService.createAllPromotions();
+    // this.pruebaService.createAllPromotions();
   }
 
   public buildForm() {
