@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import Prueba from 'src/app/interfaces/prueba.interface';
+import { Place } from 'src/app/models/place.model';
+import { FirebaseServiceService } from 'src/app/services/firebase-service/firebase-service.service';
 import { PruebaService } from 'src/app/services/prueba/prueba.service';
 
 @Component({
@@ -12,35 +14,48 @@ export class PruebaFirebaseComponent implements OnInit {
 
 
   constructor(
-    private pruebaService : PruebaService
+    private pruebaService : PruebaService,
+    private firestoreService: FirebaseServiceService
   ) {
 
   }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     // this.addPrueba()
     // this.getByEdad(24);
-    this.pruebaService.getPruebas().subscribe(pruebas => {
-      console.log(pruebas);
-      pruebas.sort((a, b) => {
-        const nameA = a.name.toUpperCase();
-        const nameB = b.name.toUpperCase();
+    this.getFilter('Tacos');
+
+    // this.pruebaService.getPruebas().subscribe(pruebas => {
+    //   console.log(pruebas);
+    //   pruebas.sort((a, b) => {
+    //     const nameA = a.name.toUpperCase();
+    //     const nameB = b.name.toUpperCase();
       
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-        return 0;
-      });
+    //     if (nameA < nameB) {
+    //       return -1;
+    //     }
+    //     if (nameA > nameB) {
+    //       return 1;
+    //     }
+    //     return 0;
+    //   });
       
+    //   console.log(pruebas);
+    //   // this.onClickDelete(pruebas[0]);
+    // })
+    // // pagina 0 es la primera paginacion
+    // this.getLastDocument(0);
+    let res = await this.firestoreService.getPlaceByKey('BgtS0YpA9Jhx7uJThVqV');
+    console.log(res);
+    
+
+    
+  }
+
+  async getFilter(filtroWord:string){
+    this.firestoreService.buscadorNegocio(filtroWord).subscribe(pruebas => {
       console.log(pruebas);
-      // this.onClickDelete(pruebas[0]);
     })
-    this.getLastDocument(0);
-
-
   }
 
   async addPrueba(){

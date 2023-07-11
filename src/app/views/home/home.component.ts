@@ -95,6 +95,7 @@ export class HomeComponent implements OnInit {
   }
 
   public getFeaturedPlaces(): void {
+
     if( Math.random () < 0.2 ) {
       this.errors.featuredPlaces = {
         isErrorActive: true,
@@ -102,6 +103,7 @@ export class HomeComponent implements OnInit {
       }
       return;
     }
+
 
     this.featuredPlaces = [
       Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
@@ -112,6 +114,8 @@ export class HomeComponent implements OnInit {
       examplePlace,
       Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
     ];
+    
+
   }
 
   public getFeaturedPromotions(): void {

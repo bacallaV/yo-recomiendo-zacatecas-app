@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
 import { EventModel } from 'src/app/models/event.model';
 import { Place } from 'src/app/models/place.model';
+import { FirebaseServiceService } from 'src/app/services/firebase-service/firebase-service.service';
 /* Static */
 import { exampleEventModel } from 'src/app/static/event.static';
 import { examplePlace } from 'src/app/static/place.static';
@@ -41,6 +42,7 @@ export class CatalogoComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private firestoreService: FirebaseServiceService
   ) {
 
   }
@@ -77,7 +79,21 @@ export class CatalogoComponent implements OnInit {
       examplePlace,
       examplePlace,
     ];
+    // this.getLastDocument(0);
   }
+
+  async getLastDocument(page: number){
+    (await
+      this.firestoreService.getLastDocument(page)).subscribe(places => {
+        console.log(places);
+        
+      this.places = places;
+    })
+    
+    console.log(this.places);
+    
+  }
+
   public addCategoryFilterToRoute(category: Category) {
     this.router.navigate( [], {
       relativeTo: this.activatedRoute,
