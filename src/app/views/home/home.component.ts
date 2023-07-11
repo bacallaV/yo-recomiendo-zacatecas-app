@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
     this.getFeaturedPromotions();
 
     /* Temporary */
-    this.pruebaService.createAllPlaces();
+    // this.pruebaService.createAllPlaces();
     // this.pruebaService.createAllPromotions();
   }
 

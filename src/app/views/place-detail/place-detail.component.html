@@ -74,7 +74,7 @@
         <mat-icon class="material-symbols-outlined">location_on_outlined</mat-icon>
         <p class="paragraph">{{ place.address }}</p>
       </div>
-      <div class="services-list-item">
+      <div class="services-list-item" *ngIf="place.budget">
         <mat-icon class="material-symbols-outlined">payments</mat-icon>
         <p class="paragraph">{{ place.budget }}</p>
       </div>

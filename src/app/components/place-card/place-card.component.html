@@ -7,7 +7,7 @@
 
     <div class="place-img-filter"></div>
 
-    <div class="place-img-txt-cost notes">
+    <div class="place-img-txt-cost notes" *ngIf="place.budget">
       <mat-icon>person_outline</mat-icon>
       {{ place.budget }}
     </div>
