@@ -66,6 +66,7 @@
       <ng-template swiperSlide *ngFor="let place of featuredPlaces">
         <app-place-card
           [place]="place"
+          [categoryName]="getCategoryById(place.idCategory)?.name"
         ></app-place-card>
       </ng-template>
     </swiper>

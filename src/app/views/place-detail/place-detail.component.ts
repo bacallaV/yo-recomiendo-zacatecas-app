@@ -3,10 +3,12 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 /* Components */
 import { ImagesInDetailComponent } from 'src/app/components/images-in-detail/images-in-detail.component';
+import { Category } from 'src/app/models/category.model';
 /* Models */
 import { EventModel } from 'src/app/models/event.model';
 import { Place } from 'src/app/models/place.model';
 import { Promotion } from 'src/app/models/promotion.model';
+import { FirebaseServiceService } from 'src/app/services/firebase-service/firebase-service.service';
 /* Static */
 import { exampleEventModel } from 'src/app/static/event.static';
 import { examplePlace } from 'src/app/static/place.static';
@@ -32,11 +34,13 @@ export class PlaceDetailComponent implements OnInit {
     featuredPromotions: { isErrorActive: false, message: '' },
   };
   public place: Place | undefined;
+  public category: Category | undefined;
   public featuredPromotions: Promotion[] = [];
 
   constructor(
     private dialog: MatDialog,
     private activatedRoute: ActivatedRoute,
+    private firebaseService: FirebaseServiceService,
   ){
     this.imagesDialogProperties.maxWidth = '90vw';
     this.imagesDialogProperties.panelClass = 'custom-dialog';
@@ -51,12 +55,22 @@ export class PlaceDetailComponent implements OnInit {
     this.activatedRoute.paramMap.subscribe(params => {
       const placeId = params.get('webId');
 
-      if( !placeId || Math.random() < 0.25 ) {
-        this.errors.place = { isErrorActive: true, message: 'No se encontró el lugar' };
-        return;
-      }
+      // if( !placeId || Math.random() < 0.25 ) {
+      //   this.errors.place = { isErrorActive: true, message: 'No se encontró el lugar' };
+      //   return;
+      // }
 
-      this.place = examplePlace;
+      this.firebaseService.getPlacesByUrl(placeId ?? '').subscribe(data => {
+        this.place = data[0];
+        this.getCategoryById(this.place.idCategory);
+      });
+
+    });
+  }
+
+  public getCategoryById(id: string): void {
+    this.firebaseService.getAllCategories().subscribe(data => {
+      this.category = data.find(c => c.id === id);
     });
   }
 

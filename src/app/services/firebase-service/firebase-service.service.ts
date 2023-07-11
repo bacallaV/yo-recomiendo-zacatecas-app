@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Firestore, collection, or, and, addDoc, collectionData, doc, getDoc, getDocs, deleteDoc, query, where, orderBy, limit, startAfter, CollectionReference } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { Category } from 'src/app/models/category.model';
 import { Place } from 'src/app/models/place.model';
 
 const documentosPorPagina = 16;
@@ -92,6 +93,22 @@ export class FirebaseServiceService {
         limit(documentosPorPagina));
     }
     return collectionData(next, { idField: 'id' }) as Observable<Place[]> ;
+  }
+
+  getAllCategories() {
+    const collectionRef = collection(this.firestore, 'Category');
+
+    const queryDB = query(collectionRef);
+
+    return collectionData(queryDB, { idField: 'id' }) as Observable<Category[]>;
+  }
+
+  getAllPlaces() {
+    const collectionRef = collection(this.firestore, 'Place');
+
+    const queryDB = query(collectionRef);
+
+    return collectionData(queryDB, { idField: 'id' }) as Observable<Place[]>;
   }
 
 }

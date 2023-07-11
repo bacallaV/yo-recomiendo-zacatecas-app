@@ -12,6 +12,7 @@ import { examplePlace } from 'src/app/static/place.static';
 import { examplePromotion } from 'src/app/static/promotion.static';
 
 import { PruebaService } from 'src/app/services/prueba/prueba.service';
+import { FirebaseServiceService } from 'src/app/services/firebase-service/firebase-service.service';
 
 @Component({
   selector: 'app-home',
@@ -22,14 +23,7 @@ import { PruebaService } from 'src/app/services/prueba/prueba.service';
 export class HomeComponent implements OnInit {
 
   public contactForm: FormGroup;
-  public categories: Category[] = [
-    { id: '1', name: 'Entretenimiento', imgUrl: './assets/images/turismo.jpeg'},
-    { id: '2', name: 'Concierto', imgUrl: './assets/images/concierto.jpg'},
-    { id: '3', name: 'Restaurantes', imgUrl: './assets/images/turismo.jpeg'},
-    { id: '4', name: 'Bares', imgUrl: './assets/images/concierto.jpg'},
-    { id: '5', name: 'Postres', imgUrl: './assets/images/turismo.jpeg'},
-    { id: '6', name: 'Dulces', imgUrl: './assets/images/concierto.jpg'},
-  ];
+  public categories: Category[] = [];
   public featuredPlaces: Place[] = [];
   public featuredPromotions: Promotion[] = [];
   public featuredEvent: EventModel = exampleEventModel;
@@ -50,6 +44,7 @@ export class HomeComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private pruebaService: PruebaService,
+    private firebaseService: FirebaseServiceService,
   ){
 
 
@@ -60,6 +55,7 @@ export class HomeComponent implements OnInit {
     this.checkForRouteQueryParams();
     this.getFeaturedPlaces();
     this.getFeaturedPromotions();
+    this.getAllCategories();
 
     /* Temporary */
     // this.pruebaService.createAllPlaces();
@@ -96,25 +92,18 @@ export class HomeComponent implements OnInit {
 
   public getFeaturedPlaces(): void {
 
-    if( Math.random () < 0.2 ) {
-      this.errors.featuredPlaces = {
-        isErrorActive: true,
-        message: 'No se econtraron lugares destacados',
-      }
-      return;
-    }
+    // if( Math.random () < 0.2 ) {
+    //   this.errors.featuredPlaces = {
+    //     isErrorActive: true,
+    //     message: 'No se econtraron lugares destacados',
+    //   }
+    //   return;
+    // }
 
+    this.firebaseService.getAllPlaces().subscribe(data => {
+      this.featuredPlaces = data;
+    });
 
-    this.featuredPlaces = [
-      Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
-      examplePlace,
-      examplePlace,
-      examplePlace,
-      Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
-      examplePlace,
-      Object.assign( {}, examplePlace, {webId: 'los-reyes-gpe'}),
-    ];
-    
 
   }
 
@@ -133,6 +122,16 @@ export class HomeComponent implements OnInit {
       examplePromotion,
       examplePromotion,
     ];
+  }
+
+  public getAllCategories(): void {
+    this.firebaseService.getAllCategories().subscribe(data => {
+      this.categories = data;
+    });
+  }
+
+  public getCategoryById( id: string ): Category | undefined {
+    return this.categories.find(c => c.id === id);
   }
 
 }

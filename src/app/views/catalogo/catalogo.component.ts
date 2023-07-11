@@ -42,7 +42,7 @@ export class CatalogoComponent implements OnInit {
   constructor(
     private router: Router,
     private activatedRoute: ActivatedRoute,
-    private firestoreService: FirebaseServiceService
+    private firestoreService: FirebaseServiceService,
   ) {
 
   }
@@ -50,6 +50,7 @@ export class CatalogoComponent implements OnInit {
   ngOnInit(): void {
     this.enableFilterAddittionByRoute();
     this.getPlaces();
+    this.getAllCategories();
   }
 
   public getPlaces(): void {
@@ -82,16 +83,22 @@ export class CatalogoComponent implements OnInit {
     // this.getLastDocument(0);
   }
 
+  public getAllCategories(): void {
+    this.firestoreService.getAllCategories().subscribe(data => {
+      this.categories = data;
+    });
+  }
+
   async getLastDocument(page: number){
     (await
       this.firestoreService.getLastDocument(page)).subscribe(places => {
         console.log(places);
-        
+
       this.places = places;
     })
-    
+
     console.log(this.places);
-    
+
   }
 
   public addCategoryFilterToRoute(category: Category) {

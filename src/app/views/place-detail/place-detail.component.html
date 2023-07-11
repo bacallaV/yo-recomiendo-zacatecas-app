@@ -7,7 +7,7 @@
   </div>
 
   <div class="other-info">
-    <div class="chip">#{{ place.idCategory }}</div>
+    <div class="chip">#{{ category?.name }}</div>
     <button mat-button type="button">
       <mat-icon>ios_share</mat-icon>
       Compartir
@@ -187,7 +187,7 @@
   <h2 class="h2">Etiquetas</h2>
 
   <div class="chips-container">
-    <div class="chip">#{{ place.idCategory }}</div>
+    <div class="chip">#{{ category?.name }}</div>
     <div class="chip" *ngFor="let label of place.labels">{{ label }}</div>
   </div>
 </section>

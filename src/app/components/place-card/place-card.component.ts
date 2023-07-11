@@ -9,4 +9,5 @@ import { Place } from './../../models/place.model';
 })
 export class PlaceCardComponent {
   @Input() place!: Place;
+  @Input() categoryName: string | undefined;
 }
